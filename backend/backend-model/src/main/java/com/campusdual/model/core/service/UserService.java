@@ -7,8 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
+import com.ontimize.jee.common.security.PermissionsProviderSecured;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import com.campusdual.api.core.service.IUserService;
@@ -31,8 +34,8 @@ public class UserService implements IUserService {
 	}
 
 	//Sample to permission
-	//@Secured({ PermissionsProviderSecured.SECURED })
-	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) {
+	@Secured({ PermissionsProviderSecured.SECURED })
+	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
 		return this.daoHelper.query(userDao, keyMap, attrList);
 	}
 
