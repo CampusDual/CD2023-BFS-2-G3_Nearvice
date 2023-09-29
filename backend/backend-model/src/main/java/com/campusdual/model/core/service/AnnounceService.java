@@ -1,7 +1,7 @@
 package com.campusdual.model.core.service;
 
-import com.campusdual.api.core.service.IServiceService;
-import com.campusdual.model.core.dao.ServiceDao;
+import com.campusdual.api.core.service.IAnnounceService;
+import com.campusdual.model.core.dao.AnnounceDao;
 import com.campusdual.model.core.dao.UserDao;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
@@ -15,11 +15,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 @Lazy
-@Service("ServiceService")
-public class ServiceService implements IServiceService {
+@Service("AnnounceService")
+public class AnnounceService implements IAnnounceService {
 
     @Autowired
-    private ServiceDao serviceDao;
+    private AnnounceDao announceDao;
 
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
@@ -29,19 +29,19 @@ public class ServiceService implements IServiceService {
 
     //Sample to permission
     @Secured({ PermissionsProviderSecured.SECURED })
-    public EntityResult serviceQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(serviceDao, keyMap, attrList);
+    public EntityResult announceQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(announceDao, keyMap, attrList);
     }
 
-    public EntityResult serviceInsert(Map<?, ?> attrMap) {
-        return this.daoHelper.insert(serviceDao, attrMap);
+    public EntityResult announceInsert(Map<?, ?> attrMap) {
+        return this.daoHelper.insert(announceDao, attrMap);
     }
 
-    public EntityResult serviceUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
-        return this.daoHelper.update(serviceDao, attrMap, keyMap);
+    public EntityResult announceUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+        return this.daoHelper.update(announceDao, attrMap, keyMap);
     }
 
-    public EntityResult serviceDelete(Map<?, ?> keyMap) {
-        return this.daoHelper.delete(this.serviceDao, keyMap);
+    public EntityResult announceDelete(Map<?, ?> keyMap) {
+        return this.daoHelper.delete(this.announceDao, keyMap);
     }
 }
