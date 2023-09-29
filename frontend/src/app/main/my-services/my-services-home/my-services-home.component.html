@@ -1,18 +1,8 @@
-<o-list
-  #list
-  attr="list"
-  columns="user_;a_description"
-  quick-filter-columns="user_;a_description"
+<o-table
+  fxFlex
+  attr="table"
+  columns="A_TITLE;A_DESCRIPTION"
   service="announces"
   entity="announce"
 >
-  <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row">
-    <mat-card-header>
-      <!-- <div mat-card-avatar>
-        <img src="{{ row.image }}" fxFill />
-      </div> -->
-      <mat-card-title>{{ row.user_ }}</mat-card-title>
-      <mat-card-subtitle>{{ row.a_description }}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-</o-list>
+</o-table>

@@ -12,7 +12,7 @@
         <Column>A_ID</Column>
     </UpdateKeys>
     <Queries>
-        <Query>
+        <Query id="default">
             <Sentence>
                 <![CDATA[
                     SELECT

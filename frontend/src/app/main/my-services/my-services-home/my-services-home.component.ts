@@ -11,5 +11,4 @@ export class MyServicesHomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
