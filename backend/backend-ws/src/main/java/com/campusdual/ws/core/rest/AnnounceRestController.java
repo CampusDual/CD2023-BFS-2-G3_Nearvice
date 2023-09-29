@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/announce")
+@RequestMapping("/announces")
 public class AnnounceRestController extends ORestController<IAnnounceService> {
 
     @Autowired

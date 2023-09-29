@@ -24,11 +24,10 @@ public class AnnounceService implements IAnnounceService {
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
 
-    public void loginQuery(Map<?, ?> key, List<?> attr) {
-    }
+
 
     //Sample to permission
-    @Secured({ PermissionsProviderSecured.SECURED })
+    //@Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult announceQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(announceDao, keyMap, attrList);
     }

@@ -34,7 +34,7 @@ public class UserService implements IUserService {
 	}
 
 	//Sample to permission
-	@Secured({ PermissionsProviderSecured.SECURED })
+	//@Secured({ PermissionsProviderSecured.SECURED })
 	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
 		return this.daoHelper.query(userDao, keyMap, attrList);
 	}
