@@ -22,5 +22,6 @@
   "SERVICES": "My services",
   "A_TITLE": "Service title",
   "A_DESCRIPTION": "Service description",
-  "A_ACTIVE":"Active"
+  "A_ACTIVE":"Active",
+  "S_NAME": "Category"
 }

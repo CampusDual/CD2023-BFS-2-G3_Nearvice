@@ -13,12 +13,19 @@
     </UpdateKeys>
     <Queries>
         <Query id="default">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="S_ID" prefix="A" databaseName="S_ID" />
+            </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.ANNOUNCE
+                        ${mainschema}.ANNOUNCE A
+                    INNER JOIN
+                        ${mainschema}.SERVICES S
+                    ON
+                        A.S_ID = S.S_ID
                     #WHERE#
                 ]]>
             </Sentence>
