@@ -1,5 +1,16 @@
 <div fxLayout="row" layout-padding fxLayoutAlign="center center">
-  <p>
-    Ontimize web seed application home component
-  </p>
+  <o-table
+    fxFlex
+    attr="table"
+    columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION"
+    visible-columns="S_NAME;A_TITLE;A_DESCRIPTION"
+    service="announces"
+    entity="announceAll"
+    keys="A_ID"
+    delete-button="no"
+    insert-button="no"
+    virtual-scroll="no"
+    sort-columns="A_ID:DESC"
+  >
+  </o-table>
 </div>

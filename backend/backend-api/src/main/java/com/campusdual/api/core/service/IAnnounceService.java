@@ -7,6 +7,7 @@ import java.util.Map;
 
 public interface IAnnounceService {
     public EntityResult announceQuery(Map<?, ?> keyMap, List<?> attrList);
+    public EntityResult announceAllQuery(Map<?, ?> keyMap, List<?> attrList);
     public EntityResult announceInsert(Map<?, ?> attrMap);
     public EntityResult announceUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
     public EntityResult announceDelete(Map<?, ?> keyMap);

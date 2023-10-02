@@ -3,7 +3,7 @@
     xmlns="http://www.ontimize.com/schema/jdbc"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-    catalog=""  table="ANNOUNCE"
+    catalog=""  table="ANNOUNCES"
     datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
         <Column>A_ID</Column>
@@ -21,11 +21,32 @@
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.ANNOUNCE A
+                        ANNOUNCES A
                     INNER JOIN
-                        ${mainschema}.SERVICES S
+                        SERVICES S
                     ON
                         A.S_ID = S.S_ID
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="activeAnnounces">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="S_ID" prefix="A" databaseName="S_ID" />
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                    with TEMPORAL as (
+                    SELECT
+                        A.*, S.S_NAME
+                    FROM
+                        ANNOUNCES A
+                    INNER JOIN SERVICES S
+                     ON
+                        A.S_ID = S.S_ID
+                    WHERE
+                        A.A_ACTIVE
+                    ) SELECT #COLUMNS# FROM TEMPORAL
                     #WHERE#
                 ]]>
             </Sentence>
