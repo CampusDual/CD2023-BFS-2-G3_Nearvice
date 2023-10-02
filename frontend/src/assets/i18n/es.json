@@ -19,5 +19,7 @@
   "FORGOT_PWD": "¿Has olvidado tu contraseña?",
   "FOOTER_CREATED_BY": "Creado por Imatia Innovation",
   "FOOTER_RIGHTS": "Todos los derechos reservados",
-  "SERVICES": "Mis servicios"
+  "SERVICES": "Mis servicios",
+  "A_TITLE": "Título de servicio",
+  "A_DESCRIPTION": "Descripción de servicio"
 }
