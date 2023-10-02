@@ -21,5 +21,6 @@
   "FOOTER_RIGHTS": "All rights reserved",
   "SERVICES": "My services",
   "A_TITLE": "Service title",
-  "A_DESCRIPTION": "Service description"
+  "A_DESCRIPTION": "Service description",
+  "A_ACTIVE":"Active"
 }

@@ -14,4 +14,5 @@ public class AnnounceDao extends OntimizeJdbcDaoSupport {
     public static final String USERID = "USER_";
     public static final String  SID= "S_ID";
     public static final String ADESCRIPTION = "A_DESCRIPTION";
+    public static final String AACTIVE = "A_ACTIVE";
 }

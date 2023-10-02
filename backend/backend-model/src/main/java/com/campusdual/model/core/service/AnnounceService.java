@@ -39,7 +39,10 @@ public class AnnounceService implements IAnnounceService {
     }
 
     public EntityResult announceInsert(Map<?, ?> attrMap) {
-        return this.daoHelper.insert(announceDao, attrMap);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) attrMap);
+        userKeyMap.put("USER_",authentication.getName());
+        return this.daoHelper.insert(announceDao, userKeyMap);
     }
 
     public EntityResult announceUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
@@ -47,6 +50,9 @@ public class AnnounceService implements IAnnounceService {
     }
 
     public EntityResult announceDelete(Map<?, ?> keyMap) {
-        return this.daoHelper.delete(this.announceDao, keyMap);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
+        userKeyMap.put("USER_",authentication.getName());
+        return this.daoHelper.delete(this.announceDao, userKeyMap);
     }
 }
