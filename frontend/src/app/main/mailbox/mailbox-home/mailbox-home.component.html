@@ -1,0 +1,31 @@
+<div style="display: flex; flex-direction: column">
+  <o-table
+    fxFlex
+    attr="table"
+    columns="M_ID;U_EMITTER;M_MESSAGE;U_RECEIVER"
+    visible-columns="U_EMITTER;M_MESSAGE"
+    service="messages"
+    entity="messageReceiver"
+    keys="M_ID"
+    delete-button="no"
+    insert-button="no"
+    sort-columns="M_ID:DESC"
+    show-table-buttons-text="no"
+    
+  >
+  </o-table>
+
+  <o-table
+    fxFlex
+    attr="table"
+    columns="M_ID;U_EMITTER;M_MESSAGE;U_RECEIVER"
+    visible-columns="U_RECEIVER;M_MESSAGE"
+    service="messages"
+    entity="messageEmitter"
+    keys="M_ID"
+    delete-button="no"
+    insert-button="no"
+    sort-columns="M_ID:DESC"
+  >
+  </o-table>
+</div>

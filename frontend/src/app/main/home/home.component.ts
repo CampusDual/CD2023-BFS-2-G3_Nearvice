@@ -25,6 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   onAction1() {
-    alert("onAction1");
+    let message = prompt("onAction1");
   }
 }

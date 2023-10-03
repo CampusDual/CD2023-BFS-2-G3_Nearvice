@@ -22,6 +22,11 @@
   "SERVICES": "My services",
   "A_TITLE": "Service title",
   "A_DESCRIPTION": "Service description",
-  "A_ACTIVE":"Active",
-  "S_NAME": "Category"
+  "A_ACTIVE": "Active",
+  "S_NAME": "Category",
+  "MAILBOX": "Mailbox",
+  "U_EMITTER": "Emitter",
+  "M_MESSAGE": "Message",
+  "U_RECEIVER": "Receiver",
+  "CONTACT_ME": "Contact me"
 }

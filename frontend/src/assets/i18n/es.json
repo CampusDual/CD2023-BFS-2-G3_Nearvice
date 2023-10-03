@@ -23,5 +23,10 @@
   "A_TITLE": "Título de servicio",
   "A_DESCRIPTION": "Descripción de servicio",
   "A_ACTIVE": "Activo",
-  "S_NAME": "Categoría"
+  "S_NAME": "Categoría",
+  "MAILBOX": "Buzón",
+  "U_EMITTER": "Emisor",
+  "M_MESSAGE": "Mensaje",
+  "U_RECEIVER": "Receptor",
+  "CONTACT_ME": "Contáctame"
 }
