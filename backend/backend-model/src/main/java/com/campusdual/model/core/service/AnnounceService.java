@@ -39,7 +39,7 @@ public class AnnounceService implements IAnnounceService {
     }
 
     public EntityResult announceAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(announceDao, keyMap, attrList,"activeAnnounces");
+        return this.daoHelper.query(announceDao, keyMap, attrList,"allDetailAnnounces");
     }
 
     public EntityResult announceInsert(Map<?, ?> attrMap) {
