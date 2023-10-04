@@ -30,5 +30,7 @@
   "U_RECEIVER": "Receptor",
   "CONTACT_ME": "Contáctame",
   "RECEIVED_MESSAGES": "Mensajes recibidos",
-  "SENT_MESSAGES": "Mensajes enviados"
+  "SENT_MESSAGES": "Mensajes enviados",
+  "CONTACT_DATA": "Información de contacto",
+  "FULL_NAME": "Nombre"
 }

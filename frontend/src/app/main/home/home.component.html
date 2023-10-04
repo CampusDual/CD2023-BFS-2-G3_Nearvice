@@ -1,14 +1,7 @@
-<!-- <div fxLayout="row" layout-padding fxLayoutAlign="center center">
-  <o-table fxFlex attr="table" columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION"
-    visible-columns="S_NAME;A_TITLE;A_DESCRIPTION" service="announces" entity="announceAll" keys="A_ID"
-    delete-button="no" insert-button="no" virtual-scroll="no" sort-columns="A_ID:DESC">
-  </o-table>
-</div> -->
-
 <o-table
   fxFill
   #table
-  columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION"
+  columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL"
   visible-columns="S_NAME;A_TITLE;A_DESCRIPTION"
   service="announces"
   entity="announceAll"
@@ -24,21 +17,66 @@
   (onClick)="onClick($event)"
   fixed-header="yes"
   sort-columns="A_ID:DESC"
+  auto-adjust="true"
+  virtual-scroll="no"
 >
+  <o-table-column
+    attr="S_NAME"
+    icon="info"
+    class="vertical-margin-10"
+    layout-gap="12px"
+    multiline="yes"
+    tooltip="yes"
+  >
+  </o-table-column>
+  <o-table-column
+    attr="A_TITLE"
+    icon="info"
+    class="vertical-margin-10"
+    layout-gap="12px"
+    multiline="yes"
+    tooltip="yes"
+  >
+  </o-table-column>
+  <o-table-column
+    attr="A_DESCRIPTION"
+    icon="info"
+    class="vertical-margin-10"
+    layout-gap="12px"
+    multiline="yes"
+    tooltip="yes"
+  >
+  </o-table-column>
   <o-table-row-expandable expandible-column-visible="no">
     <ng-template let-row>
-      <o-expandable-container [targets]="[list]" [data]="row">
-        <!-- <o-table #detailsTable service="announces" entity="announceAll" parent-keys="A_ID" keys="USER_"
-          columns="NAME;SURNAME;USER_;EMAIL" visible-columns="NAME;SURNAME;EMAIL;CONTACT" query-on-init="false"
-          query-rows="10" insert-button="no" delete-button="no" detail-mode="none" pagination-controls="no"
-          virtual-scroll="no" refresh-button="no" quick-filter="no" controls="no">
-          <o-table-column attr="NAME" title="NAME" class="o-table-column-centered"></o-table-column>
-          <o-table-column attr="SURNAME" title="SURNAME"></o-table-column>
-          <o-table-column attr="EMAIL" title="EMAIL"></o-table-column>
-          <o-table-column attr="CONTACT" title="CONTACT"><o-button attr="basic1" type="BASIC" label="BASIC"
-              layout-padding></o-button></o-table-column>
-        </o-table> -->
-
+      <o-column
+        title="CONTACT_DATA"
+        icon="info"
+        class="vertical-margin-10"
+        layout-gap="12px"
+        multiline="yes"
+        tooltip="yes"
+      >
+        <div fxLayout="row wrap" fxLayoutGap="14px">
+          <span fxFlex="30%"
+            ><strong>{{ "FULL_NAME" | oTranslate }}</strong
+            >: {{ row.NAME }} {{ row.SURNAME }}</span
+          >
+          <span fxFlex="20%"
+            ><strong>{{ "EMAIL" | oTranslate }}</strong
+            >: {{ row.EMAIL }}</span
+          >
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="14px">
+          <o-button
+            attr="CONTACT_ME"
+            type="RAISED"
+            label="CONTACT_ME"
+            layout-padding
+          ></o-button>
+        </div>
+      </o-column>
+      <!-- <o-expandable-container targets="[list]" [data]="row">
         <o-list
           #list
           attr="list"
@@ -55,6 +93,7 @@
           delete-button="no"
         >
           <o-list-item *ngFor="let row of list.dataArray">
+            <div>Hola</div>
             <o-list-item-card
               #item
               title="{{ row.NAME }} {{ row.SURNAME }}"
@@ -66,10 +105,7 @@
             </o-list-item-card>
           </o-list-item>
         </o-list>
-
-        <!-- <div><o-button attr="basic1" type="BASIC" label="BASIC" layout-padding></o-button>
-        </div> -->
-      </o-expandable-container>
+      </o-expandable-container> -->
     </ng-template>
   </o-table-row-expandable>
 </o-table>
