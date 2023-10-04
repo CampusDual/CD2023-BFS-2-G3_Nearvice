@@ -3,14 +3,14 @@ import { Routes, RouterModule } from "@angular/router";
 import { MailboxHomeComponent } from "./mailbox-home/mailbox-home.component";
 
 const routes: Routes = [
-  {
-    path: "",
-    component: MailboxHomeComponent,
-  },
+	{
+		path: "",
+		component: MailboxHomeComponent,
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class MailboxRoutingModule {}

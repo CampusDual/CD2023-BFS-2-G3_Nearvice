@@ -8,10 +8,10 @@ import { AppModule } from "./app/app.module";
 import { environment } from "./environments/environment";
 
 if (environment.production) {
-  enableProdMode();
+	enableProdMode();
 }
 
 const promise = platformBrowserDynamic().bootstrapModule(AppModule);
 promise.then(ontimizePostBootstrap).catch((err) => {
-  console.error(err.message);
+	console.error(err.message);
 });

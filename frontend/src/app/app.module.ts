@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import {
-  APP_CONFIG,
-  ONTIMIZE_MODULES,
-  ONTIMIZE_PROVIDERS,
-  OntimizeWebModule,
+	APP_CONFIG,
+	ONTIMIZE_MODULES,
+	ONTIMIZE_PROVIDERS,
+	OntimizeWebModule,
 } from "ontimize-web-ngx";
 
 import { environment } from "../environments/environment";
@@ -18,21 +18,17 @@ import { MyServicesModule } from "./main/my-services/my-services.module";
 export const customProviders: any = [];
 
 @NgModule({
-  imports: [
-    ONTIMIZE_MODULES,
-    OntimizeWebModule,
-    AppRoutingModule,
-    MyServicesModule,
-    ServiceWorkerModule.register("ngsw-worker.js", {
-      enabled: environment.production,
-    }),
-  ],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent],
-  providers: [
-    { provide: APP_CONFIG, useValue: CONFIG },
-    ONTIMIZE_PROVIDERS,
-    ...customProviders,
-  ],
+	imports: [
+		ONTIMIZE_MODULES,
+		OntimizeWebModule,
+		AppRoutingModule,
+		MyServicesModule,
+		ServiceWorkerModule.register("ngsw-worker.js", {
+			enabled: environment.production,
+		}),
+	],
+	declarations: [AppComponent],
+	bootstrap: [AppComponent],
+	providers: [{ provide: APP_CONFIG, useValue: CONFIG }, ONTIMIZE_PROVIDERS, ...customProviders],
 })
 export class AppModule {}

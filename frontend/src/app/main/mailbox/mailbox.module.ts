@@ -6,7 +6,7 @@ import { OntimizeWebModule } from "ontimize-web-ngx";
 import { MailboxHomeComponent } from "./mailbox-home/mailbox-home.component";
 
 @NgModule({
-  declarations: [MailboxHomeComponent],
-  imports: [CommonModule, OntimizeWebModule, MailboxRoutingModule],
+	declarations: [MailboxHomeComponent],
+	imports: [CommonModule, OntimizeWebModule, MailboxRoutingModule],
 })
 export class MailboxModule {}

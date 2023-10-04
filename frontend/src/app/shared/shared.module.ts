@@ -3,8 +3,8 @@ import { NgModule } from "@angular/core";
 import { OntimizeWebModule } from "ontimize-web-ngx";
 
 @NgModule({
-  imports: [OntimizeWebModule],
-  declarations: [],
-  exports: [CommonModule],
+	imports: [OntimizeWebModule],
+	declarations: [],
+	exports: [CommonModule],
 })
 export class SharedModule {}

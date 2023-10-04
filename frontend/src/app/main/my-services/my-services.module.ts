@@ -8,11 +8,7 @@ import { MyServicesDetailComponent } from "./my-services-detail/my-services-deta
 import { MyServicesNewComponent } from "./my-services-new/my-services-new.component";
 
 @NgModule({
-  declarations: [
-    MyServicesHomeComponent,
-    MyServicesDetailComponent,
-    MyServicesNewComponent,
-  ],
-  imports: [CommonModule, OntimizeWebModule, MyServicesRoutingModule],
+	declarations: [MyServicesHomeComponent, MyServicesDetailComponent, MyServicesNewComponent],
+	imports: [CommonModule, OntimizeWebModule, MyServicesRoutingModule],
 })
 export class MyServicesModule {}

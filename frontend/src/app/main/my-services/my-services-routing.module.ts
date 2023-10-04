@@ -5,22 +5,22 @@ import { MyServicesHomeComponent } from "./my-services-home/my-services-home.com
 import { MyServicesNewComponent } from "./my-services-new/my-services-new.component";
 
 const routes: Routes = [
-  {
-    path: "",
-    component: MyServicesHomeComponent,
-  },
-  {
-    path: "new",
-    component: MyServicesNewComponent,
-  },
-  {
-    path: ":A_ID",
-    component: MyServicesDetailComponent,
-  },
+	{
+		path: "",
+		component: MyServicesHomeComponent,
+	},
+	{
+		path: "new",
+		component: MyServicesNewComponent,
+	},
+	{
+		path: ":A_ID",
+		component: MyServicesDetailComponent,
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class MyServicesRoutingModule {}

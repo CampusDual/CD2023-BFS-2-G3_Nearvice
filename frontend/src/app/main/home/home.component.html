@@ -1,58 +1,51 @@
 <o-table
-  fxFill
-  #table
-  columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL"
-  visible-columns="S_NAME;A_TITLE;A_DESCRIPTION"
-  service="announces"
-  entity="announceAll"
-  title="CUSTOMERS"
-  insert-button="no"
-  delete-button="no"
-  refresh-button="no"
-  pagination-controls="yes"
-  detail-mode="none"
-  export-button="no"
-  store-state="false"
-  query-rows="10"
-  (onClick)="onClick($event)"
-  fixed-header="yes"
-  sort-columns="A_ID:DESC"
-  auto-adjust="true"
-  virtual-scroll="no"
->
-  <o-table-column
-    attr="S_NAME"
-    icon="info"
-    class="vertical-margin-10"
-    layout-gap="12px"
-    multiline="yes"
-    tooltip="yes"
-  >
-  </o-table-column>
-  <o-table-column
-    attr="A_TITLE"
-    icon="info"
-    class="vertical-margin-10"
-    layout-gap="12px"
-    multiline="yes"
-    tooltip="yes"
-  >
-  </o-table-column>
-  <o-table-column
-    attr="A_DESCRIPTION"
-    icon="info"
-    class="vertical-margin-10"
-    layout-gap="12px"
-    multiline="yes"
-    tooltip="yes"
-  >
-  </o-table-column>
-  <o-table-row-expandable expandible-column-visible="no">
-    <ng-template let-row>
-      <home-detail-card [data]="row"> </home-detail-card>
-      <!-- <mi-componente [data]="row" [name]="row.NAME"></mi-componente> -->
+	fxFill
+	#table
+	columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL"
+	visible-columns="S_NAME;A_TITLE;A_DESCRIPTION"
+	service="announces"
+	entity="announceAll"
+	title="CUSTOMERS"
+	insert-button="no"
+	delete-button="no"
+	refresh-button="no"
+	pagination-controls="yes"
+	detail-mode="none"
+	export-button="no"
+	store-state="false"
+	query-rows="10"
+	(onClick)="onClick($event)"
+	fixed-header="yes"
+	sort-columns="A_ID:DESC"
+	auto-adjust="true"
+	virtual-scroll="no">
+	<o-table-column
+		attr="S_NAME"
+		icon="info"
+		class="vertical-margin-10"
+		layout-gap="12px"
+		multiline="yes"
+		tooltip="yes"></o-table-column>
+	<o-table-column
+		attr="A_TITLE"
+		icon="info"
+		class="vertical-margin-10"
+		layout-gap="12px"
+		multiline="yes"
+		tooltip="yes"></o-table-column>
+	<o-table-column
+		attr="A_DESCRIPTION"
+		icon="info"
+		class="vertical-margin-10"
+		layout-gap="12px"
+		multiline="yes"
+		tooltip="yes"></o-table-column>
+	<o-table-row-expandable expandible-column-visible="no">
+		<ng-template let-row>
+			<home-detail-card [data]="row"></home-detail-card>
+			<!-- <mi-componente [data]="row" [name]="row.NAME"></mi-componente> -->
 
-      <!-- <o-expandable-container targets="[list]" [data]="row">
+			<!-- <o-expandable-container targets="[list]" [data]="row">
         <o-list
           #list
           attr="list"
@@ -82,6 +75,6 @@
           </o-list-item>
         </o-list>
       </o-expandable-container> -->
-    </ng-template>
-  </o-table-row-expandable>
+		</ng-template>
+	</o-table-row-expandable>
 </o-table>

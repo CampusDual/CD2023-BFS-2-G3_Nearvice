@@ -1,17 +1,17 @@
 import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
-  selector: "home-detail-card",
-  templateUrl: "./home-detail-card.component.html",
-  // template: "{{data}}",
-  styleUrls: ["./home-detail-card.component.css"],
+	selector: "home-detail-card",
+	templateUrl: "./home-detail-card.component.html",
+	// template: "{{data}}",
+	styleUrls: ["./home-detail-card.component.css"],
 })
 export class HomeDetailCardComponent implements OnInit {
-  @Input() data: any;
+	@Input() data: any;
 
-  constructor() {}
+	constructor() {}
 
-  ngOnInit() {
-    console.log("Hola");
-  }
+	ngOnInit() {
+		console.log("Hola");
+	}
 }

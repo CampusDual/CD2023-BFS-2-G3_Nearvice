@@ -7,7 +7,7 @@ import { HomeComponent } from "./home.component";
 import { HomeDetailCardComponent } from "./home-detail-card/home-detail-card.component";
 
 @NgModule({
-  imports: [SharedModule, OntimizeWebModule, HomeRoutingModule],
-  declarations: [HomeComponent, HomeDetailCardComponent],
+	imports: [SharedModule, OntimizeWebModule, HomeRoutingModule],
+	declarations: [HomeComponent, HomeDetailCardComponent],
 })
 export class HomeModule {}
