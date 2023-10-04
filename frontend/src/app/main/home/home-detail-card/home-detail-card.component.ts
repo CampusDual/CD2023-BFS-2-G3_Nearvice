@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from "@angular/core";
-import {  OFormComponent } from "ontimize-web-ngx";
+import { OFormComponent } from "ontimize-web-ngx";
 
 @Component({
 	selector: "home-detail-card",
@@ -12,15 +12,10 @@ export class HomeDetailCardComponent implements OnInit {
 
 	constructor() {}
 
-	ngOnInit() {
-		console.log("Hola");
+	ngOnInit() {}
+	onAction1() {
+		if (this.form && this.form.insert) {
+			this.form.insert();
+		}
 	}
-	 onAction1() {
-	
-		console.log("Dentro del método");
-	  if (this.form && this.form.insert) {
-	     console.log("Dentro del if");
-	    this.form.insert();
-	 }
-	 }
 }
