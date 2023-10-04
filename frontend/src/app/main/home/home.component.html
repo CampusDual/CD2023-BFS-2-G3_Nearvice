@@ -5,11 +5,26 @@
   </o-table>
 </div> -->
 
-
-<o-table fxFill #table columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION" visible-columns="S_NAME;A_TITLE;A_DESCRIPTION"
-  service="announces" entity="announceAll" title="CUSTOMERS" insert-button="no" delete-button="no" refresh-button="no"
-  pagination-controls="yes" detail-mode="none" export-button="no" store-state="false" query-rows="10"
-  (onClick)="onClick($event)" fixed-header="yes" sort-columns="A_ID:DESC">
+<o-table
+  fxFill
+  #table
+  columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION"
+  visible-columns="S_NAME;A_TITLE;A_DESCRIPTION"
+  service="announces"
+  entity="announceAll"
+  title="CUSTOMERS"
+  insert-button="no"
+  delete-button="no"
+  refresh-button="no"
+  pagination-controls="yes"
+  detail-mode="none"
+  export-button="no"
+  store-state="false"
+  query-rows="10"
+  (onClick)="onClick($event)"
+  fixed-header="yes"
+  sort-columns="A_ID:DESC"
+>
   <o-table-row-expandable expandible-column-visible="no">
     <ng-template let-row>
       <o-expandable-container [targets]="[list]" [data]="row">
@@ -24,15 +39,32 @@
               layout-padding></o-button></o-table-column>
         </o-table> -->
 
-        <o-list #list attr="list" columns="NAME;SURNAME;USER_;EMAIL" parent-keys="A_ID" keys="USER_" service="announces"
-          entity="announceAll" refresh-button="false" quick-filter="false" insert-button="false" row-height="medium"
-          detail-mode="none" delete-button="no">
+        <o-list
+          #list
+          attr="list"
+          columns="NAME;SURNAME;USER_;EMAIL"
+          parent-keys="A_ID"
+          keys="USER_"
+          service="announces"
+          entity="announceAll"
+          refresh-button="false"
+          quick-filter="false"
+          insert-button="false"
+          row-height="medium"
+          detail-mode="none"
+          delete-button="no"
+        >
           <o-list-item *ngFor="let row of list.dataArray">
-            <o-list-item-card #item title="{{ row.NAME }} {{ row.SURNAME }}" subtitle="{{ row.EMAIL }}" show-image="false"
-             action-1-text='{{ "CONTACT_ME"| oTranslate }}' (action-1)="onAction1()">
+            <o-list-item-card
+              #item
+              title="{{ row.NAME }} {{ row.SURNAME }}"
+              subtitle="{{ row.EMAIL }}"
+              show-image="false"
+              action-1-text="{{ 'CONTACT_ME' | oTranslate }}"
+              (action-1)="onAction1()"
+            >
             </o-list-item-card>
           </o-list-item>
-
         </o-list>
 
         <!-- <div><o-button attr="basic1" type="BASIC" label="BASIC" layout-padding></o-button>
@@ -40,5 +72,4 @@
       </o-expandable-container>
     </ng-template>
   </o-table-row-expandable>
-
 </o-table>

@@ -28,5 +28,7 @@
   "U_EMITTER": "Emitter",
   "M_MESSAGE": "Message",
   "U_RECEIVER": "Receiver",
-  "CONTACT_ME": "Contact me"
+  "CONTACT_ME": "Contact me",
+  "RECEIVED_MESSAGES": "Received messages",
+  "SENT_MESSAGES": "Sent messages"
 }

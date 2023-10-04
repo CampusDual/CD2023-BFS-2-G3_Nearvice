@@ -1,7 +1,23 @@
-<o-form service="announces" entity="announce" keys="A_ID" header-actions="D;U;R">
+<o-form
+  service="announces"
+  entity="announce"
+  keys="A_ID"
+  header-actions="D;U;R"
+>
   <o-integer-input attr="A_ID" hidden></o-integer-input>
-  <o-combo #ocombo attr="S_ID" label="S_NAME" service="services" entity="service" columns="S_ID;S_NAME" filter="no"
-      value-column="S_ID" visible-columns="S_NAME" required="true" read-only="false"></o-combo>
+  <o-combo
+    #ocombo
+    attr="S_ID"
+    label="S_NAME"
+    service="services"
+    entity="service"
+    columns="S_ID;S_NAME"
+    filter="no"
+    value-column="S_ID"
+    visible-columns="S_NAME"
+    required="true"
+    read-only="false"
+  ></o-combo>
   <o-text-input attr="A_TITLE"></o-text-input>
   <o-text-input attr="A_DESCRIPTION"></o-text-input>
   <o-checkbox attr="A_ACTIVE"></o-checkbox>
