@@ -8,11 +8,11 @@
 	<div fxLayout="row wrap" fxLayoutGap="14px">
 		<span fxFlex="30%">
 			<strong>{{ "FULL_NAME" | oTranslate }}</strong>
-			: {{ row.NAME }} {{ row.SURNAME }}
+			: {{ data.NAME }} {{ data.SURNAME }}
 		</span>
 		<span fxFlex="20%">
 			<strong>{{ "EMAIL" | oTranslate }}</strong>
-			: {{ row.EMAIL }}
+			: {{ data.EMAIL }}
 		</span>
 	</div>
 	<div fxLayout="row wrap" fxLayoutGap="14px">
@@ -22,15 +22,16 @@
 	<div>
 		<o-form
 			editable-detail="no"
-			show-header="yes"
+			show-header="no"
 			layout-direction="column"
 			service="messages"
 			entity="message"
 			columns="M_MESSAGE;U_RECEIVER"
 			#form>
+			<o-text-input attr="U_RECEIVER" [data]="data.USER_" hidden></o-text-input>
 			<o-textarea-input
 				attr="M_MESSAGE"
-				label="Textarea"
+				label="M_MESSAGE"
 				read-only="no"
 				rows="10"></o-textarea-input>
 			<button
@@ -39,7 +40,7 @@
 				mat-stroked-button=""
 				type="button"
 				ng-reflect-color="primary"
-				(click)="onAction1(form)">
+				(click)="onAction1()">
 				<span class="mat-button-wrapper">
 					<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
 				</span>
