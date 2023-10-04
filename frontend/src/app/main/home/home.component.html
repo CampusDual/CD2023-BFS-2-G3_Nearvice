@@ -49,33 +49,9 @@
   </o-table-column>
   <o-table-row-expandable expandible-column-visible="no">
     <ng-template let-row>
-      <o-column
-        title="CONTACT_DATA"
-        icon="info"
-        class="vertical-margin-10"
-        layout-gap="12px"
-        multiline="yes"
-        tooltip="yes"
-      >
-        <div fxLayout="row wrap" fxLayoutGap="14px">
-          <span fxFlex="30%"
-            ><strong>{{ "FULL_NAME" | oTranslate }}</strong
-            >: {{ row.NAME }} {{ row.SURNAME }}</span
-          >
-          <span fxFlex="20%"
-            ><strong>{{ "EMAIL" | oTranslate }}</strong
-            >: {{ row.EMAIL }}</span
-          >
-        </div>
-        <div fxLayout="row wrap" fxLayoutGap="14px">
-          <o-button
-            attr="CONTACT_ME"
-            type="RAISED"
-            label="CONTACT_ME"
-            layout-padding
-          ></o-button>
-        </div>
-      </o-column>
+      <home-detail-card [data]="row"> </home-detail-card>
+      <!-- <mi-componente [data]="row" [name]="row.NAME"></mi-componente> -->
+
       <!-- <o-expandable-container targets="[list]" [data]="row">
         <o-list
           #list

@@ -55,7 +55,7 @@ public class MessageService implements IMessageService {
     public EntityResult messageInsert(Map<?, ?> attrMap) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) attrMap);
-        userKeyMap.put("USER_",authentication.getName());
+        userKeyMap.put("U_EMITTER",authentication.getName());
         return this.daoHelper.insert(messageDao, userKeyMap);
     }
 

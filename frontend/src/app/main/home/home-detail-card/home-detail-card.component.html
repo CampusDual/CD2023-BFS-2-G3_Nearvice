@@ -1,0 +1,58 @@
+<o-column
+  title="CONTACT_DATA"
+  icon="info"
+  class="vertical-margin-10"
+  layout-gap="12px"
+  multiline="yes"
+  tooltip="yes"
+>
+  <div fxLayout="row wrap" fxLayoutGap="14px">
+    <span fxFlex="30%"
+      ><strong>{{ "FULL_NAME" | oTranslate }}</strong
+      >: {{ row.NAME }} {{ row.SURNAME }}</span
+    >
+    <span fxFlex="20%"
+      ><strong>{{ "EMAIL" | oTranslate }}</strong
+      >: {{ row.EMAIL }}</span
+    >
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="14px">
+    <o-button
+      attr="CONTACT_ME"
+      type="RAISED"
+      label="CONTACT_ME"
+      layout-padding
+    ></o-button>
+  </div>
+  <hr />
+  <div>
+    <o-form
+      editable-detail="no"
+      show-header="yes"
+      layout-direction="column"
+      service="messages"
+      entity="message"
+      columns="M_MESSAGE;U_RECEIVER"
+      #form
+    >
+      <o-textarea-input
+        attr="M_MESSAGE"
+        label="Textarea"
+        read-only="no"
+        rows="10"
+      ></o-textarea-input>
+      <button
+        class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
+        color="primary"
+        mat-stroked-button=""
+        type="button"
+        ng-reflect-color="primary"
+        (click)="onAction1(form)"
+      >
+        <span class="mat-button-wrapper"
+          ><span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span></span
+        >
+      </button>
+    </o-form>
+  </div>
+</o-column>

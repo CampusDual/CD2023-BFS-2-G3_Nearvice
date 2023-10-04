@@ -32,5 +32,6 @@
   "RECEIVED_MESSAGES": "Mensajes recibidos",
   "SENT_MESSAGES": "Mensajes enviados",
   "CONTACT_DATA": "Información de contacto",
-  "FULL_NAME": "Nombre"
+  "FULL_NAME": "Nombre",
+  "SEND": "Enviar"
 }

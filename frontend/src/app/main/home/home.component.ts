@@ -1,4 +1,8 @@
-import { OTableComponent, OnClickTableEvent } from "ontimize-web-ngx";
+import {
+  OTableComponent,
+  OFormComponent,
+  OnClickTableEvent,
+} from "ontimize-web-ngx";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -8,12 +12,10 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private actRoute: ActivatedRoute,
-  ) {}
+  constructor(private router: Router, private actRoute: ActivatedRoute) {}
 
   @ViewChild("table", { static: true }) table: OTableComponent;
+  //@ViewChild("form", { static: false }) form: OFormComponent;
 
   onClick(event: OnClickTableEvent) {
     this.table.toogleRowExpandable(event.row, event.rowIndex, event.mouseEvent);
@@ -27,7 +29,11 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["../", "login"], { relativeTo: this.actRoute });
   }
 
-  onAction1() {
-    let message = prompt("onAction1");
-  }
+  // onAction1() {
+  //   console.log("Dentro del método");
+  //   if (this.form && this.form.insert) {
+  //     console.log("Dentro del if");
+  //     this.form.insert();
+  //   }
+  // }
 }
