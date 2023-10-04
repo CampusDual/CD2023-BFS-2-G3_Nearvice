@@ -20,7 +20,7 @@ export const routes: Routes = [
         path: "services",
         loadChildren: () =>
           import("./my-services/my-services.module").then(
-            (m) => m.MyServicesModule
+            (m) => m.MyServicesModule,
           ),
       },
       {

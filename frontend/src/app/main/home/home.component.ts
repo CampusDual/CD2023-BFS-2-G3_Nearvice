@@ -8,7 +8,10 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router, private actRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private actRoute: ActivatedRoute,
+  ) {}
 
   @ViewChild("table", { static: true }) table: OTableComponent;
 

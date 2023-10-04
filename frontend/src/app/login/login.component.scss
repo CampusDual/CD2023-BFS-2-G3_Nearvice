@@ -22,7 +22,7 @@
     overflow: auto;
 
     .login-bg-container {
-      background-image: url('^assets/images/login_bg.png');
+      background-image: url("^assets/images/login_bg.png");
       width: calc(100% - 640px);
       background-repeat: no-repeat;
       background-size: cover;
@@ -40,8 +40,8 @@
       height: 100%;
       top: 0;
       left: 0;
-      background: rgba(0, 0, 0, .1);
-      opacity: .8;
+      background: rgba(0, 0, 0, 0.1);
+      opacity: 0.8;
     }
 
     .wrapp-login {
@@ -102,7 +102,6 @@
         }
       }
     }
-
   }
 
   .footer-container {
@@ -123,11 +122,9 @@
         padding-right: 4px;
       }
     }
-
   }
-
 }
-@media(max-width:576px) {
+@media (max-width: 576px) {
   .full-page {
     .login-outer-container {
       .wrapp-login {
