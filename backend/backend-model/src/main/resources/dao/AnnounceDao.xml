@@ -54,23 +54,20 @@
         <Query id="allDetailAnnounces">
             <AmbiguousColumns>
                 <AmbiguousColumn name="S_ID" prefix="A" databaseName="S_ID" />
+                <AmbiguousColumn name="USER_" prefix="U" />
             </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
-                    with TEMPORAL as (
-                    SELECT
-                        A.*, S.S_NAME, U.NAME, U.SURNAME, U.EMAIL
-                    FROM
-                        ANNOUNCES A
-                    INNER JOIN SERVICES S
-                     ON
-                        A.S_ID = S.S_ID
-                     INNER JOIN TUSER U
-                     ON
-                        U.USER_ = A.USER_
-                    WHERE
-                        A.A_ACTIVE
-                    ) SELECT #COLUMNS# FROM TEMPORAL
+                    WITH TEMPORAL AS (
+                        SELECT
+                            A.*, S.S_NAME, U.NAME, U.SURNAME, U.EMAIL
+                        FROM ANNOUNCES A
+                        INNER JOIN SERVICES S ON A.S_ID = S.S_ID
+                        INNER JOIN TUSER U ON U.USER_ = A.USER_
+                        WHERE A.A_ACTIVE
+                    )
+                    SELECT #COLUMNS#
+                    FROM TEMPORAL
                     #WHERE#
                 ]]>
             </Sentence>
