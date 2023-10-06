@@ -2,6 +2,7 @@ package com.campusdual.model.core.service;
 
 import com.campusdual.api.core.service.IConversationService;
 import com.campusdual.model.core.dao.ConversationDao;
+import com.campusdual.model.core.dao.MessageDao;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
@@ -21,6 +22,7 @@ public class ConversationService implements IConversationService {
 
     @Autowired
     private ConversationDao conversationDao;
+
 
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
@@ -42,6 +44,12 @@ public class ConversationService implements IConversationService {
 
     @Override
     public EntityResult conversationReceiverQuery(Map<?, ?> keyMap, List<?> attrList) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
+        //userKeyMap.put("U_RECEIVER",authentication.getName());
+        return this.daoHelper.query(conversationDao, userKeyMap, attrList);
+    }
+    public EntityResult conversationLastQuery(Map<?, ?> keyMap, List<?> attrList) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
         //userKeyMap.put("U_RECEIVER",authentication.getName());
@@ -69,4 +77,6 @@ public class ConversationService implements IConversationService {
         userKeyMap.put("USER_",authentication.getName());
         return this.daoHelper.delete(this.conversationDao, userKeyMap);
     }
+
+
 }

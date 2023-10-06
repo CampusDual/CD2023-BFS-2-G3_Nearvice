@@ -11,6 +11,7 @@
     <UpdateKeys>
         <Column>C_ID</Column>
     </UpdateKeys>
+    <GeneratedKey>c_id</GeneratedKey>
     <Queries>
         <Query id="allDetailConversations">
             <AmbiguousColumns>
@@ -24,7 +25,7 @@
                         SELECT
                             *
                         FROM MESSAGES M
-                        INNER JOIN CONVERSATION C ON M.C_ID = C.C_ID
+                        INNER JOIN CONVERSATIONS C ON M.C_ID = C.C_ID
                         INNER JOIN ANNOUNCES A ON C.A_ID = A.A_ID
                         INNER JOIN TUSER U ON U.USER_ = A.USER_
                     )
@@ -35,5 +36,29 @@
 
             </Sentence>
         </Query>
+        <Query id="lastConversation">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="C_ID" prefix="C"  />
+                <AmbiguousColumn name="A_ID" prefix="A"  />
+                <AmbiguousColumn name="USER_" prefix="U" />
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                    WITH TEMPORAL AS (
+                        SELECT
+                            *
+                        FROM MESSAGES M
+                        INNER JOIN CONVERSATION C ON M.C_ID = C.C_ID
+                    )
+                    SELECT C_ID
+                    FROM TEMPORAL
+                    #WHERE#
+                ]]>
+
+            </Sentence>
+        </Query>
     </Queries>
+
+
+
 </JdbcEntitySetup>

@@ -1,6 +1,7 @@
 package com.campusdual.model.core.service;
 
 import com.campusdual.api.core.service.IMessageService;
+import com.campusdual.model.core.dao.ConversationDao;
 import com.campusdual.model.core.dao.MessageDao;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
@@ -23,6 +24,9 @@ public class MessageService implements IMessageService {
     private MessageDao messageDao;
 
     @Autowired
+    private ConversationService conversationService;
+
+    @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
 
 
@@ -37,11 +41,12 @@ public class MessageService implements IMessageService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
         userKeyMap.put("U_EMITTER",authentication.getName());
-        return this.daoHelper.query(messageDao, userKeyMap, attrList);
+        return this.daoHelper.query(messageDao, userKeyMap, attrList,"allDetailMessages");
     }
 
 
     public EntityResult messageReceiverQuery(Map<?, ?> keyMap, List<?> attrList) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
         //userKeyMap.put("U_RECEIVER",authentication.getName());
@@ -49,14 +54,20 @@ public class MessageService implements IMessageService {
     }
 
     public EntityResult messageAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(messageDao, keyMap, attrList,"allDetailAnnounces");
+        return this.daoHelper.query(messageDao, keyMap, attrList,"allDetailMessages");
     }
 
     public EntityResult messageInsert(Map<?, ?> attrMap) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) attrMap);
-        userKeyMap.put("U_EMITTER",authentication.getName());
-        return this.daoHelper.insert(messageDao, userKeyMap);
+        Map<String, Object> coversationMap = new HashMap<>();
+        coversationMap.put(ConversationDao.AID,attrMap.get(ConversationDao.AID));
+        coversationMap.put(MessageDao.UEMITTER,authentication.getName());
+        EntityResult result = conversationService.conversationInsert(coversationMap);
+        Map<String, Object> messageMap = new HashMap<>();
+        messageMap.put(MessageDao.MMESSAGE,attrMap.get(MessageDao.MMESSAGE));
+        messageMap.put(MessageDao.UEMITTER,authentication.getName());
+        messageMap.put(ConversationDao.CID,result.get(ConversationDao.CID));
+        return this.daoHelper.insert(messageDao, messageMap);
     }
 
     public EntityResult messageUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {

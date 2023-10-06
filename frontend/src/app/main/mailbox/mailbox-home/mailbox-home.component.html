@@ -3,10 +3,10 @@
 		fxFlex
 		attr="table"
 		title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE;A_ID"
-		visible-columns="U_EMITTER;M_MESSAGE"
+		columns="M_ID;U_EMITTER;M_MESSAGE;A_ID;C_ID;USER_"
+		visible-columns="U_EMITTER;M_MESSAGE;A_ID;C_ID;USER_"
 		service="messages"
-		entity="messageReceiver"
+		entity="messageAll"
 		keys="M_ID"
 		delete-button="no"
 		insert-button="no"
@@ -42,7 +42,7 @@
 		horizontal-scroll="false"
 		auto-adjust="true"
 		virtual-scroll="no">
-		<o-table-column attr="" title="U_RECEIVER" multiline="yes" width="auto"></o-table-column>
+		<!--<o-table-column attr="USER_" title="USER_" multiline="yes" width="auto"></o-table-column>-->
 		<o-table-column
 			attr="M_MESSAGE"
 			title="M_MESSAGE"

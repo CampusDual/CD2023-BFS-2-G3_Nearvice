@@ -13,6 +13,6 @@ public class MessageDao extends OntimizeJdbcDaoSupport {
     public static final String MID = "M_ID";
     public static final String UEMITTER = "U_EMITTER";
     public static final String MMESSAGE= "M_MESSAGE";
-    public static final String CID = "C_ID";
+
 
 }

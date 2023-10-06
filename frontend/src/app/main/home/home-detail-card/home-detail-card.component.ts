@@ -10,18 +10,10 @@ import { OFormComponent } from "ontimize-web-ngx";
 export class HomeDetailCardComponent implements OnInit {
 	@Input() data: any;
 	@ViewChild("form", { static: false }) form: OFormComponent;
-	@ViewChild("formC", { static: false }) formC: OFormComponent;
 
 	constructor(private router: Router) {}
 
 	ngOnInit() {}
-	onActionC() {
-		if (this.formC && this.formC.insert) {
-			this.formC.insert();
-		}
-		//this.router.navigateByUrl("main/mailbox");
-	}
-
 	onAction1() {
 		if (this.form && this.form.insert) {
 			this.form.insert();

@@ -15,33 +15,16 @@
 			: {{ data.EMAIL }}
 		</span>
 	</div>
-	<div fxLayout="row wrap" fxLayoutGap="14px">
-		<o-form
-			editable-detail="no"
-			show-header="no"
-			layout-direction="column"
-			service="conversations"
-			entity="conversation"
-			columns="A_ID"
-			#formC>
-			<o-text-input attr="A_ID" [data]="data.A_ID" hidden></o-text-input>
-			<o-button
-				attr="CONTACT_ME"
-				type="RAISED"
-				label="CONTACT_ME"
-				layout-padding
-				(click)="onActionC()"></o-button>
-		</o-form>
-	</div>
+	<div fxLayout="row wrap" fxLayoutGap="14px"></div>
 	<hr />
 	<div>
 		<o-form
 			editable-detail="no"
 			show-header="no"
 			layout-direction="column"
-			service="conversations"
-			entity="conversation"
-			columns="M_MESSAGE;A_ID"
+			service="messages"
+			entity="message"
+			columns="M_MESSAGE"
 			#form>
 			<o-text-input attr="A_ID" [data]="data.A_ID" hidden></o-text-input>
 			<o-textarea-input
