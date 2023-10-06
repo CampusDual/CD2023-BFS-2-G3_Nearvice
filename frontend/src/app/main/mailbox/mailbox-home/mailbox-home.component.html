@@ -6,7 +6,7 @@
 		columns="M_ID;U_EMITTER;M_MESSAGE;A_ID;C_ID;USER_"
 		visible-columns="U_EMITTER;M_MESSAGE;A_ID;C_ID;USER_"
 		service="messages"
-		entity="messageAll"
+		entity="messageReceiver"
 		keys="M_ID"
 		delete-button="no"
 		insert-button="no"
@@ -25,12 +25,13 @@
 			title="M_MESSAGE"
 			multiline="yes"
 			tooltip="yes"></o-table-column>
+		<o-table-column attr="USER_" title="USER_" multiline="yes" width="auto"></o-table-column>
 	</o-table>
 	<o-table
 		fxFlex
 		attr="table"
 		title="{{ 'SENT_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE"
+		columns="M_ID;U_EMITTER;M_MESSAGE;USER_"
 		visible-columns="M_MESSAGE"
 		service="messages"
 		entity="messageEmitter"
@@ -42,7 +43,7 @@
 		horizontal-scroll="false"
 		auto-adjust="true"
 		virtual-scroll="no">
-		<!--<o-table-column attr="USER_" title="USER_" multiline="yes" width="auto"></o-table-column>-->
+		<o-table-column attr="USER_" title="USER_" multiline="yes" width="auto"></o-table-column>
 		<o-table-column
 			attr="M_MESSAGE"
 			title="M_MESSAGE"

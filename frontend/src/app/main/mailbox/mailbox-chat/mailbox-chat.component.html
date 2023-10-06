@@ -1,0 +1,28 @@
+<o-form
+	show-header="yes"
+	undo-button="no"
+	layout-direction="column"
+	service="conversations"
+	entity="conversationAll"
+	keys="C_ID"
+	keys-sql-types="INTEGER"
+	columns="M_MESSAGE"
+	#form2>
+	<o-row>
+		<o-column><o-text-input attr="USER_"></o-text-input></o-column>
+		<o-column><o-text-input attr="A_TITLE"></o-text-input></o-column>
+		<o-column><o-text-input attr="U_CLIENT"></o-text-input></o-column>
+	</o-row>
+	<!--o-text-input label="text" enabled="yes"></o-text-input>
+	<button
+		class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
+		color="primary"
+		mat-stroked-button=""
+		type="button"
+		ng-reflect-color="primary"
+		(click)="onAction1()">
+		<span class="mat-button-wrapper">
+			<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
+		</span>
+	</button-->
+</o-form>

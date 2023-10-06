@@ -15,50 +15,27 @@
     <Queries>
         <Query id="allDetailConversations">
             <AmbiguousColumns>
-                <AmbiguousColumn name="C_ID" prefix="C"  />
-                <AmbiguousColumn name="A_ID" prefix="A"  />
-                <AmbiguousColumn name="USER_" prefix="U" />
+                <AmbiguousColumn name="C_ID" prefix="C"/>
+                <AmbiguousColumn name="A_ID" prefix="A"/>
+                <AmbiguousColumn name="USER_" prefix="U"/>
             </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
-                    WITH TEMPORAL AS (
+
                         SELECT
-                            *
+                            #COLUMNS#
                         FROM MESSAGES M
                         INNER JOIN CONVERSATIONS C ON M.C_ID = C.C_ID
                         INNER JOIN ANNOUNCES A ON C.A_ID = A.A_ID
                         INNER JOIN TUSER U ON U.USER_ = A.USER_
-                    )
-                    SELECT #COLUMNS#
-                    FROM TEMPORAL
-                    #WHERE#
+                        #WHERE#
+
                 ]]>
 
             </Sentence>
-        </Query>
-        <Query id="lastConversation">
-            <AmbiguousColumns>
-                <AmbiguousColumn name="C_ID" prefix="C"  />
-                <AmbiguousColumn name="A_ID" prefix="A"  />
-                <AmbiguousColumn name="USER_" prefix="U" />
-            </AmbiguousColumns>
-            <Sentence>
-                <![CDATA[
-                    WITH TEMPORAL AS (
-                        SELECT
-                            *
-                        FROM MESSAGES M
-                        INNER JOIN CONVERSATION C ON M.C_ID = C.C_ID
-                    )
-                    SELECT C_ID
-                    FROM TEMPORAL
-                    #WHERE#
-                ]]>
 
-            </Sentence>
         </Query>
+
     </Queries>
-
-
 
 </JdbcEntitySetup>

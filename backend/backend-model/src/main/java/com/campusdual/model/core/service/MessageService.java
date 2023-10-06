@@ -40,7 +40,7 @@ public class MessageService implements IMessageService {
     public EntityResult messageEmitterQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("U_EMITTER",authentication.getName());
+        userKeyMap.put(MessageDao.UEMITTER,authentication.getName());
         return this.daoHelper.query(messageDao, userKeyMap, attrList,"allDetailMessages");
     }
 
@@ -49,8 +49,8 @@ public class MessageService implements IMessageService {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        //userKeyMap.put("U_RECEIVER",authentication.getName());
-        return this.daoHelper.query(messageDao, userKeyMap, attrList);
+        userKeyMap.put("USER_",authentication.getName());
+        return this.daoHelper.query(messageDao, userKeyMap, attrList, "allDetailMessages");
     }
 
     public EntityResult messageAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
