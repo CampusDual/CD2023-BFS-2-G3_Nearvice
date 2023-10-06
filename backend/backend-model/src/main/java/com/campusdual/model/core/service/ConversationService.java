@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Lazy
-@Service("MessageService")
+@Service("ConversationService")
 public class ConversationService implements IConversationService {
 
     @Autowired
@@ -44,18 +44,18 @@ public class ConversationService implements IConversationService {
     public EntityResult conversationReceiverQuery(Map<?, ?> keyMap, List<?> attrList) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("U_RECEIVER",authentication.getName());
+        //userKeyMap.put("U_RECEIVER",authentication.getName());
         return this.daoHelper.query(conversationDao, userKeyMap, attrList);
     }
 
     public EntityResult conversationAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(conversationDao, keyMap, attrList,"allDetailAnnounces");
+        return this.daoHelper.query(conversationDao, keyMap, attrList,"allDetailConversations");
     }
 
     public EntityResult conversationInsert(Map<?, ?> attrMap) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) attrMap);
-        userKeyMap.put("U_EMITTER",authentication.getName());
+        userKeyMap.put("U_CLIENT",authentication.getName());
         return this.daoHelper.insert(conversationDao, userKeyMap);
     }
 

@@ -30,7 +30,7 @@ public class MessageService implements IMessageService {
     //Sample to permission
     //@Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult messageQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(messageDao, keyMap, attrList);
+        return this.daoHelper.query(messageDao, keyMap, attrList,"allDetailMessages");
     }
 
     public EntityResult messageEmitterQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
@@ -40,11 +40,11 @@ public class MessageService implements IMessageService {
         return this.daoHelper.query(messageDao, userKeyMap, attrList);
     }
 
-    @Override
+
     public EntityResult messageReceiverQuery(Map<?, ?> keyMap, List<?> attrList) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("U_RECEIVER",authentication.getName());
+        //userKeyMap.put("U_RECEIVER",authentication.getName());
         return this.daoHelper.query(messageDao, userKeyMap, attrList);
     }
 

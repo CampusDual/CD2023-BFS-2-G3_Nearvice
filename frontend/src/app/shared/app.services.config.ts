@@ -8,4 +8,7 @@ export const SERVICE_CONFIG: Object = {
 	messages: {
 		path: "/messages",
 	},
+	conversations: {
+		path: "/conversations",
+	},
 };
