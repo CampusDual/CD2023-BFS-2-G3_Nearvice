@@ -32,7 +32,7 @@ public class ConversationService implements IConversationService {
     //Sample to permission
     //@Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult conversationQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(conversationDao, keyMap, attrList);
+        return this.daoHelper.query(conversationDao, keyMap, attrList,"detailConversations");
     }
 
     public EntityResult conversationEmitterQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {

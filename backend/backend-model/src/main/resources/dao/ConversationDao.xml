@@ -31,6 +31,25 @@
                         #WHERE#
 
                 ]]>
+            </Sentence>
+        </Query>
+        <Query id="detailConversations">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="A_ID" prefix="A"/>
+                <AmbiguousColumn name="USER_" prefix="U"/>
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+
+                        SELECT
+                            #COLUMNS#
+                        FROM CONVERSATIONS C
+                        INNER JOIN ANNOUNCES A ON C.A_ID = A.A_ID
+                        INNER JOIN TUSER U ON U.USER_ = A.USER_
+                        #WHERE#
+
+
+                ]]>
 
             </Sentence>
 

@@ -35,6 +35,39 @@
 
             </Sentence>
         </Query>
+        <Query id="lastConversationMessages">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="C_ID" prefix="C"  />
+                <AmbiguousColumn name="A_ID" prefix="A"  />
+                <AmbiguousColumn name="USER_" prefix="U" />
+                <AmbiguousColumn name="M_ID" prefix="M"  />
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                    with TEMPORAL as (
+                        select
+                            max(M.M_ID) as M_ID
+                        from
+                            MESSAGES M
+                        inner join CONVERSATIONS C on
+                            M.C_ID = C.C_ID
+                        group by
+                            C.C_ID
+                        )
+                        select
+                            #COLUMNS#
+                        from
+                            TEMPORAL T
+                        INNER JOIN MESSAGES M ON
+                        T.M_ID = M.M_ID
+                        INNER JOIN CONVERSATIONS C ON M.C_ID = C.C_ID
+                        INNER JOIN ANNOUNCES A ON C.A_ID = A.A_ID
+                        INNER JOIN TUSER U ON U.USER_ = A.USER_
+                        #WHERE#
+                ]]>
+
+            </Sentence>
+        </Query>
 
     </Queries>
 
