@@ -28,9 +28,6 @@ public class AnnounceService implements IAnnounceService {
     private DefaultOntimizeDaoHelper daoHelper;
 
 
-
-    //Sample to permission
-    //@Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult announceQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);

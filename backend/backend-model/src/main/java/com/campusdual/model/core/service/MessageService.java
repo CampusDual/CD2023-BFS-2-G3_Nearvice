@@ -31,26 +31,8 @@ public class MessageService implements IMessageService {
 
 
 
-    //Sample to permission
-    //@Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult messageQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(messageDao, keyMap, attrList,"allDetailMessages");
-    }
-
-    public EntityResult messageEmitterQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put(MessageDao.UEMITTER,authentication.getName());
-        return this.daoHelper.query(messageDao, userKeyMap, attrList,"lastConversationMessages");
-    }
-
-
-    public EntityResult messageReceiverQuery(Map<?, ?> keyMap, List<?> attrList) {
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("USER_",authentication.getName());
-        return this.daoHelper.query(messageDao, userKeyMap, attrList, "lastConversationMessages");
     }
 
     public EntityResult messageAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {

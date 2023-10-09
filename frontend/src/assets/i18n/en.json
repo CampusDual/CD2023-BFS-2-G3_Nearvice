@@ -25,7 +25,7 @@
 	"A_ACTIVE": "Active",
 	"S_NAME": "Category",
 	"MAILBOX": "Mailbox",
-	"U_EMITTER": "Emitter",
+	"U_EMITTER": "Client",
 	"M_MESSAGE": "Message",
 	"U_RECEIVER": "Receiver",
 	"CONTACT_ME": "Contact me",
@@ -33,5 +33,7 @@
 	"SENT_MESSAGES": "Sent messages",
 	"CONTACT_DATA": "Contact information",
 	"FULL_NAME": "Full name",
-	"SEND": "Send"
+	"SEND": "Send",
+	"PROFESSIONAL": "Professional",
+	"U_CLIENT": "Client"
 }

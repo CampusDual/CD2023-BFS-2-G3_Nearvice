@@ -33,8 +33,6 @@ public class UserService implements IUserService {
 	public void loginQuery(Map<?, ?> key, List<?> attr) {
 	}
 
-	//Sample to permission
-	//@Secured({ PermissionsProviderSecured.SECURED })
 	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
 		return this.daoHelper.query(userDao, keyMap, attrList);
 	}

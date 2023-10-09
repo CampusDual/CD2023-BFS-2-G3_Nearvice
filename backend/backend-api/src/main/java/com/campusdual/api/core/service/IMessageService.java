@@ -7,8 +7,6 @@ import java.util.Map;
 
 public interface IMessageService {
     public EntityResult messageQuery(Map<?, ?> keyMap, List<?> attrList);
-    public EntityResult messageEmitterQuery(Map<?, ?> keyMap, List<?> attrList);
-    public EntityResult messageReceiverQuery(Map<?, ?> keyMap, List<?> attrList);
     public EntityResult messageAllQuery(Map<?, ?> keyMap, List<?> attrList);
     public EntityResult messageInsert(Map<?, ?> attrMap);
     public EntityResult messageUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);

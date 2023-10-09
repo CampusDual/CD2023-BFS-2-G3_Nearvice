@@ -8,24 +8,22 @@
 	keys-sql-types="INTEGER"
 	keys="C_ID">
 	<o-row>
-		<o-text-input attr="USER_" enabled="no"></o-text-input>
-		<o-text-input attr="A_TITLE" enabled="no"></o-text-input>
-		<o-text-input attr="U_CLIENT" enabled="no"></o-text-input>
-		<!-- <o-text-input attr="C_ID"></o-text-input> -->
+		<o-text-input fxFlex label="PROFESSIONAL" attr="USER_" read-only="yes"></o-text-input>
+		<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
+		<o-text-input fxFlex attr="U_CLIENT" read-only="yes"></o-text-input>
 	</o-row>
-	<!-- <o-table
+	<o-list
+		#list
 		parent-keys="C_ID"
-		columns="M_MESSAGE;M_ID;C_ID"
+		columns="M_MESSAGE;M_DATETIME;U_EMITTER"
 		service="messages"
 		entity="message"
-		keys="M_ID">
-		<o-table-column attr="C_ID" title="ID CONV" class="o-table-column-centered"></o-table-column>
-		<o-table-column attr="M_ID" title="ID" class="o-table-column-centered"></o-table-column>
-		<o-table-column attr="M_MESSAGE" title="TITLE" class="o-table-column-centered"></o-table-column>
-	</o-table> -->
-	<o-list #list parent-keys="C_ID" columns="M_MESSAGE" service="messages" entity="message">
+		delete-button="no">
 		<o-list-item *ngFor="let row of list.dataArray">
-			<o-list-item-text #item title="{{ row.M_MESSAGE }}"></o-list-item-text>
+			<o-list-item-text
+				title="{{ row.U_EMITTER }}: {{ row.M_MESSAGE }} - {{
+					row.M_DATETIME | date : 'short'
+				}}"></o-list-item-text>
 		</o-list-item>
 	</o-list>
 </o-form>
@@ -38,7 +36,7 @@
 	layout-direction="column"
 	keys-sql-types="INTEGER">
 	<o-text-input label="text" enabled="yes" attr="M_MESSAGE"></o-text-input>
-	<o-text-input id="cid" attr="C_ID" enabled="no" [data]="c_id" hidden></o-text-input>
+	<o-integer-input id="cid" attr="C_ID" enabled="no" [data]="c_id" hidden></o-integer-input>
 
 	<button
 		class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
@@ -46,7 +44,7 @@
 		mat-stroked-button=""
 		type="button"
 		ng-reflect-color="primary"
-		(click)="onAction1()">
+		(click)="messageSend()">
 		<span class="mat-button-wrapper">
 			<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
 		</span>

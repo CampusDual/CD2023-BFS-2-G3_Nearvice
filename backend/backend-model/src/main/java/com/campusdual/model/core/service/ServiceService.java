@@ -25,9 +25,6 @@ public class ServiceService implements IServiceService {
     private DefaultOntimizeDaoHelper daoHelper;
 
 
-
-    //Sample to permission
-    //@Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult serviceQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(serviceDao, keyMap, attrList);
     }

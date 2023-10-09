@@ -28,36 +28,22 @@ public class ConversationService implements IConversationService {
     private DefaultOntimizeDaoHelper daoHelper;
 
 
-
-    //Sample to permission
-    //@Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult conversationQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(conversationDao, keyMap, attrList,"detailConversations");
     }
 
-    public EntityResult conversationEmitterQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
+    public EntityResult conversationMessageEmitterQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("U_EMITTER",authentication.getName());
-        return this.daoHelper.query(conversationDao, userKeyMap, attrList);
+        userKeyMap.put(MessageDao.UEMITTER,authentication.getName());
+        return this.daoHelper.query(conversationDao, userKeyMap, attrList,"lastConversationMessages");
     }
 
-    @Override
-    public EntityResult conversationReceiverQuery(Map<?, ?> keyMap, List<?> attrList) {
+    public EntityResult conversationMessageReceiverQuery(Map<?, ?> keyMap, List<?> attrList) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        //userKeyMap.put("U_RECEIVER",authentication.getName());
-        return this.daoHelper.query(conversationDao, userKeyMap, attrList);
-    }
-    public EntityResult conversationLastQuery(Map<?, ?> keyMap, List<?> attrList) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        //userKeyMap.put("U_RECEIVER",authentication.getName());
-        return this.daoHelper.query(conversationDao, userKeyMap, attrList);
-    }
-
-    public EntityResult conversationAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(conversationDao, keyMap, attrList,"allDetailConversations");
+        userKeyMap.put("USER_",authentication.getName());
+        return this.daoHelper.query(conversationDao, userKeyMap, attrList, "lastConversationMessages");
     }
 
     public EntityResult conversationInsert(Map<?, ?> attrMap) {
@@ -77,6 +63,4 @@ public class ConversationService implements IConversationService {
         userKeyMap.put("USER_",authentication.getName());
         return this.daoHelper.delete(this.conversationDao, userKeyMap);
     }
-
-
 }

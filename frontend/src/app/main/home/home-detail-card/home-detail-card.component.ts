@@ -14,10 +14,10 @@ export class HomeDetailCardComponent implements OnInit {
 	constructor(private router: Router) {}
 
 	ngOnInit() {}
-	onAction1() {
+	conversationInit() {
 		if (this.form && this.form.insert) {
 			this.form.insert();
 		}
-		//this.router.navigateByUrl("main/mailbox");
+		this.router.navigateByUrl("main/mailbox");
 	}
 }

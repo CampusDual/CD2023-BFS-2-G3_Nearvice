@@ -8,18 +8,18 @@ import { OFormComponent } from "ontimize-web-ngx";
 	styleUrls: ["./mailbox-chat.component.css"],
 })
 export class MailboxChatComponent implements OnInit {
-	c_id: any;
+	c_id: number;
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	constructor(private route: ActivatedRoute) {}
 
 	ngOnInit() {
 		this.route.params.subscribe((params) => {
-			this.c_id = +params["C_ID"];
+			this.c_id = params["C_ID"];
 		});
 	}
 
-	onAction1() {
+	messageSend() {
 		if (this.form && this.form.insert) {
 			this.form.insert();
 		}
