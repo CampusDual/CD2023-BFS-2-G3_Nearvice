@@ -1,56 +1,61 @@
-<o-form
-	#formM
-	show-header="no"
-	undo-button="no"
-	layout-direction="column"
-	service="conversations"
-	entity="conversation"
-	keys-sql-types="INTEGER"
-	keys="C_ID">
-	<o-row>
-		<o-text-input fxFlex label="PROFESSIONAL" attr="USER_" read-only="yes"></o-text-input>
-		<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
-		<o-text-input fxFlex attr="U_CLIENT" read-only="yes"></o-text-input>
-	</o-row>
-	<o-list
-		pagination-controls="yes"
-		page-size-options="100,100"
-		#list
-		parent-keys="C_ID"
-		columns="M_MESSAGE;M_DATETIME;U_EMITTER"
+<div>
+	<o-form
+		#formM
+		show-header="no"
+		undo-button="no"
+		layout-direction="column"
+		service="conversations"
+		entity="conversation"
+		keys-sql-types="INTEGER"
+		keys="C_ID">
+		<o-row>
+			<o-text-input fxFlex label="PROFESSIONAL" attr="USER_" read-only="yes"></o-text-input>
+			<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
+			<o-text-input fxFlex attr="U_CLIENT" read-only="yes"></o-text-input>
+		</o-row>
+		<o-list
+			pagination-controls="yes"
+			page-size-options="100,100"
+			#list
+			parent-keys="C_ID"
+			columns="M_MESSAGE;M_DATETIME;U_EMITTER"
+			service="messages"
+			entity="message"
+			sort-columns="M_DATETIME"
+			delete-button="no">
+			<div class="backgroundChat">
+				<div *ngFor="let row of list.dataArray" class="chatMessage">
+					<div class="userChat">{{ row.U_EMITTER }}</div>
+					<div>{{ row.M_MESSAGE }}</div>
+					<div class="dateTimeChat">
+						{{ row.M_DATETIME | date : "dd-MM-yyyy hh:mm" }}
+					</div>
+				</div>
+			</div>
+		</o-list>
+	</o-form>
+	<o-form
+		#formchat
+		after-insert-mode="new"
 		service="messages"
 		entity="message"
-		delete-button="no">
-		<div class="backgroundChat">
-			<div *ngFor="let row of list.dataArray" class="chatMessage">
-				<div class="userChat">{{ row.U_EMITTER }}</div>
-				<div>{{ row.M_MESSAGE }}</div>
-				<div class="dateTimeChat">{{ row.M_DATETIME | date : "short" }}</div>
-			</div>
-		</div>
-	</o-list>
-</o-form>
-<o-form
-	#formchat
-	after-insert-mode="new"
-	service="messages"
-	entity="message"
-	show-header="no"
-	undo-button="no"
-	layout-direction="column"
-	keys-sql-types="INTEGER">
-	<o-text-input label="text" enabled="yes" attr="M_MESSAGE"></o-text-input>
-	<o-integer-input id="cid" attr="C_ID" enabled="no" [data]="c_id"></o-integer-input>
+		show-header="no"
+		undo-button="no"
+		layout-direction="column"
+		keys-sql-types="INTEGER">
+		<o-text-input label="M_MESSAGE" enabled="yes" attr="M_MESSAGE"></o-text-input>
+		<o-integer-input id="cid" attr="C_ID" enabled="no" [data]="c_id" hidden></o-integer-input>
 
-	<button
-		class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
-		color="primary"
-		mat-stroked-button=""
-		type="button"
-		ng-reflect-color="primary"
-		(click)="messageSend()">
-		<span class="mat-button-wrapper">
-			<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
-		</span>
-	</button>
-</o-form>
+		<button
+			class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
+			color="primary"
+			mat-stroked-button=""
+			type="button"
+			ng-reflect-color="primary"
+			(click)="messageSend()">
+			<span class="mat-button-wrapper">
+				<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
+			</span>
+		</button>
+	</o-form>
+</div>
