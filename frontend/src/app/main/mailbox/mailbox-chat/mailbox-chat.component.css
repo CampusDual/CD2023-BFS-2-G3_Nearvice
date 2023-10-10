@@ -24,12 +24,6 @@
 	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.backgroundChat {
-	background-color: #f5f5f5;
-	border-radius: 5px;
-	border: 1px solid #e0e0e0;
-}
-
 .dateTimeChat {
 	font-size: 12px;
 	color: #999;
@@ -44,4 +38,13 @@
 	color: #999;
 	font-weight: 600;
 	margin-right: 20px;
+}
+
+.formChat {
+	padding: 0;
+	background-color: #f5f5f5;
+	position: sticky;
+	border-radius: 5px;
+	border: 1px solid #e0e0e0;
+	bottom: 0;
 }

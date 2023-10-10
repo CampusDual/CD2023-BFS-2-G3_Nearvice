@@ -1,4 +1,4 @@
-<div>
+<div class="containerChat">
 	<o-form
 		#formM
 		show-header="no"
@@ -9,13 +9,17 @@
 		keys-sql-types="INTEGER"
 		keys="C_ID">
 		<o-row>
-			<o-text-input fxFlex label="PROFESSIONAL" attr="USER_" read-only="yes"></o-text-input>
+			<o-text-input
+				fxFlex
+				label="PROFESSIONAL"
+				attr="USER_"
+				read-only="yes"
+				id="professional"></o-text-input>
 			<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
-			<o-text-input fxFlex attr="U_CLIENT" read-only="yes"></o-text-input>
+			<o-text-input fxFlex attr="U_CLIENT" read-only="yes" id="client"></o-text-input>
 		</o-row>
 		<o-list
 			pagination-controls="yes"
-			page-size-options="100,100"
 			#list
 			parent-keys="C_ID"
 			columns="M_MESSAGE;M_DATETIME;U_EMITTER"
@@ -23,7 +27,7 @@
 			entity="message"
 			sort-columns="M_DATETIME"
 			delete-button="no">
-			<div class="backgroundChat">
+			<div>
 				<div *ngFor="let row of list.dataArray" class="chatMessage">
 					<div class="userChat">{{ row.U_EMITTER }}</div>
 					<div>{{ row.M_MESSAGE }}</div>
@@ -36,6 +40,7 @@
 	</o-form>
 	<o-form
 		#formchat
+		class="formChat"
 		after-insert-mode="new"
 		service="messages"
 		entity="message"
