@@ -19,12 +19,13 @@
 		service="messages"
 		entity="message"
 		delete-button="no">
-		<o-list-item *ngFor="let row of list.dataArray">
-			<o-list-item-text
-				title="{{ row.U_EMITTER }}: {{ row.M_MESSAGE }} - {{
-					row.M_DATETIME | date : 'short'
-				}}"></o-list-item-text>
-		</o-list-item>
+		<div class="backgroundChat">
+			<o-list-item *ngFor="let row of list.dataArray" class="chatMessage">
+				<div class="userChat">{{ row.U_EMITTER }}</div>
+				<div>{{ row.M_MESSAGE }}</div>
+				<div class="dateTimeChat">{{ row.M_DATETIME | date : "short" }}</div>
+			</o-list-item>
+		</div>
 	</o-list>
 </o-form>
 <o-form

@@ -23,7 +23,6 @@ public class ConversationService implements IConversationService {
     @Autowired
     private ConversationDao conversationDao;
 
-
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
 
@@ -35,7 +34,7 @@ public class ConversationService implements IConversationService {
     public EntityResult conversationMessageEmitterQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put(MessageDao.UEMITTER,authentication.getName());
+        userKeyMap.put("U_CLIENT",authentication.getName());
         return this.daoHelper.query(conversationDao, userKeyMap, attrList,"lastConversationMessages");
     }
 
