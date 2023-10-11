@@ -47,4 +47,19 @@
 	border-radius: 5px;
 	border: 1px solid #e0e0e0;
 	bottom: 0;
+	justify-content: center;
+}
+.cont-btn {
+	display: flex;
+	justify-content: center;
+}
+.btn-style {
+	color: black;
+	background-color: powderblue;
+	border-radius: 10px;
+	width: 20%;
+}
+.btn-style:hover {
+	background-color: rgb(176, 213, 230);
+	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
 }

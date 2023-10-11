@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+.o-app-header.o-app-header-medium + .header-layout {
+	padding: 0%;
+}
+.mat-button,
+.mat-flat-button,
+.mat-icon-button,
+.mat-raised-button,
+.mat-stroked-button {
+	display: none;
+}

@@ -1,4 +1,4 @@
-<div class="containerChat">
+<div class="padding-bottom">
 	<o-form
 		#formM
 		show-header="no"
@@ -15,10 +15,13 @@
 				attr="USER_"
 				read-only="yes"
 				id="professional"></o-text-input>
+
 			<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
 			<o-text-input fxFlex attr="U_CLIENT" read-only="yes" id="client"></o-text-input>
 		</o-row>
+
 		<o-list
+			class="listChat"
 			pagination-controls="yes"
 			#list
 			parent-keys="C_ID"
@@ -50,17 +53,18 @@
 		keys-sql-types="INTEGER">
 		<o-text-input label="M_MESSAGE" enabled="yes" attr="M_MESSAGE"></o-text-input>
 		<o-integer-input id="cid" attr="C_ID" enabled="no" [data]="c_id" hidden></o-integer-input>
-
-		<button
-			class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
-			color="primary"
-			mat-stroked-button=""
-			type="button"
-			ng-reflect-color="primary"
-			(click)="messageSend()">
-			<span class="mat-button-wrapper">
-				<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
-			</span>
-		</button>
+		<div class="cont-btn">
+			<button
+				class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted btn-style"
+				color="primary"
+				mat-stroked-button=""
+				type="button"
+				ng-reflect-color="primary"
+				(click)="messageSend()">
+				<span class="mat-button-wrapper">
+					<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
+				</span>
+			</button>
+		</div>
 	</o-form>
 </div>
