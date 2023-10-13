@@ -53,6 +53,7 @@
                 <AmbiguousColumn name="A_ID" prefix="A"  />
                 <AmbiguousColumn name="USER_" prefix="U" />
                 <AmbiguousColumn name="M_ID" prefix="M"  />
+                <AmbiguousColumn name="S_ID" prefix="S"  />
             </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
@@ -68,6 +69,7 @@
                     INNER JOIN CONVERSATIONS C ON M.C_ID = C.C_ID
                     INNER JOIN ANNOUNCES A ON C.A_ID = A.A_ID
                     INNER JOIN TUSER U ON U.USER_ = A.USER_
+                    INNER JOIN SERVICES S ON S.S_ID = A.S_ID
                     #WHERE#
                 ]]>
             </Sentence>

@@ -3,8 +3,8 @@
 		fxFlex
 		attr="table"
 		title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;A_TITLE"
-		visible-columns="A_TITLE;U_EMITTER;M_MESSAGE"
+		columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;A_TITLE;S_NAME"
+		visible-columns="A_TITLE;U_EMITTER;M_MESSAGE;S_NAME"
 		service="conversations"
 		entity="conversationMessageReceiver"
 		keys="C_ID"
@@ -31,8 +31,8 @@
 		fxFlex
 		attr="table"
 		title="{{ 'SENT_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE;USER_;A_TITLE"
-		visible-columns="A_TITLE;USER_;M_MESSAGE"
+		columns="M_ID;U_EMITTER;M_MESSAGE;USER_;A_TITLE;S_NAME"
+		visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"
 		service="conversations"
 		entity="conversationMessageEmitter"
 		keys="C_ID"
