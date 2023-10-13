@@ -22,14 +22,15 @@
 
 		<o-list
 			class="listChat"
-			pagination-controls="yes"
+			pagination-controls="no"
 			#list
 			parent-keys="C_ID"
 			columns="M_MESSAGE;M_DATETIME;U_EMITTER"
 			service="messages"
 			entity="message"
 			sort-columns="M_DATETIME"
-			delete-button="no">
+			delete-button="no"
+			query-rows="100">
 			<div>
 				<div *ngFor="let row of list.dataArray" class="chatMessage">
 					<div class="userChat">{{ row.U_EMITTER }}</div>
