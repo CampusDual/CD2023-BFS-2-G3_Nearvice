@@ -1,43 +1,51 @@
-.chatMessage {
+/* Estilo del contenedor de los mensajes */
+.chatContainer {
 	display: flex;
 	flex-direction: column;
-	align-content: space-between;
-	overflow: auto;
-	padding: 10px;
-	background-color: #f5f5f5;
-	border-radius: 5px;
-	border: 1px solid #e0e0e0;
-	margin-bottom: 10px;
-	font-size: 14px;
-	color: #000;
-	font-weight: 400;
-	line-height: 1.5;
-	word-break: break-word;
-	word-wrap: break-word;
-	-webkit-hyphens: auto;
-	-ms-hyphens: auto;
-	hyphens: auto;
-	-moz-hyphens: auto;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	height: 100%;
 }
 
+/* Estilo del cuerpo del mensaje receptor */
+.chatMessage {
+	background-color: #f5f5f5;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px 10px 10px 10px;
+	padding: 10px;
+	margin: 10px;
+	max-width: 50%;
+	align-self: flex-start;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del cuerpo del mensaje emisor */
+.meChatMessage {
+	background-color: #ebf7f3;
+	border: 1px solid #bbbbbb;
+	border-radius: 10px 2px 10px 10px;
+	padding: 10px;
+	margin: 10px;
+	max-width: 50%;
+	align-self: flex-end;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de la fecha del mensaje */
 .dateTimeChat {
 	font-size: 12px;
-	color: #999;
-	align-self: flex-end;
-	margin-left: 10px;
-	white-space: nowrap;
+	color: #666;
+	padding: 10px 0 0 0;
 }
 
+/* Estilo del nombre de usuario */
 .userChat {
-	white-space: nowrap;
-	font-size: 12px;
-	color: #999;
-	font-weight: 600;
-	margin-right: 20px;
+	font-weight: bold;
+	color: #0074a2;
+}
+
+/* Estilo del texto del mensaje */
+.messageChat {
+	font-size: 16px;
+	margin-top: 5px;
 }
 
 .formChat {
@@ -55,11 +63,11 @@
 }
 .btn-style {
 	color: black;
-	background-color: powderblue;
+	background-color: #b0d5e6;
 	border-radius: 10px;
 	width: 20%;
 }
 .btn-style:hover {
-	background-color: rgb(176, 213, 230);
+	background-color: #b0d5e6;
 	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
 }

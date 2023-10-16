@@ -17,7 +17,7 @@
 				id="professional"></o-text-input>
 
 			<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
-			<o-text-input fxFlex attr="U_CLIENT" read-only="yes" id="client"></o-text-input>
+			<o-text-input #client fxFlex attr="U_CLIENT" read-only="yes" id="client"></o-text-input>
 		</o-row>
 
 		<o-list
@@ -29,11 +29,12 @@
 			service="messages"
 			entity="message"
 			sort-columns="M_DATETIME"
-			delete-button="no">
-			<div>
+			delete-button="no"
+			query-rows="100">
+			<div class="chatContainer">
 				<div *ngFor="let row of list.dataArray" class="chatMessage">
 					<div class="userChat">{{ row.U_EMITTER }}</div>
-					<div>{{ row.M_MESSAGE }}</div>
+					<div class="messageChat">{{ row.M_MESSAGE }}</div>
 					<div class="dateTimeChat">
 						{{ row.M_DATETIME | date : "dd-MM-yyyy hh:mm" }}
 					</div>
