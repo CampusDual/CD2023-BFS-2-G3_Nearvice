@@ -33,10 +33,11 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	ngAfterViewInit() {
+	ngAfterViewInit() {}
+
+	ngAfterViewChecked() {
 		setTimeout(() => {
 			let messages = document.querySelectorAll(".chatMessage");
-
 			messages.forEach((message) => {
 				if (this.user == message.children[0].innerHTML) {
 					message.classList.remove("chatMessage");
