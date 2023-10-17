@@ -43,38 +43,6 @@
 	<o-table-row-expandable expandible-column-visible="no">
 		<ng-template let-row>
 			<home-detail-card [data]="row"></home-detail-card>
-			<!-- <mi-componente [data]="row" [name]="row.NAME"></mi-componente> -->
-
-			<!-- <o-expandable-container targets="[list]" [data]="row">
-        <o-list
-          #list
-          attr="list"
-          columns="NAME;SURNAME;USER_;EMAIL"
-          parent-keys="A_ID"
-          keys="USER_"
-          service="announces"
-          entity="announceAll"
-          refresh-button="false"
-          quick-filter="false"
-          insert-button="false"
-          row-height="medium"
-          detail-mode="none"
-          delete-button="no"
-        >
-          <o-list-item *ngFor="let row of list.dataArray">
-            <div>Hola</div>
-            <o-list-item-card
-              #item
-              title="{{ row.NAME }} {{ row.SURNAME }}"
-              subtitle="{{ row.EMAIL }}"
-              show-image="false"
-              action-1-text="{{ 'CONTACT_ME' | oTranslate }}"
-              (action-1)="onAction1()"
-            >
-            </o-list-item-card>
-          </o-list-item>
-        </o-list>
-      </o-expandable-container> -->
 		</ng-template>
 	</o-table-row-expandable>
 </o-table>
