@@ -17,32 +17,43 @@
 	</div>
 	<div fxLayout="row wrap" fxLayoutGap="14px"></div>
 	<hr />
-	<div>
-		<o-form
-			editable-detail="no"
-			show-header="no"
-			layout-direction="column"
-			service="messages"
-			entity="message"
-			columns="M_MESSAGE"
-			#form>
-			<o-text-input attr="A_ID" [data]="data.A_ID" hidden></o-text-input>
-			<o-textarea-input
-				attr="M_MESSAGE"
-				label="M_MESSAGE"
-				read-only="no"
-				rows="10"></o-textarea-input>
-			<button
-				class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
-				color="primary"
-				mat-stroked-button=""
-				type="button"
-				ng-reflect-color="primary"
-				(click)="conversationInit()">
-				<span class="mat-button-wrapper">
-					<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
-				</span>
-			</button>
-		</o-form>
-	</div>
+	<ng-container *ngIf="user !== data.USER_; else conversationButton">
+		<div>
+			<o-form
+				editable-detail="no"
+				show-header="no"
+				layout-direction="column"
+				service="messages"
+				entity="message"
+				columns="M_MESSAGE"
+				#form>
+				<o-text-input attr="A_ID" [data]="data.A_ID" hidden></o-text-input>
+				<o-textarea-input
+					attr="M_MESSAGE"
+					label="M_MESSAGE"
+					read-only="no"
+					rows="1"></o-textarea-input>
+				<button
+					class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
+					color="primary"
+					mat-stroked-button=""
+					type="button"
+					ng-reflect-color="primary"
+					(click)="conversationInit()">
+					<span class="mat-button-wrapper">
+						<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
+					</span>
+				</button>
+			</o-form>
+		</div>
+	</ng-container>
+	<ng-template #conversationButton>
+		<button
+			class="mat-stroked-button mat-button-base mat-primary ng-star-inserted"
+			color="primary"
+			type="button"
+			(click)="goToAnnounceDetail()">
+			<span class="mat-button-wrapper">Go to Announce Detail</span>
+		</button>
+	</ng-template>
 </o-column>
