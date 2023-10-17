@@ -36,5 +36,7 @@
 	"SEND": "Send",
 	"PROFESSIONAL": "Professional",
 	"U_CLIENT": "Client",
-	"GO_ANNOUNCE": "Go to the announcement"
+	"GO_ANNOUNCE": "Go to the announcement",
+	"A_LATITUDE": "Latitude",
+	"A_LONGITUDE": "Longitude"
 }

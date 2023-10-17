@@ -7,9 +7,11 @@
 		service="conversations"
 		entity="conversation"
 		keys-sql-types="INTEGER"
-		keys="C_ID">
+		keys="C_ID"
+		(onDataLoaded)="getData()">
 		<o-row>
 			<o-text-input
+				#inputP
 				fxFlex
 				label="PROFESSIONAL"
 				attr="USER_"
@@ -17,7 +19,7 @@
 				id="professional"></o-text-input>
 
 			<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
-			<o-text-input #client fxFlex attr="U_CLIENT" read-only="yes" id="client"></o-text-input>
+			<o-text-input #inputC fxFlex attr="U_CLIENT" read-only="yes" id="client"></o-text-input>
 		</o-row>
 
 		<o-list

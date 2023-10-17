@@ -14,6 +14,8 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	user: any;
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
+	@ViewChild("inputP", { static: false }) inputP: OTextInputComponent;
+	@ViewChild("inputC", { static: false }) inputC: OTextInputComponent;
 
 	constructor(private route: ActivatedRoute) {}
 
@@ -25,6 +27,16 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		this.localStorageData = localStorage.getItem("com.ontimize.web.ngx.jee.seed");
 		this.sessionData = JSON.parse(this.localStorageData);
 		this.user = this.sessionData.session.user;
+	}
+	getData() {
+		let user_ = this.inputP.getValue();
+		let u_client = this.inputC.getValue();
+
+		if (this.user === user_) {
+			this.inputP.elementRef.nativeElement.style.display = "none";
+		} else if (this.user === u_client) {
+			this.inputC.elementRef.nativeElement.style.display = "none";
+		}
 	}
 
 	messageSend() {
