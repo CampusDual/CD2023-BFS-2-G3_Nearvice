@@ -15,6 +15,9 @@
 	<o-text-input attr="A_TITLE"></o-text-input>
 	<o-textarea-input attr="A_DESCRIPTION"></o-textarea-input>
 	<o-checkbox attr="A_ACTIVE"></o-checkbox>
-	<o-real-input attr="A_LATITUDE"></o-real-input>
-	<o-real-input attr="A_LONGITUDE"></o-real-input>
+	<div>
+		<span>{{ "LOCATION" | oTranslate }}</span>
+		<o-real-input attr="A_LATITUDE"></o-real-input>
+		<o-real-input attr="A_LONGITUDE"></o-real-input>
+	</div>
 </o-form>

@@ -38,5 +38,6 @@
 	"U_CLIENT": "Client",
 	"GO_ANNOUNCE": "Go to the announcement",
 	"A_LATITUDE": "Latitude",
-	"A_LONGITUDE": "Longitude"
+	"A_LONGITUDE": "Longitude",
+	"LOCATION": "Location"
 }
