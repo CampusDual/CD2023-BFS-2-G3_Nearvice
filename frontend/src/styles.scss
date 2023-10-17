@@ -10,3 +10,7 @@
 .mat-stroked-button {
 	display: none;
 }
+
+.o-table .mat-table .mat-row:hover:not(.o-table-group-row) {
+	background: rgba(0, 0, 0, 0);
+}

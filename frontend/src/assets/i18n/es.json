@@ -35,5 +35,6 @@
 	"FULL_NAME": "Nombre",
 	"SEND": "Enviar",
 	"PROFESSIONAL": "Profesional",
-	"U_CLIENT": "Cliente"
+	"U_CLIENT": "Cliente",
+	"GO_ANNOUNCE": "Ir al anuncio"
 }

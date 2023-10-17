@@ -10,7 +10,7 @@
 			<strong>{{ "FULL_NAME" | oTranslate }}</strong>
 			: {{ data.NAME }} {{ data.SURNAME }}
 		</span>
-		<span fxFlex="20%">
+		<span fxFlex="20%" *ngIf="data.EMAIL">
 			<strong>{{ "EMAIL" | oTranslate }}</strong>
 			: {{ data.EMAIL }}
 		</span>
@@ -53,7 +53,7 @@
 			color="primary"
 			type="button"
 			(click)="goToAnnounceDetail()">
-			<span class="mat-button-wrapper">Go to Announce Detail</span>
+			<span class="mat-button-wrapper">{{ "GO_ANNOUNCE" | oTranslate }}</span>
 		</button>
 	</ng-template>
 </o-column>
