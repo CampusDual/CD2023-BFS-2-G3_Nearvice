@@ -1,0 +1,311 @@
+@import "node_modules/@angular/material/theming";
+// Include non-theme styles for core.
+@include mat-core();
+$mat-custom-primary: (
+	50: #fff8ea,
+	100: #fef6e2,
+	200: #fef1d2,
+	300: #fee7b1,
+	400: #ffca4f,
+	500: #ffc847,
+	600: #ffc53f,
+	700: #ffb70e,
+	800: #ffb406,
+	900: #fcb100,
+	A100: #ffffff,
+	A200: #fff9ee,
+	A400: #ffe8bb,
+	A700: #ffe0a1,
+
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #000000,
+		600: #000000,
+		700: #000000,
+		800: #000000,
+		900: #000000,
+		A100: #000000,
+		A200: #000000,
+		A400: #000000,
+		A700: #000000,
+	),
+);
+
+$mat-custom-accent: (
+	50: #ecf0f4,
+	100: #e2e8ee,
+	200: #c8d3df,
+	300: #a9bacd,
+	400: #8fa5be,
+	500: #708cac,
+	600: #536f90,
+	700: #536f90,
+	800: #2c3b4d,
+	900: #1a232e,
+	A100: #ffffff,
+	A200: #e3f7ff,
+	A400: #bcf4ff,
+	A700: #a9f3ff,
+
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #000000,
+		600: #000000,
+		700: #000000,
+		800: #000000,
+		900: #000000,
+		A100: #000000,
+		A200: #000000,
+		A400: #000000,
+		A700: #000000,
+	),
+);
+$mat-custom-secondary: (
+	50: #fcfbf3,
+	100: #f8f5e1,
+	200: #f4efce,
+	300: #efe9ba,
+	400: #ebe4ab,
+	500: #e8df9c,
+	600: #e5db94,
+	700: #e2d78a,
+	800: #ded280,
+	900: #d8ca6e,
+	A100: #ffffff,
+	A200: #ffffff,
+	A400: #fffceb,
+	A700: #fff9d1,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #000000,
+		600: #000000,
+		700: #000000,
+		800: #000000,
+		900: #000000,
+		A100: #000000,
+		A200: #000000,
+		A400: #000000,
+		A700: #000000,
+	),
+);
+$md-mcgpalette0: (
+	50: #fcf8ec,
+	100: #f9eed0,
+	200: #f5e3b0,
+	300: #f0d890,
+	400: #edcf79,
+	500: #eac761,
+	600: #e7c159,
+	700: #e4ba4f,
+	800: #e1b345,
+	900: #dba633,
+	A100: #ffffff,
+	A200: #fff9ee,
+	A400: #ffe8bb,
+	A700: #ffe0a1,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #000000,
+		600: #000000,
+		700: #000000,
+		800: #000000,
+		900: #000000,
+		A100: #000000,
+		A200: #000000,
+		A400: #000000,
+		A700: #000000,
+	),
+);
+$md-mcgpalette0: (
+	50: #feecea,
+	100: #fdcfcb,
+	200: #fbafa8,
+	300: #f98e85,
+	400: #f8766a,
+	500: #f75e50,
+	600: #f65649,
+	700: #f54c40,
+	800: #f34237,
+	900: #f13127,
+	A100: #ffffff,
+	A200: #fffafa,
+	A400: #ffc9c7,
+	A700: #ffb1ad,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #000000,
+		600: #000000,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+		A100: #000000,
+		A200: #000000,
+		A400: #000000,
+		A700: #000000,
+	),
+);
+$md-mcgpalette0: (
+	50: #efefed,
+	100: #d8d6d2,
+	200: #bebbb4,
+	300: #a4a096,
+	400: #918b80,
+	500: #7d7769,
+	600: #756f61,
+	700: #6a6456,
+	800: #605a4c,
+	900: #4d473b,
+	A100: #fee1a6,
+	A200: #fdcf74,
+	A400: #ffbf3f,
+	A700: #ffb625,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #ffffff,
+		600: #ffffff,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+		A100: #000000,
+		A200: #000000,
+		A400: #000000,
+		A700: #000000,
+	),
+);
+// Define a theme.
+$primary: mat-palette($mat-custom-primary);
+$accent: mat-palette($mat-custom-accent);
+$background-color: #eceff1;
+
+$balance-bg-color: mat-palette($md-mcgpalette0);
+
+@mixin mat-button-theme($balance-bg-color) {
+	$primary: map-get($balance-bg-color, primary);
+	$accent: map-get($balance-bg-color, accent);
+	$warn: map-get($balance-bg-color, warn);
+	$background: map-get($balance-bg-color, background);
+	$foreground: map-get($balance-bg-color, foreground);
+
+	.mat-button,
+	.mat-icon-button,
+	.mat-stroked-button {
+		// Buttons without a background color should inherit the font color. This is necessary to
+		// ensure that the button is readable on custom background colors. It's wrong to always assume
+		// that those buttons are always placed inside of containers with the default background
+		// color of the theme (e.g. themed toolbars).
+		color: inherit;
+		background: transparent;
+
+		@include _mat-button-theme-property($balance-bg-color, "color", text);
+		@include _mat-button-focus-overlay-color($balance-bg-color);
+
+		// Setup the ripple color to be based on the text color. This ensures that the ripples
+		// are matching with the current theme palette and are in contrast to the background color
+		// (e.g in themed toolbars).
+		.mat-ripple-element {
+			opacity: $_mat-button-ripple-opacity;
+			background-color: currentColor;
+		}
+	}
+
+	.mat-button-focus-overlay {
+		background: map_get($foreground, base);
+	}
+
+	// Note: this needs a bit extra specificity, because we're not guaranteed the inclusion
+	// order of the theme styles and the button reset may end up resetting this as well.
+	.mat-stroked-button:not([disabled]) {
+		border-color: mat-color($foreground, divider);
+	}
+
+	.mat-flat-button,
+	.mat-raised-button,
+	.mat-fab,
+	.mat-mini-fab {
+		// Default font and background color when not using any color palette.
+		color: mat-color($foreground, text);
+		background-color: mat-color($background, raised-button);
+
+		@include _mat-button-theme-property($theme, "color", default-contrast);
+		@include _mat-button-theme-property($theme, "background-color", default);
+		@include _mat-button-ripple-color($theme, default-contrast);
+	}
+
+	.mat-stroked-button,
+	.mat-flat-button {
+		@include _mat-theme-overridable-elevation(0, $theme);
+	}
+
+	.mat-raised-button {
+		@include _mat-theme-overridable-elevation(2, $theme);
+
+		&:not([disabled]):active {
+			@include _mat-theme-overridable-elevation(8, $theme);
+		}
+
+		&[disabled] {
+			@include _mat-theme-overridable-elevation(0, $theme);
+		}
+	}
+
+	.mat-fab,
+	.mat-mini-fab {
+		@include _mat-theme-overridable-elevation(6, $theme);
+
+		&:not([disabled]):active {
+			@include _mat-theme-overridable-elevation(12, $theme);
+		}
+
+		&[disabled] {
+			@include _mat-theme-overridable-elevation(0, $theme);
+		}
+	}
+}
+
+/* Light theme */
+$theme: mat-light-theme($primary, $accent);
+
+// Insert custom background color
+$background: map-get($theme, background);
+$background: map_merge(
+	$background,
+	(
+		background: $background-color,
+	)
+);
+
+$theme: map_merge(
+	$theme,
+	(
+		background: $background,
+	)
+);
+
+/* Dark theme */
+$primary-dark: mat-palette($mat-custom-primary);
+$accent-dark: mat-palette($mat-custom-accent);
+$dark-theme: mat-dark-theme($primary-dark, $accent-dark);

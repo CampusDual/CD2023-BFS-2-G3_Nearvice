@@ -8,8 +8,7 @@
 // @import 'node_modules/ontimize-web-ngx-theming/src/themes/mat-pink-bluegrey.scss';
 // @import 'node_modules/ontimize-web-ngx-theming/src/themes/mat-purple-green.scss';
 @import "node_modules/ontimize-web-ngx-theming/src/themes/ontimize.scss";
-
-// Include ontimize theme
+@import "custom-theme.scss";
 @include ontimize-theme-styles($theme);
 // Include ontimize-lite theme
 // @import 'node_modules/ontimize-web-ngx-theming/ontimize-theme-lite.scss';
