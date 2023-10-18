@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { OFormComponent, OTextInputComponent } from "ontimize-web-ngx";
+import { OFormComponent, OListComponent, OTextInputComponent } from "ontimize-web-ngx";
 
 @Component({
 	selector: "app-mailbox-chat",
@@ -12,10 +12,12 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	localStorageData: any;
 	sessionData: any;
 	user: any;
+	//counter: any = 0;
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("inputP", { static: false }) inputP: OTextInputComponent;
 	@ViewChild("inputC", { static: false }) inputC: OTextInputComponent;
+	//@ViewChild("chatList", { static: false }) chatList: OListComponent;
 
 	constructor(private route: ActivatedRoute) {}
 
@@ -39,6 +41,10 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		}
 	}
 
+	// dinamicQueryRows() {
+	// 	this.chatList.queryRows = this.counter;
+	// }
+
 	messageSend() {
 		if (this.form && this.form.insert) {
 			this.form.insert();
@@ -55,8 +61,10 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 					message.classList.remove("chatMessage");
 					message.classList.add("meChatMessage");
 					message.children[0].remove();
+					//this.counter++;
 				}
 			});
 		}, 500);
+		//this.dinamicQueryRows();
 	}
 }
