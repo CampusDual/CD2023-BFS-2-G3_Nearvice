@@ -39,5 +39,6 @@
 	"GO_ANNOUNCE": "Ir al anuncio",
 	"A_LATITUDE": "Latitud",
 	"A_LONGITUDE": "Longitud",
-	"LOCATION": "Ubicación"
+	"LOCATION": "Ubicación",
+	"GO_CHAT": "Ir al chat"
 }

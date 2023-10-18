@@ -39,5 +39,6 @@
 	"GO_ANNOUNCE": "Go to the announcement",
 	"A_LATITUDE": "Latitude",
 	"A_LONGITUDE": "Longitude",
-	"LOCATION": "Location"
+	"LOCATION": "Location",
+	"GO_CHAT": "Go to chat"
 }
