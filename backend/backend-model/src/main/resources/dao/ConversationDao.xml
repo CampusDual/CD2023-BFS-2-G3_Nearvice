@@ -43,6 +43,7 @@
                         FROM CONVERSATIONS C
                         INNER JOIN ANNOUNCES A ON C.A_ID = A.A_ID
                         INNER JOIN TUSER U ON U.USER_ = A.USER_
+                        INNER JOIN SERVICES S ON S.S_ID = A.S_ID
                         #WHERE#
                 ]]>
             </Sentence>
