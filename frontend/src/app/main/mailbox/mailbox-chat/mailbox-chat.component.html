@@ -32,7 +32,8 @@
 			entity="message"
 			sort-columns="M_DATETIME:DESC"
 			delete-button="no"
-			query-rows="1000">
+			[query-rows]="rowsToQuery"
+			(onDataLoaded)="dinamicQueryRows($event)">
 			<div class="chatContainer">
 				<div *ngFor="let row of chatList.dataArray" class="chatMessage">
 					<div class="userChat">{{ row.U_EMITTER }}</div>

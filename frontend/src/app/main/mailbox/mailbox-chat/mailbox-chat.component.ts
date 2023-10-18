@@ -11,13 +11,13 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	c_id: number;
 	localStorageData: any;
 	sessionData: any;
-	user: any;
-	//counter: any = 0;
+	user: string;
+	rowsToQuery: number = 3;
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("inputP", { static: false }) inputP: OTextInputComponent;
 	@ViewChild("inputC", { static: false }) inputC: OTextInputComponent;
-	//@ViewChild("chatList", { static: false }) chatList: OListComponent;
+	@ViewChild("chatList", { static: false }) chatList: OListComponent;
 
 	constructor(private route: ActivatedRoute) {}
 
@@ -41,9 +41,9 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	// dinamicQueryRows() {
-	// 	this.chatList.queryRows = this.counter;
-	// }
+	dinamicQueryRows(event: Array<any>) {
+		this.rowsToQuery = event.length;
+	}
 
 	messageSend() {
 		if (this.form && this.form.insert) {
