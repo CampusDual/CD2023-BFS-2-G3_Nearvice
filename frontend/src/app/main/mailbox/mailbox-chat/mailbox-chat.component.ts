@@ -13,6 +13,8 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	sessionData: any;
 	user: string;
 	rowsToQuery: number = 3;
+	professionalCondition: boolean = true;
+	clientCondition: boolean = true;
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("inputP", { static: false }) inputP: OTextInputComponent;
@@ -35,9 +37,9 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		let u_client = this.inputC.getValue();
 
 		if (this.user === user_) {
-			this.inputP.elementRef.nativeElement.style.display = "none";
+			this.professionalCondition = false;
 		} else if (this.user === u_client) {
-			this.inputC.elementRef.nativeElement.style.display = "none";
+			this.clientCondition = false;
 		}
 	}
 

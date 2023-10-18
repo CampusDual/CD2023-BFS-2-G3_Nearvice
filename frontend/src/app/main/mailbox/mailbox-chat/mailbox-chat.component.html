@@ -11,6 +11,7 @@
 		(onDataLoaded)="getData()">
 		<o-row>
 			<o-text-input
+				*ngIf="professionalCondition"
 				#inputP
 				fxFlex
 				label="PROFESSIONAL"
@@ -19,7 +20,13 @@
 				id="professional"></o-text-input>
 
 			<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
-			<o-text-input #inputC fxFlex attr="U_CLIENT" read-only="yes" id="client"></o-text-input>
+			<o-text-input
+				*ngIf="clientCondition"
+				#inputC
+				fxFlex
+				attr="U_CLIENT"
+				read-only="yes"
+				id="client"></o-text-input>
 		</o-row>
 
 		<o-list
