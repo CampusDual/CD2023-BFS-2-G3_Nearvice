@@ -13,11 +13,13 @@
 		required="true"
 		read-only="false"></o-combo>
 	<o-text-input attr="A_TITLE"></o-text-input>
-	<o-textarea-input attr="A_DESCRIPTION"></o-textarea-input>
+	<o-textarea-input attr="A_DESCRIPTION" rows="3"></o-textarea-input>
 	<o-checkbox attr="A_ACTIVE"></o-checkbox>
 	<div>
 		<span>{{ "LOCATION" | oTranslate }}</span>
-		<o-real-input attr="A_LATITUDE"></o-real-input>
-		<o-real-input attr="A_LONGITUDE"></o-real-input>
+		<o-row>
+			<o-real-input attr="A_LATITUDE" max-decimal-digits="10"></o-real-input>
+			<o-real-input attr="A_LONGITUDE" max-decimal-digits="10"></o-real-input>
+		</o-row>
 	</div>
 </o-form>
