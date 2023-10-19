@@ -12,7 +12,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	localStorageData: any;
 	sessionData: any;
 	user: string;
-	rowsToQuery: number = 3;
+	rowsToQuery: number = 0;
 	professionalCondition: boolean = true;
 	clientCondition: boolean = true;
 
@@ -50,6 +50,9 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	messageSend() {
 		if (this.form && this.form.insert) {
 			this.form.insert();
+			setTimeout(() => {
+				this.chatList.reloadData();
+			}, 100);
 		}
 	}
 
