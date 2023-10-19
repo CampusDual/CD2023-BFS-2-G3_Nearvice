@@ -3,6 +3,38 @@
 	cursor: context-menu;
 }
 
-.goToChatBtn {
+.textArea {
+	padding: 10px;
+	margin: 0px 10px 10px 10px;
+	max-width: 100%;
+	line-height: 1.5;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 1px #999;
+}
+
+.contactInfo {
+	display: flex;
+	justify-content: center;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+hr {
+	display: none !important;
+}
+
+.sendBtn {
+	display: flex;
+	align-self: center;
+	justify-content: center;
 	width: 100%;
+	background-color: #f5f5f5;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px #999;
+}
+
+.sendBtn span {
+	font-weight: bold;
 }

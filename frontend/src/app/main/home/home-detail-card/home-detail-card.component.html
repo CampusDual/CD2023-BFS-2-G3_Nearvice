@@ -6,7 +6,7 @@
 	multiline="yes"
 	tooltip="yes"
 	class="detailCard">
-	<div fxLayout="row wrap" fxLayoutGap="14px">
+	<div class="contactInfo">
 		<span fxFlex="30%">
 			<strong>{{ "FULL_NAME" | oTranslate }}</strong>
 			: {{ data.NAME }} {{ data.SURNAME }}
@@ -34,9 +34,11 @@
 						attr="M_MESSAGE"
 						label="M_MESSAGE"
 						read-only="no"
-						rows="1"></o-textarea-input>
+						rows="1"
+						class="textArea"
+						rows="3"></o-textarea-input>
 					<button
-						class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted"
+						class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted sendBtn"
 						color="primary"
 						mat-stroked-button=""
 						type="button"
@@ -52,7 +54,7 @@
 	</ng-container>
 	<ng-template #conversationButton>
 		<button
-			class="mat-stroked-button mat-button-base mat-primary ng-star-inserted goToChatBtn"
+			class="mat-stroked-button mat-button-base mat-primary ng-star-inserted sendBtn"
 			color="primary"
 			type="button"
 			(click)="goToChat()">
@@ -61,7 +63,7 @@
 	</ng-template>
 	<ng-template #announceDetail>
 		<button
-			class="mat-stroked-button mat-button-base mat-primary ng-star-inserted"
+			class="mat-stroked-button mat-button-base mat-primary ng-star-inserted sendBtn"
 			color="primary"
 			type="button"
 			(click)="goToAnnounceDetail()">
