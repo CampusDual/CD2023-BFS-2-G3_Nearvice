@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild, Renderer2 } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OFormComponent, OListComponent, OTextInputComponent } from "ontimize-web-ngx";
 
@@ -21,7 +21,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	@ViewChild("inputC", { static: false }) inputC: OTextInputComponent;
 	@ViewChild("chatList", { static: false }) chatList: OListComponent;
 
-	constructor(private route: ActivatedRoute) {}
+	constructor(private route: ActivatedRoute, private renderer: Renderer2) {}
 
 	ngOnInit() {
 		this.route.params.subscribe((params) => {
@@ -55,18 +55,41 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 
 	ngAfterViewInit() {}
 
-	ngAfterViewChecked() {
-		setTimeout(() => {
-			let messages = document.querySelectorAll(".chatMessage");
-			messages.forEach((message) => {
-				if (this.user == message.children[0].innerHTML) {
-					message.classList.remove("chatMessage");
-					message.classList.add("meChatMessage");
-					message.children[0].remove();
-					//this.counter++;
-				}
-			});
-		}, 500);
-		//this.dinamicQueryRows();
+	getChatMessageStyles(row: any): any {
+		let myChatMessagesStyles: any = {
+			"background-color": "#ebf7f3",
+			border: "1px solid #bbbbbb",
+			"border-radius": "10px 2px 10px 10px",
+			padding: "10px",
+			margin: "10px",
+			"max-width": "80%",
+			"align-self": "flex-end",
+			"box-shadow": "inset 0px 0px 5px rgba(0, 0, 0, 0.2)",
+		};
+		let chatMessagesStyles: any = {
+			border: "1px solid #bbbbbb",
+			"border-radius": "2px 10px 10px 10px",
+			padding: "10px",
+			margin: "10px",
+			"max-width": "80%",
+			"align-self": "flex-start",
+			"box-shadow": "inset 0px 0px 5px rgba(0, 0, 0, 0.2)",
+		};
+
+		if (this.user === row.U_EMITTER) {
+			return myChatMessagesStyles;
+		} else {
+			return chatMessagesStyles;
+		}
+	}
+
+	uEmitterStyles(row: any): any {
+		let uEmitterUserStyles: any = {
+			display: "none",
+		};
+
+		if (this.user === row.U_EMITTER) {
+			return uEmitterUserStyles;
+		}
 	}
 }

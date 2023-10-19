@@ -9,27 +9,34 @@
 		keys-sql-types="INTEGER"
 		keys="C_ID"
 		(onDataLoaded)="getData()">
-		<o-row>
-			<o-text-input
-				*ngIf="professionalCondition"
-				#inputP
-				fxFlex
-				label="PROFESSIONAL"
-				attr="USER_"
-				read-only="yes"
-				id="professional"></o-text-input>
-
-			<o-text-input fxFlex attr="A_TITLE" read-only="yes"></o-text-input>
-			<o-text-input fxFlex attr="S_NAME" read-only="yes"></o-text-input>
-			<o-textarea-input fxFlex attr="A_DESCRIPTION" read-only="yes"></o-textarea-input>
-			<o-text-input
-				*ngIf="clientCondition"
-				#inputC
-				fxFlex
-				attr="U_CLIENT"
-				read-only="yes"
-				id="client"></o-text-input>
-		</o-row>
+		<div class="custom-container">
+			<o-row>
+				<o-text-input
+					*ngIf="professionalCondition"
+					#inputP
+					fxFlex="10%"
+					label="PROFESSIONAL"
+					attr="USER_"
+					read-only="yes"
+					id="professional"></o-text-input>
+				<o-text-input
+					*ngIf="clientCondition"
+					#inputC
+					fxFlex="10%"
+					attr="U_CLIENT"
+					read-only="yes"
+					id="client"></o-text-input>
+				<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
+			</o-row>
+			<o-row>
+				<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
+				<o-textarea-input
+					fxFlex="50%"
+					attr="A_DESCRIPTION"
+					read-only="yes"
+					rows="2"></o-textarea-input>
+			</o-row>
+		</div>
 
 		<o-list
 			class="listChat"
@@ -44,8 +51,8 @@
 			[query-rows]="rowsToQuery"
 			(onDataLoaded)="dinamicQueryRows($event)">
 			<div class="chatContainer">
-				<div *ngFor="let row of chatList.dataArray" class="chatMessage">
-					<div class="userChat">{{ row.U_EMITTER }}</div>
+				<div *ngFor="let row of chatList.dataArray" [ngStyle]="getChatMessageStyles(row)">
+					<div class="userChat" [ngStyle]="uEmitterStyles(row)">{{ row.U_EMITTER }}</div>
 					<div class="messageChat">{{ row.M_MESSAGE }}</div>
 					<div class="dateTimeChat">
 						{{ row.M_DATETIME | date : "dd-MM-yyyy hh:mm" }}
