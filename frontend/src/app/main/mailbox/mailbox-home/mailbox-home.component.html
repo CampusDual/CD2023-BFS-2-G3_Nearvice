@@ -3,8 +3,8 @@
 		fxFlex
 		attr="table"
 		title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;A_TITLE;S_NAME"
-		visible-columns="A_TITLE;U_EMITTER;M_MESSAGE;S_NAME"
+		columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME"
+		visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME"
 		service="conversations"
 		entity="conversationMessageReceiver"
 		keys="C_ID"
@@ -16,11 +16,7 @@
 		auto-adjust="true"
 		virtual-scroll="no">
 		<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" width="auto"></o-table-column>
-		<o-table-column
-			attr="U_EMITTER"
-			title="U_EMITTER"
-			multiline="yes"
-			width="auto"></o-table-column>
+		<o-table-column attr="U_CLIENT" title="U_CLIENT" multiline="yes" width="auto"></o-table-column>
 		<o-table-column
 			attr="M_MESSAGE"
 			title="M_MESSAGE"

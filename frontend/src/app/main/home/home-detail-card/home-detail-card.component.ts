@@ -32,7 +32,6 @@ export class HomeDetailCardComponent implements OnInit {
 	}
 
 	protected configureService() {
-		// Configure the service using the configuration defined in the `app.services.config.ts` file
 		const conf = this.service.getDefaultServiceConfiguration("conversations");
 		this.service.configureService(conf);
 	}
