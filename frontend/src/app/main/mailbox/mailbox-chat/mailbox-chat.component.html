@@ -10,32 +10,24 @@
 		keys="C_ID"
 		(onDataLoaded)="getData()">
 		<div class="custom-container">
-			<o-row>
-				<o-text-input
-					*ngIf="professionalCondition"
-					#inputP
-					fxFlex="10%"
-					label="PROFESSIONAL"
-					attr="USER_"
-					read-only="yes"
-					id="professional"></o-text-input>
-				<o-text-input
-					*ngIf="clientCondition"
-					#inputC
-					fxFlex="10%"
-					attr="U_CLIENT"
-					read-only="yes"
-					id="client"></o-text-input>
-				<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
-			</o-row>
-			<o-row>
-				<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
-				<o-textarea-input
-					fxFlex="50%"
-					attr="A_DESCRIPTION"
-					read-only="yes"
-					rows="2"></o-textarea-input>
-			</o-row>
+			<o-text-input
+				*ngIf="professionalCondition"
+				#inputP
+				fxFlex="10%"
+				label="PROFESSIONAL"
+				attr="USER_"
+				read-only="yes"
+				id="professional"></o-text-input>
+			<o-text-input
+				*ngIf="clientCondition"
+				#inputC
+				fxFlex="10%"
+				attr="U_CLIENT"
+				read-only="yes"
+				id="client"></o-text-input>
+			<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
+
+			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
 		</div>
 
 		<o-list
