@@ -13,5 +13,12 @@
 		read-only="false"></o-combo>
 	<o-text-input attr="A_TITLE"></o-text-input>
 	<o-text-input attr="A_DESCRIPTION"></o-text-input>
+	<div>
+		<span>{{ "LOCATION" | oTranslate }}</span>
+		<o-row>
+			<o-real-input attr="A_LATITUDE" max-decimal-digits="10"></o-real-input>
+			<o-real-input attr="A_LONGITUDE" max-decimal-digits="10"></o-real-input>
+		</o-row>
+	</div>
 	<o-checkbox #ocheckbox attr="A_ACTIVE" [data]="true"></o-checkbox>
 </o-form>
