@@ -1,4 +1,4 @@
-<div class="padding-bottom">
+<div class="padding-bottom container">
 	<o-form
 		#formM
 		show-header="no"
@@ -63,20 +63,26 @@
 		undo-button="no"
 		layout-direction="column"
 		keys-sql-types="INTEGER">
-		<o-text-input label="M_MESSAGE" enabled="yes" attr="M_MESSAGE"></o-text-input>
-		<o-integer-input id="cid" attr="C_ID" enabled="no" [data]="c_id" hidden></o-integer-input>
-		<div class="cont-btn">
-			<button
-				class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted btn-style"
-				color="primary"
-				mat-stroked-button=""
-				type="button"
-				ng-reflect-color="primary"
-				(click)="messageSend()">
-				<span class="mat-button-wrapper">
-					<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
-				</span>
-			</button>
+		<div class="messageAndBtn">
+			<o-text-input
+				label="M_MESSAGE"
+				enabled="yes"
+				attr="M_MESSAGE"
+				class="textInputMessage"></o-text-input>
+			<o-integer-input id="cid" attr="C_ID" enabled="no" [data]="c_id" hidden></o-integer-input>
+			<div class="cont-btn">
+				<button
+					class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted btn-style"
+					color="primary"
+					mat-stroked-button=""
+					type="button"
+					ng-reflect-color="primary"
+					(click)="messageSend()">
+					<span class="mat-button-wrapper">
+						<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
+					</span>
+				</button>
+			</div>
 		</div>
 	</o-form>
 </div>

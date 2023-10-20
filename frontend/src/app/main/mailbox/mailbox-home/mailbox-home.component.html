@@ -22,12 +22,13 @@
 			title="M_MESSAGE"
 			multiline="yes"
 			tooltip="yes"></o-table-column>
+		<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
 	</o-table>
 	<o-table
 		fxFlex
 		attr="table"
 		title="{{ 'SENT_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE;USER_;A_TITLE;S_NAME"
+		columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME"
 		visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"
 		service="conversations"
 		entity="conversationMessageEmitter"
@@ -46,5 +47,6 @@
 			title="M_MESSAGE"
 			multiline="yes"
 			tooltip="yes"></o-table-column>
+		<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
 	</o-table>
 </div>
