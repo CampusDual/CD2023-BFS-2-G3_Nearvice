@@ -51,6 +51,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.form && this.form.insert) {
 			this.form.insert();
 			setTimeout(() => {
+				this.rowsToQuery++;
 				this.chatList.reloadData();
 			}, 100);
 		}
