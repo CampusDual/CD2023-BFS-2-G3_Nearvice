@@ -40,5 +40,6 @@
 	"A_LATITUDE": "Latitud",
 	"A_LONGITUDE": "Longitud",
 	"LOCATION": "Ubicación",
-	"GO_CHAT": "Ir al chat"
+	"GO_CHAT": "Ir al chat",
+	"AGREEMENT_BTN": "Enviar oferta"
 }

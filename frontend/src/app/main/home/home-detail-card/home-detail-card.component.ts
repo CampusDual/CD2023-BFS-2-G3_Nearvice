@@ -50,8 +50,6 @@ export class HomeDetailCardComponent implements OnInit {
 						this.conversationExists = true;
 						this.conversation = resp.data[0].C_ID;
 					}
-				} else {
-					console.log("Impossible to query data!");
 				}
 			});
 		}

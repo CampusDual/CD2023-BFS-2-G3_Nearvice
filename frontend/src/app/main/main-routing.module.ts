@@ -24,6 +24,11 @@ export const routes: Routes = [
 				path: "mailbox",
 				loadChildren: () => import("./mailbox/mailbox.module").then((m) => m.MailboxModule),
 			},
+			{
+				path: "agreements",
+				loadChildren: () =>
+					import("./agreements/agreements.module").then((m) => m.AgreementsModule),
+			},
 		],
 	},
 ];
