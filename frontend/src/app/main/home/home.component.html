@@ -1,11 +1,12 @@
 <o-table
 	fxFill
 	#table
+	*ngIf="locationObtained"
 	columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL;A_LATITUDE;A_LONGITUDE"
 	visible-columns="S_NAME;A_TITLE;A_DESCRIPTION;USER_;DISTANCE"
 	service="announces"
 	entity="announceAll"
-	title="CUSTOMERS"
+	title="ANNOUNCES"
 	insert-button="no"
 	delete-button="no"
 	refresh-button="no"
@@ -16,7 +17,7 @@
 	query-rows="10"
 	(onClick)="onClick($event)"
 	fixed-header="yes"
-	sort-columns="A_ID:DESC"
+	sort-columns="DISTANCE"
 	auto-adjust="true"
 	virtual-scroll="no">
 	<o-table-column
@@ -52,4 +53,3 @@
 		</ng-template>
 	</o-table-row-expandable>
 </o-table>
-<!-- *ngIf="locationObtained" -->

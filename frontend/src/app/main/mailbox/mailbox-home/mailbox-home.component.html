@@ -1,7 +1,6 @@
 <div style="display: flex; flex-direction: column">
 	<o-table
 		fxFlex
-		attr="table"
 		title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
 		columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME"
 		visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME"
@@ -26,7 +25,6 @@
 	</o-table>
 	<o-table
 		fxFlex
-		attr="table"
 		title="{{ 'SENT_MESSAGES' | oTranslate }}"
 		columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME"
 		visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"

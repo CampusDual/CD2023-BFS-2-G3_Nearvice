@@ -8,16 +8,16 @@ import { ActivatedRoute, Router } from "@angular/router";
 	styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-	constructor(private router: Router, private actRoute: ActivatedRoute) {
-		this.geoLocation();
-	}
-
 	latitude: number;
 	longitude: number;
 	error: string;
 	locationObtained = false;
 
-	@ViewChild("table", { static: true }) table: OTableComponent;
+	@ViewChild("table", { static: false }) table: OTableComponent;
+
+	constructor(private router: Router, private actRoute: ActivatedRoute) {
+		this.geoLocation();
+	}
 
 	onClick(event: OnClickTableEvent) {
 		this.table.toogleRowExpandable(event.row, event.rowIndex, event.mouseEvent);
