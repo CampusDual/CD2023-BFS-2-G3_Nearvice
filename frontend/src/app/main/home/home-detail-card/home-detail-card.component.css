@@ -21,10 +21,6 @@
 	padding: 0px !important;
 }
 
-hr {
-	display: none !important;
-}
-
 .sendBtn {
 	display: flex;
 	align-self: center;

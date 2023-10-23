@@ -1,8 +1,8 @@
 <o-table
 	fxFill
 	#table
-	columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL"
-	visible-columns="S_NAME;A_TITLE;A_DESCRIPTION;USER_"
+	columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL;A_LATITUDE;A_LONGITUDE"
+	visible-columns="S_NAME;A_TITLE;A_DESCRIPTION;USER_;DISTANCE"
 	service="announces"
 	entity="announceAll"
 	title="CUSTOMERS"
@@ -40,9 +40,16 @@
 		layout-gap="12px"
 		multiline="yes"
 		tooltip="yes"></o-table-column>
+	<o-table-column-calculated
+		attr="DISTANCE"
+		title="DISTANCE"
+		type="real"
+		[operation-function]="getDistanceCalculator()"></o-table-column-calculated>
+
 	<o-table-row-expandable expandible-column-visible="no">
 		<ng-template let-row>
 			<home-detail-card [data]="row"></home-detail-card>
 		</ng-template>
 	</o-table-row-expandable>
 </o-table>
+<!-- *ngIf="locationObtained" -->
