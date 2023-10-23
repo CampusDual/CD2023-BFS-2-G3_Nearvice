@@ -2,7 +2,7 @@
 .chatContainer {
 	display: flex;
 	flex-direction: column;
-	height: 68.5vh;
+	min-height: calc(100vh - 305px);
 }
 
 /* Estilo del cuerpo del mensaje receptor */
@@ -59,11 +59,13 @@
 	bottom: 0;
 	justify-content: center;
 }
+
 .cont-btn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 .btn-style {
 	color: black;
 	background-color: #b0d5e6;
@@ -72,12 +74,16 @@
 	margin-left: 25px;
 	margin-right: 25px;
 }
+
 .btn-style:hover {
 	background-color: #b0d5e6;
 	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
 }
 
 .custom-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	border-radius: 10px;
 	background-color: #ffffff;
 	padding: 10px;
