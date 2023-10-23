@@ -1,1 +1,32 @@
-<div>Works!</div>
+<div class="form-container">
+	<o-form #agreementForm entity="agreement" service="agreements" (onInsertMode)="offerSend()">
+		<div class="form-row">
+			<div class="form-group">
+				<o-integer-input attr="C_ID" [data]="c_id" hidden></o-integer-input>
+				<o-time-input
+					attr="AG_DATETIME"
+					type="date"
+					id="fecha"
+					name="fecha"
+					required></o-time-input>
+			</div>
+		</div>
+		<div class="form-group">
+			<o-text-input attr="AG_PLACE" type="text" id="lugar" name="lugar" required></o-text-input>
+		</div>
+		<div class="form-group">
+			<o-textarea-input
+				attr="AG_DESCRIPTION"
+				id="observaciones"
+				name="observaciones"
+				rows="4"></o-textarea-input>
+		</div>
+		<div class="form-group">
+			<div class="price-input">
+				<o-real-input attr="AG_PRICE" type="number" id="precio" name="precio"></o-real-input>
+				<span class="euro-symbol">€</span>
+			</div>
+		</div>
+		<button type="submit" (click)="offerSend()">{{ "SEND_OFFER" | oTranslate }}</button>
+	</o-form>
+</div>

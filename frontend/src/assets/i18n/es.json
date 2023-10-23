@@ -41,5 +41,10 @@
 	"A_LONGITUDE": "Longitud",
 	"LOCATION": "Ubicación",
 	"GO_CHAT": "Ir al chat",
-	"AGREEMENT_BTN": "Enviar oferta"
+	"AGREEMENT_BTN": "Enviar oferta",
+	"AG_PLACE": "Lugar",
+	"AG_DATETIME": "Fecha y hora",
+	"AG_DESCRIPTION": "Descripción",
+	"AG_PRICE": "Precio",
+	"SEND_OFFER": "Enviar oferta"
 }

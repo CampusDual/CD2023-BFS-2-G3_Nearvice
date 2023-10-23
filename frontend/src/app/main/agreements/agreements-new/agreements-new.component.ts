@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from "@angular/core";
-import { MAT_DIALOG_DATA } from "@angular/material";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { OFormComponent } from "ontimize-web-ngx";
 
 @Component({
 	selector: "app-agreements-new",
@@ -7,7 +8,21 @@ import { MAT_DIALOG_DATA } from "@angular/material";
 	styleUrls: ["./agreements-new.component.css"],
 })
 export class AgreementsNewComponent implements OnInit {
-	constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+	c_id: number;
 
-	ngOnInit() {}
+	@ViewChild("agreementForm", { static: false }) form: OFormComponent;
+
+	constructor(private route: ActivatedRoute) {}
+
+	ngOnInit() {
+		this.route.params.subscribe((params) => {
+			this.c_id = params["C_ID"];
+		});
+	}
+
+	offerSend() {
+		if (this.form && this.form.insert) {
+			this.form.insert();
+		}
+	}
 }

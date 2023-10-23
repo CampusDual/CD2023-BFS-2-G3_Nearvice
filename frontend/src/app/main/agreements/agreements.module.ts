@@ -4,9 +4,11 @@ import { AgreementsRoutingModule } from "./agreements-routing.module";
 import { OntimizeWebModule } from "ontimize-web-ngx";
 import { AgreementsHomeComponent } from "./agreements-home/agreements-home.component";
 import { AgreementsNewComponent } from "./agreements-new/agreements-new.component";
+import { SharedModule } from "src/app/shared/shared.module";
 
 @NgModule({
-	declarations: [AgreementsHomeComponent, AgreementsNewComponent],
-	imports: [CommonModule, AgreementsRoutingModule, OntimizeWebModule],
+	declarations: [AgreementsNewComponent, AgreementsHomeComponent],
+	imports: [CommonModule, AgreementsRoutingModule, OntimizeWebModule, SharedModule],
+	exports: [AgreementsHomeComponent, AgreementsNewComponent],
 })
 export class AgreementsModule {}

@@ -1,0 +1,46 @@
+.form-container {
+	width: 400px;
+	margin-left: 20px;
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+}
+
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"] {
+	width: calc(100% - 20px); /* Ancho total del input considerando el padding */
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+.price-input {
+	display: flex;
+	align-items: center;
+}
+
+.euro-symbol {
+	margin-left: 5px;
+}
