@@ -14,7 +14,7 @@
     <Queries>
         <Query id="default">
             <AmbiguousColumns>
-                <AmbiguousColumn name="AG_ID" prefix="AG"/>
+                <AmbiguousColumn name="C_ID" prefix="AG"/>
             </AmbiguousColumns>
             <Sentence>
                 <![CDATA[

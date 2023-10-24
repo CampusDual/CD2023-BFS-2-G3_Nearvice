@@ -29,7 +29,9 @@
 
 			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
 
-			<app-agreements-home [data]="c_id"></app-agreements-home>
+			<app-agreements-home
+				*ngIf="clientCondition && !agreementOfferExists"
+				[data]="c_id"></app-agreements-home>
 		</div>
 
 		<o-list

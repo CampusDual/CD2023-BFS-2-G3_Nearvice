@@ -28,10 +28,7 @@ public class AgreementService implements IAgreementService {
 
 
     public EntityResult agreementQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("USER_",authentication.getName());
-        return this.daoHelper.query(agreementDao, userKeyMap, attrList);
+           return this.daoHelper.query(agreementDao, keyMap, attrList);
     }
 
     public EntityResult agreementAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {

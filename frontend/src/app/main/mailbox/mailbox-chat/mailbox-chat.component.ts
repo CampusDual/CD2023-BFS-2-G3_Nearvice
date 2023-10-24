@@ -1,6 +1,11 @@
-import { AfterViewInit, Component, OnInit, ViewChild, Renderer2 } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild, Renderer2, Injector } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { OFormComponent, OListComponent, OTextInputComponent } from "ontimize-web-ngx";
+import {
+	OFormComponent,
+	OListComponent,
+	OTextInputComponent,
+	OntimizeService,
+} from "ontimize-web-ngx";
 
 @Component({
 	selector: "app-mailbox-chat",
@@ -8,6 +13,7 @@ import { OFormComponent, OListComponent, OTextInputComponent } from "ontimize-we
 	styleUrls: ["./mailbox-chat.component.css"],
 })
 export class MailboxChatComponent implements OnInit, AfterViewInit {
+	protected service: OntimizeService;
 	c_id: number;
 	localStorageData: any;
 	sessionData: any;
@@ -15,22 +21,55 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	rowsToQuery: number = 0;
 	professionalCondition: boolean = true;
 	clientCondition: boolean = true;
+	agreementOfferExists: boolean = false;
+	agreement: any;
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("inputP", { static: false }) inputP: OTextInputComponent;
 	@ViewChild("inputC", { static: false }) inputC: OTextInputComponent;
 	@ViewChild("chatList", { static: false }) chatList: OListComponent;
 
-	constructor(private route: ActivatedRoute, private renderer: Renderer2) {}
+	constructor(
+		private route: ActivatedRoute,
+		private renderer: Renderer2,
+		protected injector: Injector
+	) {
+		this.service = this.injector.get(OntimizeService);
+	}
 
 	ngOnInit() {
 		this.route.params.subscribe((params) => {
 			this.c_id = params["C_ID"];
 		});
+		this.configureService();
+		this.getAgreements();
 
 		this.localStorageData = localStorage.getItem("com.ontimize.web.ngx.jee.seed");
 		this.sessionData = JSON.parse(this.localStorageData);
 		this.user = this.sessionData.session.user;
+	}
+	protected configureService() {
+		const conf = this.service.getDefaultServiceConfiguration("agreements");
+		this.service.configureService(conf);
+	}
+
+	getAgreements() {
+		const _cid: number = +this.c_id;
+		if (_cid && this.service !== null) {
+			const filter = {
+				C_ID: _cid,
+			};
+
+			const columns = ["AG_ID"];
+			this.service.query(filter, columns, "agreement").subscribe((resp) => {
+				if (resp.code === 0 && resp.data[0]) {
+					if (resp.data[0]) {
+						this.agreementOfferExists = true;
+						this.agreement = resp.data[0].AG_ID;
+					}
+				}
+			});
+		}
 	}
 	getData() {
 		let user_ = this.inputP.getValue();
