@@ -47,9 +47,6 @@ public class AgreementService implements IAgreementService {
     }
 
     public EntityResult agreementDelete(Map<?, ?> keyMap) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("USER_",authentication.getName());
-        return this.daoHelper.delete(this.agreementDao, userKeyMap);
+        return this.daoHelper.delete(this.agreementDao, keyMap);
     }
 }

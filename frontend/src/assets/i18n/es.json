@@ -46,5 +46,7 @@
 	"AG_DATETIME": "Fecha y hora",
 	"AG_DESCRIPTION": "Descripción",
 	"AG_PRICE": "Precio",
-	"SEND_OFFER": "Enviar oferta"
+	"SEND_OFFER": "Enviar oferta",
+	"REMOVE_OFFER": "Eliminar oferta",
+	"DISTANCE": "Distancia"
 }

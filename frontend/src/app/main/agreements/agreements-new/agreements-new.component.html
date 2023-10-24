@@ -1,20 +1,58 @@
 <div class="form-container">
-	<o-form #agreementForm entity="agreement" service="agreements" undo-button="no">
-		<div class="form-group">
-			<o-integer-input attr="C_ID" [data]="c_id" hidden></o-integer-input>
-			<o-textarea-input
-				attr="AG_DESCRIPTION"
-				id="observaciones"
-				name="observaciones"
-				rows="4"></o-textarea-input>
-		</div>
-		<div class="form-group">
-			<div class="price-input">
-				<o-real-input attr="AG_PRICE" type="number" id="precio" name="precio"></o-real-input>
-				<span class="euro-symbol">€</span>
+	<o-form
+		#agreementForm
+		entity="agreement"
+		service="agreements"
+		keys="C_ID"
+		columns="AG_ID"
+		header-actions="U;R"
+		(onDataLoaded)="getData()">
+		<div *ngIf="!ag_id">
+			<div class="form-group">
+				<o-integer-input attr="C_ID" [data]="c_id" hidden></o-integer-input>
+				<o-integer-input #inputID attr="AG_ID" hidden></o-integer-input>
+				<o-textarea-input
+					attr="AG_DESCRIPTION"
+					id="observaciones"
+					name="observaciones"
+					rows="4"></o-textarea-input>
 			</div>
+			<div class="form-group">
+				<div class="price-input">
+					<o-real-input attr="AG_PRICE" type="number" id="precio" name="precio"></o-real-input>
+					<span class="euro-symbol">€</span>
+				</div>
+			</div>
+			<button type="submit" (click)="offerSend()">
+				{{ "SEND_OFFER" | oTranslate }}
+			</button>
 		</div>
-		<button type="submit" (click)="offerSend()">{{ "SEND_OFFER" | oTranslate }}</button>
+		<div *ngIf="ag_id">
+			<div class="form-group">
+				<o-integer-input attr="C_ID" [data]="c_id" hidden></o-integer-input>
+				<o-integer-input #inputID attr="AG_ID"></o-integer-input>
+				<o-textarea-input
+					attr="AG_DESCRIPTION"
+					id="observaciones"
+					name="observaciones"
+					rows="4"
+					read-only="yes"></o-textarea-input>
+			</div>
+			<div class="form-group">
+				<div class="price-input">
+					<o-real-input
+						read-only="yes"
+						attr="AG_PRICE"
+						type="number"
+						id="precio"
+						name="precio"></o-real-input>
+					<span class="euro-symbol">€</span>
+				</div>
+			</div>
+
+			<!-- <button type="submit" (click)="offerRemove()">
+				{{ "REMOVE_OFFER" | oTranslate }}
+			</button> -->
+		</div>
 	</o-form>
 </div>
-<!-- (onInsertMode)="offerSend()" -->

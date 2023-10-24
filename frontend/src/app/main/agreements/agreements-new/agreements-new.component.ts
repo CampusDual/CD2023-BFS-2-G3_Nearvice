@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { OFormComponent } from "ontimize-web-ngx";
+import { OFormComponent, OTextInputComponent } from "ontimize-web-ngx";
 
 @Component({
 	selector: "app-agreements-new",
@@ -9,8 +9,10 @@ import { OFormComponent } from "ontimize-web-ngx";
 })
 export class AgreementsNewComponent implements OnInit {
 	c_id: number;
+	ag_id: number;
 
 	@ViewChild("agreementForm", { static: false }) form: OFormComponent;
+	@ViewChild("inputID", { static: false }) inputID: OTextInputComponent;
 
 	constructor(private route: ActivatedRoute) {}
 
@@ -24,5 +26,13 @@ export class AgreementsNewComponent implements OnInit {
 		if (this.form && this.form.insert) {
 			this.form.insert();
 		}
+	}
+	offerRemove() {
+		if (this.form && this.form.delete) {
+			console.log(this.form.delete());
+		}
+	}
+	getData() {
+		this.ag_id = this.inputID.getValue();
 	}
 }

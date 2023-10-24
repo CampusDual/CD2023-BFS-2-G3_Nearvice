@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild, Renderer2, Injector } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
 	OFormComponent,
 	OListComponent,
@@ -32,7 +32,8 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	constructor(
 		private route: ActivatedRoute,
 		private renderer: Renderer2,
-		protected injector: Injector
+		protected injector: Injector,
+		private router: Router
 	) {
 		this.service = this.injector.get(OntimizeService);
 	}
@@ -134,5 +135,8 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.user === row.U_EMITTER) {
 			return uEmitterUserStyles;
 		}
+	}
+	public openAgreementForm(): void {
+		this.router.navigateByUrl(`main/agreements/${this.c_id}?isdetail=true`);
 	}
 }

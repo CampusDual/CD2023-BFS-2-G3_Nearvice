@@ -29,9 +29,19 @@
 
 			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
 
-			<app-agreements-home
-				*ngIf="clientCondition && !agreementOfferExists"
-				[data]="c_id"></app-agreements-home>
+			<div>
+				<button
+					class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted btn-style send-offer-button"
+					color="primary"
+					mat-stroked-button=""
+					type="button"
+					ng-reflect-color="primary"
+					(click)="openAgreementForm()">
+					<span class="mat-button-wrapper">
+						<span class="ng-star-inserted">{{ "SEND_OFFER" | oTranslate }}</span>
+					</span>
+				</button>
+			</div>
 		</div>
 
 		<o-list
@@ -44,6 +54,7 @@
 			entity="message"
 			sort-columns="M_DATETIME:DESC"
 			delete-button="no"
+			refresh-button="no"
 			[query-rows]="rowsToQuery"
 			(onDataLoaded)="dinamicQueryRows($event)">
 			<div class="chatContainer">
