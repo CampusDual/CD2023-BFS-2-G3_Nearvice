@@ -1,13 +1,21 @@
 <div class="form-container">
-	<o-form #agreementForm entity="agreement" service="agreements" undo-button="no">
+	<o-form
+		#agreementForm
+		entity="agreement"
+		service="agreements"
+		keys="AG_ID"
+		undo-button="no"
+		header-actions="D"
+		keys-sql-types="INTEGER"
+		show-header-navigation="yes">
 		<div class="form-group">
-			<o-integer-input attr="C_ID" [data]="c_id" hidden></o-integer-input>
+			<o-integer-input attr="C_ID" hidden></o-integer-input>
 			<o-textarea-input
 				attr="AG_DESCRIPTION"
 				id="observaciones"
 				name="observaciones"
-				rows="4"
-				required="yes"></o-textarea-input>
+				rows="3"
+				read-only="yes"></o-textarea-input>
 		</div>
 		<div class="form-group">
 			<div class="price-input">
@@ -16,12 +24,9 @@
 					type="number"
 					id="precio"
 					name="precio"
-					required="yes"></o-real-input>
+					read-only="yes"></o-real-input>
 				<span class="euro-symbol">€</span>
 			</div>
 		</div>
-		<button type="submit" (click)="offerSend()" class="btn-style">
-			{{ "SEND_OFFER" | oTranslate }}
-		</button>
 	</o-form>
 </div>

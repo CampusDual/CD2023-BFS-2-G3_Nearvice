@@ -1,13 +1,29 @@
-<div>
+<div *ngIf="!data.AG_ID; else detailButton">
 	<button
-		class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted btn-style send-offer-button"
+		class="btn-style"
 		color="primary"
 		mat-stroked-button=""
 		type="button"
 		ng-reflect-color="primary"
-		(click)="openAgreementForm(data)">
+		(click)="openAgreementFormNew(data)">
 		<span class="mat-button-wrapper">
 			<span class="ng-star-inserted">{{ "SEND_OFFER" | oTranslate }}</span>
 		</span>
 	</button>
+</div>
+
+<div>
+	<ng-template #detailButton>
+		<button
+			class="btn-style"
+			color="primary"
+			mat-stroked-button=""
+			type="button"
+			ng-reflect-color="primary"
+			(click)="openAgreementFormDetail(data)">
+			<span class="mat-button-wrapper">
+				<span class="ng-star-inserted">{{ "VIEWDETAIL" | oTranslate }}</span>
+			</span>
+		</button>
+	</ng-template>
 </div>

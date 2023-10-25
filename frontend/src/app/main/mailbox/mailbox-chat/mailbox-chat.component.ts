@@ -136,7 +136,4 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 			return uEmitterUserStyles;
 		}
 	}
-	public openAgreementForm(): void {
-		this.router.navigateByUrl(`main/agreements/${this.c_id}?isdetail=true`);
-	}
 }

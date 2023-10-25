@@ -26,24 +26,11 @@
 				read-only="yes"
 				id="client"></o-text-input>
 			<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
-
 			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
-
-			<div>
-				<button
-					class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted btn-style send-offer-button"
-					color="primary"
-					mat-stroked-button=""
-					type="button"
-					ng-reflect-color="primary"
-					(click)="openAgreementForm()">
-					<span class="mat-button-wrapper">
-						<span class="ng-star-inserted">{{ "SEND_OFFER" | oTranslate }}</span>
-					</span>
-				</button>
-			</div>
+			<agreements-home
+				*ngIf="clientCondition"
+				[data]="{ C_ID: c_id, AG_ID: agreement }"></agreements-home>
 		</div>
-
 		<o-list
 			class="listChat"
 			pagination-controls="no"
@@ -69,7 +56,6 @@
 		</o-list>
 	</o-form>
 </div>
-
 <o-form
 	#formchat
 	class="formChat"

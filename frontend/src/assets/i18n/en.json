@@ -48,5 +48,6 @@
 	"AG_PRICE": "Price",
 	"SEND_OFFER": "Send offer",
 	"REMOVE_OFFER": "Remove offer",
-	"DISTANCE": "Distance"
+	"DISTANCE": "Distance",
+	"VIEWDETAIL": "Agreement Details"
 }
