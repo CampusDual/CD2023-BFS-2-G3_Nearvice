@@ -23,6 +23,8 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	clientCondition: boolean = true;
 	agreementOfferExists: boolean = false;
 	agreement: any;
+	myChatMessagesClass: string = "my-chat-messages-styles";
+	chatMessagesClass: string = "chat-messages-styles";
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("inputP", { static: false }) inputP: OTextInputComponent;
@@ -93,6 +95,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 			setTimeout(() => {
 				this.rowsToQuery++;
 				this.chatList.reloadData();
+				this.scrollToBottom();
 			}, 100);
 		}
 	}
@@ -100,6 +103,12 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	ngAfterViewInit() {}
 
 	getChatMessageStyles(row: any): any {
+		if (this.user === row.U_EMITTER) {
+			return this.myChatMessagesClass;
+		} else {
+			return this.chatMessagesClass;
+		}
+
 		let myChatMessagesStyles: any = {
 			"background-color": "#ebf7f3",
 			border: "1px solid #bbbbbb",
@@ -135,5 +144,12 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.user === row.U_EMITTER) {
 			return uEmitterUserStyles;
 		}
+	}
+	onLastItem() {
+		this.scrollToBottom();
+	}
+	scrollToBottom() {
+		var scroll = document.querySelector(".application-layout-content-wrapper.header-layout");
+		scroll.scrollTop = scroll.scrollHeight;
 	}
 }

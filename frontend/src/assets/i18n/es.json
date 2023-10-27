@@ -49,5 +49,6 @@
 	"SEND_OFFER": "Enviar oferta",
 	"REMOVE_OFFER": "Eliminar oferta",
 	"DISTANCE": "Distancia",
-	"VIEWDETAIL": "Detalles de la Oferta"
+	"VIEWDETAIL": "Detalles de la Oferta",
+	"MSG_DELETE_ERROR_MY_SERVICES": "No puedes eliminar este servicio porque tienes conversaciones abiertas con clientes."
 }
