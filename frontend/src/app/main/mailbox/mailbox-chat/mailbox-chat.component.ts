@@ -108,32 +108,6 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		} else {
 			return this.chatMessagesClass;
 		}
-
-		let myChatMessagesStyles: any = {
-			"background-color": "#ebf7f3",
-			border: "1px solid #bbbbbb",
-			"border-radius": "10px 2px 10px 10px",
-			padding: "10px",
-			margin: "10px",
-			"max-width": "80%",
-			"align-self": "flex-end",
-			"box-shadow": "inset 0px 0px 5px rgba(0, 0, 0, 0.2)",
-		};
-		let chatMessagesStyles: any = {
-			border: "1px solid #bbbbbb",
-			"border-radius": "2px 10px 10px 10px",
-			padding: "10px",
-			margin: "10px",
-			"max-width": "80%",
-			"align-self": "flex-start",
-			"box-shadow": "inset 0px 0px 5px rgba(0, 0, 0, 0.2)",
-		};
-
-		if (this.user === row.U_EMITTER) {
-			return myChatMessagesStyles;
-		} else {
-			return chatMessagesStyles;
-		}
 	}
 
 	uEmitterStyles(row: any): any {

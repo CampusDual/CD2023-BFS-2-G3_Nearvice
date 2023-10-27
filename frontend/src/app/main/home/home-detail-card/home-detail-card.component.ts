@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, ViewChild, Inject, Injector } from "@angular/core";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { DomSanitizer } from "@angular/platform-browser";
 import { Router } from "@angular/router";
 import { OFormComponent, OntimizeService } from "ontimize-web-ngx";
 
@@ -56,10 +54,13 @@ export class HomeDetailCardComponent implements OnInit {
 	}
 
 	conversationInit() {
+		console.log(this.data);
 		if (this.form && this.form.insert) {
-			this.form.insert();
+			const data2 = this.form.getAttributesValuesToInsert();
+			this.form.insertData(data2).subscribe((data3) => {
+				this.router.navigateByUrl(`/main/mailbox/${data3["C_ID"]}?isdetail=true`);
+			});
 		}
-		this.router.navigateByUrl("main/mailbox");
 	}
 	goToAnnounceDetail() {
 		this.router.navigateByUrl(`/main/services/${this.data.A_ID}?isdetail=true`);
