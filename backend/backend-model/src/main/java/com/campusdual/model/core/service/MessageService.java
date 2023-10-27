@@ -43,19 +43,22 @@ public class MessageService implements IMessageService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> result = new HashMap<>();
         result.put(ConversationDao.CID, attrMap.get(ConversationDao.CID));
-        if(attrMap.get(ConversationDao.CID) == null) {
+        EntityResult conversationEntityResult = null;
+        if (attrMap.get(ConversationDao.CID) == null) {
             Map<String, Object> coversationMap = new HashMap<>();
             coversationMap.put(ConversationDao.AID, attrMap.get(ConversationDao.AID));
             coversationMap.put(MessageDao.UEMITTER, authentication.getName());
-            EntityResult entityResult = conversationService.conversationInsert(coversationMap);
-            result.put(ConversationDao.CID, entityResult.get(ConversationDao.CID));
+            conversationEntityResult = conversationService.conversationInsert(coversationMap);
+            result.put(ConversationDao.CID, conversationEntityResult.get(ConversationDao.CID));
         }
         Map<String, Object> messageMap = new HashMap<>();
-        messageMap.put(MessageDao.MMESSAGE,attrMap.get(MessageDao.MMESSAGE));
-        messageMap.put(MessageDao.UEMITTER,authentication.getName());
+        messageMap.put(MessageDao.MMESSAGE, attrMap.get(MessageDao.MMESSAGE));
+        messageMap.put(MessageDao.UEMITTER, authentication.getName());
         messageMap.put(ConversationDao.CID, result.get(ConversationDao.CID));
-        return this.daoHelper.insert(messageDao, messageMap);
+        EntityResult entityResult2 = this.daoHelper.insert(messageDao, messageMap);
+        return (conversationEntityResult != null) ? conversationEntityResult : entityResult2;
     }
+
 
     public EntityResult messageUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
         return this.daoHelper.update(messageDao, attrMap, keyMap);
