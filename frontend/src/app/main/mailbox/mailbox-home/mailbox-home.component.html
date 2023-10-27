@@ -1,50 +1,60 @@
-<div style="display: flex; flex-direction: column">
-	<o-table
-		fxFlex
-		title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME"
-		visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME"
-		service="conversations"
-		entity="conversationMessageReceiver"
-		keys="C_ID"
-		delete-button="no"
-		insert-button="no"
-		sort-columns="M_ID:DESC"
-		show-table-buttons-text="no"
-		show-title="yes"
-		auto-adjust="true"
-		virtual-scroll="no">
-		<o-table-column attr="A_TITLE" title="A_TITLE" width="auto"></o-table-column>
-		<o-table-column attr="U_CLIENT" title="U_CLIENT" width="auto"></o-table-column>
-		<o-table-column
-			attr="M_MESSAGE"
-			title="M_MESSAGE"
-			multiline="yes"
-			tooltip="yes"></o-table-column>
-		<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
-	</o-table>
-	<o-table
-		fxFlex
-		title="{{ 'SENT_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME"
-		visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"
-		service="conversations"
-		entity="conversationMessageEmitter"
-		keys="C_ID"
-		delete-button="no"
-		insert-button="no"
-		sort-columns="M_ID:DESC"
-		show-title="yes"
-		horizontal-scroll="false"
-		auto-adjust="true"
-		virtual-scroll="no">
-		<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" width="auto"></o-table-column>
-		<o-table-column attr="USER_" title="PROFESSIONAL" multiline="yes" width="auto"></o-table-column>
-		<o-table-column
-			attr="M_MESSAGE"
-			title="M_MESSAGE"
-			multiline="yes"
-			tooltip="yes"></o-table-column>
-		<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
-	</o-table>
-</div>
+<o-form-layout-manager
+	mode="split-pane"
+	attr="o-form-layout-split-pane-form"
+	main-min-width="50"
+	detail-min-width="10">
+	<div style="display: flex; flex-direction: column">
+		<o-table
+			fxFlex
+			title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
+			columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME"
+			visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME"
+			service="conversations"
+			entity="conversationMessageReceiver"
+			keys="C_ID"
+			delete-button="no"
+			insert-button="no"
+			sort-columns="M_ID:DESC"
+			show-table-buttons-text="no"
+			show-title="yes"
+			auto-adjust="true"
+			virtual-scroll="no">
+			<o-table-column attr="A_TITLE" title="A_TITLE" width="auto"></o-table-column>
+			<o-table-column attr="U_CLIENT" title="U_CLIENT" width="auto"></o-table-column>
+			<o-table-column
+				attr="M_MESSAGE"
+				title="M_MESSAGE"
+				multiline="yes"
+				tooltip="yes"></o-table-column>
+			<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
+		</o-table>
+		<o-table
+			fxFlex
+			title="{{ 'SENT_MESSAGES' | oTranslate }}"
+			columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME"
+			visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"
+			service="conversations"
+			entity="conversationMessageEmitter"
+			keys="C_ID"
+			delete-button="no"
+			insert-button="no"
+			sort-columns="M_ID:DESC"
+			show-title="yes"
+			horizontal-scroll="false"
+			auto-adjust="true"
+			virtual-scroll="no">
+			<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" width="auto"></o-table-column>
+			<o-table-column
+				attr="USER_"
+				title="PROFESSIONAL"
+				multiline="yes"
+				width="auto"></o-table-column>
+			<o-table-column
+				attr="M_MESSAGE"
+				title="M_MESSAGE"
+				multiline="yes"
+				tooltip="yes"></o-table-column>
+			<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
+		</o-table>
+	</div>
+</o-form-layout-manager>
