@@ -45,7 +45,13 @@
 		attr="DISTANCE"
 		title="DISTANCE"
 		type="real"
-		[operation-function]="getDistanceCalculator()"></o-table-column-calculated>
+		[operation-function]="getDistanceCalculator()">
+		<o-table-cell-renderer-currency
+			currency-symbol="km"
+			currency-symbol-position="right"
+			thousand-separator="."
+			decimal-separator=","></o-table-cell-renderer-currency>
+	</o-table-column-calculated>
 
 	<o-table-row-expandable expandible-column-visible="no">
 		<ng-template let-row>
