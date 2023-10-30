@@ -1,5 +1,10 @@
 <div class="form-container">
-	<o-form #agreementForm entity="agreement" service="agreements" undo-button="no">
+	<o-form
+		#agreementForm
+		entity="agreement"
+		service="agreements"
+		undo-button="no"
+		editable-detail="no">
 		<div class="form-group">
 			<o-integer-input attr="C_ID" [data]="c_id" hidden></o-integer-input>
 			<o-textarea-input
