@@ -68,4 +68,14 @@ export class HomeDetailCardComponent implements OnInit {
 	goToChat() {
 		this.router.navigateByUrl(`/main/mailbox/${this.conversation}?isdetail=true`);
 	}
+	hasGPSPosition() {
+		if (this.data.A_LATITUDE && this.data.A_LONGITUDE) {
+			return true;
+		}
+		return false;
+	}
+
+	getPositionGPS() {
+		return `${this.data.A_LATITUDE},${this.data.A_LONGITUDE}`;
+	}
 }

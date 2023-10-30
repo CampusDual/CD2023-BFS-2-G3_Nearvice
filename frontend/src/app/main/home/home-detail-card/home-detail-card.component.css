@@ -35,3 +35,13 @@
 .sendBtn span {
 	font-weight: bold;
 }
+.mapDetailService {
+	z-index: 1;
+	border: 3px solid #e91e63;
+	height: 120px;
+	width: 100%;
+	display: flex;
+}
+.marker {
+	z-index: 2;
+}

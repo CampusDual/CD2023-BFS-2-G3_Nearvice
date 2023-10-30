@@ -95,7 +95,6 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 			setTimeout(() => {
 				this.rowsToQuery++;
 				this.chatList.reloadData();
-				this.scrollToBottom();
 			}, 100);
 		}
 	}
@@ -118,12 +117,5 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.user === row.U_EMITTER) {
 			return uEmitterUserStyles;
 		}
-	}
-	onLastItem() {
-		this.scrollToBottom();
-	}
-	scrollToBottom() {
-		var scroll = document.querySelector(".application-layout-content-wrapper.header-layout");
-		scroll.scrollTop = scroll.scrollHeight;
 	}
 }

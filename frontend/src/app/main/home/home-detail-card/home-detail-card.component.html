@@ -16,6 +16,26 @@
 			: {{ data.EMAIL }}
 		</span>
 	</div>
+	<div fxFlex="100" fxFlex.md="100" *ngIf="hasGPSPosition()">
+		<o-map
+			#oMapMarker
+			fxflex
+			[center]="getPositionGPS()"
+			class="mapDetailService"
+			zoom="10"
+			min-zoom="3"
+			max-zoom="20"
+			zoom-control="no"
+			search-control="false"
+			search-control-button-visible="false"
+			layer-panel-visible="no">
+			<o-map-layer
+				class="marker"
+				layer-type="marker"
+				layer-id="location_marker"
+				[layer-center]="getPositionGPS()"></o-map-layer>
+		</o-map>
+	</div>
 	<div fxLayout="row wrap" fxLayoutGap="14px"></div>
 	<ng-container *ngIf="user !== data.USER_; else announceDetail">
 		<div>

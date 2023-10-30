@@ -39,23 +39,18 @@
 			columns="M_MESSAGE;M_DATETIME;U_EMITTER"
 			service="messages"
 			entity="message"
-			sort-columns="M_DATETIME"
+			sort-columns="M_DATETIME:DESC"
 			delete-button="no"
 			refresh-button="no"
 			[query-rows]="rowsToQuery"
 			(onDataLoaded)="dinamicQueryRows($event)">
 			<div class="chatContainer">
-				<div
-					*ngFor="let row of chatList.dataArray; let last = last"
-					[ngClass]="getChatMessageStyles(row)">
+				<div *ngFor="let row of chatList.dataArray" [ngClass]="getChatMessageStyles(row)">
 					<div class="userChat" [ngStyle]="uEmitterStyles(row)">{{ row.U_EMITTER }}</div>
 					<div class="messageChat">{{ row.M_MESSAGE }}</div>
 					<div class="dateTimeChat">
 						{{ row.M_DATETIME | date : "dd-MM-yyyy hh:mm" }}
 					</div>
-					<ng-container *ngIf="last">
-						{{ onLastItem() }}
-					</ng-container>
 				</div>
 			</div>
 		</o-list>
