@@ -16,4 +16,5 @@ public class AgreementDao extends OntimizeJdbcDaoSupport {
     public static final String AGPLACE = "AG_PLACE";
     public static final String AGDESCRIPTION = "AG_DESCRIPTION";
     public static final String AGPRICE = "AG_PRICE";
+    public static final String AGSTATUS = "AG_STATUS";
 }
