@@ -1,9 +1,11 @@
 <o-form
+	#formServiceDetail
 	service="announces"
 	entity="announce"
 	keys="A_ID"
 	header-actions="D;U;R"
-	message-service-type="myServicesDetailMessageService">
+	(onDataLoaded)="formInit($event)">
+	<h3>{{ "SERVICE_DETAIL" | oTranslate }}</h3>
 	<o-integer-input attr="A_ID" hidden></o-integer-input>
 	<o-combo
 		#ocombo
@@ -26,5 +28,29 @@
 			<o-real-input attr="A_LATITUDE" max-decimal-digits="10"></o-real-input>
 			<o-real-input attr="A_LONGITUDE" max-decimal-digits="10"></o-real-input>
 		</o-row>
+	</div>
+	<div fxFlex="100" fxFlex.md="100" *ngIf="hasGPSPosition()">
+		<o-map
+			#oMapMarker
+			fxflex
+			[center]="getPositionGPS()"
+			class="mapDetailService"
+			zoom="12"
+			min-zoom="3"
+			max-zoom="20"
+			zoom-control="no"
+			search-control="false"
+			(onClick)="onMapClick($event)"
+			search-control-button-visible="false"
+			layer-panel-visible="no">
+			<!-- <o-map-draw-controls></o-map-draw-controls> -->
+			<o-map-layer
+				#oMarker
+				class="marker"
+				draggable="true"
+				layer-type="marker"
+				layer-id="location_marker"
+				[layer-center]="getPositionGPS()"></o-map-layer>
+		</o-map>
 	</div>
 </o-form>

@@ -4,7 +4,8 @@
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	padding: 20px;
-	max-width: 600px;
+	max-width: 80%;
+	height: auto;
 	margin: 0 auto;
 	margin-top: 25px;
 }
@@ -30,4 +31,14 @@
 	padding: 10px 20px;
 	border-radius: 4px;
 	cursor: pointer;
+}
+.mapDetailService {
+	z-index: 1;
+	border: 3px solid #e91e63;
+	height: 400px;
+	width: 100%;
+	display: flex;
+}
+.marker {
+	z-index: 2;
 }

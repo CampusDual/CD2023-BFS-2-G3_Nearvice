@@ -50,5 +50,7 @@
 	"REMOVE_OFFER": "Remove offer",
 	"DISTANCE": "Distance",
 	"VIEWDETAIL": "Agreement Details",
-	"MSG_DELETE_ERROR_MY_SERVICES": "You can't delete this service because you have open conversations with customers."
+	"MSG_DELETE_ERROR_MY_SERVICES": "You can't delete this service because you have open conversations with customers.",
+	"NEW_SERVICE": "New service",
+	"SERVICE_DETAIL": "Service details"
 }
