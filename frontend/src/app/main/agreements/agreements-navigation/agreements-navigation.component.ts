@@ -18,9 +18,7 @@ export class AgreementsNavigationComponent implements OnInit, AfterContentInit {
 		setTimeout(() => {
 			if (this.data.CLIENT == this.user) {
 				this.viewOfferClient = true;
-				console.log(this.viewOfferClient);
 			}
-			console.log(this.viewOfferClient);
 		}, 500);
 	}
 
