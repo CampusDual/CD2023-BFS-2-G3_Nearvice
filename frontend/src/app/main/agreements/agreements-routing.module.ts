@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { AgreementsHomeComponent } from "./agreements-home/agreements-home.component";
 import { AgreementsNewComponent } from "./agreements-new/agreements-new.component";
 import { AgreementsDetailComponent } from "./agreements-detail/agreements-detail.component";
+import { AgreementsNavigationComponent } from "./agreements-navigation/agreements-navigation.component";
 
 const routes: Routes = [
 	{
 		path: "",
-		component: AgreementsHomeComponent,
+		component: AgreementsNavigationComponent,
 	},
 	{
 		path: "new/:C_ID",

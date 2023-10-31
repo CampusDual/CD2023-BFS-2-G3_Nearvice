@@ -54,5 +54,8 @@
 	"NEW_SERVICE": "New service",
 	"SERVICE_DETAIL": "Service details",
 	"NEW_AGREEMENT": "New offer",
-	"AGREEMENT_DETAIL": "Offer detail"
+	"AGREEMENT_DETAIL": "Offer detail",
+	"VIEW_OFFER_CLIENT_BTN": "View offer",
+	"AGREEMENTS_COUNTER": "Offers sent",
+	"CONVERSATIONS_COUNTER": "Number of conversations"
 }

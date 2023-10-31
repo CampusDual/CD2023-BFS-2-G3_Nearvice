@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, Inject, Injector } from "@angular/core";
 import { Router } from "@angular/router";
 import { OFormComponent, OntimizeService } from "ontimize-web-ngx";
+import { getLoggedUser } from "src/app/shared/utils";
 
 @Component({
 	selector: "home-detail-card",
@@ -11,9 +12,7 @@ export class HomeDetailCardComponent implements OnInit {
 	protected service: OntimizeService;
 	@Input() data: any;
 	@ViewChild("form", { static: false }) form: OFormComponent;
-	localStorageData: any;
-	sessionData: any;
-	user: any;
+	user: String = getLoggedUser();
 	conversationExists: boolean = false;
 	conversation: any;
 
@@ -22,9 +21,6 @@ export class HomeDetailCardComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.localStorageData = localStorage.getItem("com.ontimize.web.ngx.jee.seed");
-		this.sessionData = JSON.parse(this.localStorageData);
-		this.user = this.sessionData.session.user;
 		this.configureService();
 		this.getConversations(this.data);
 	}

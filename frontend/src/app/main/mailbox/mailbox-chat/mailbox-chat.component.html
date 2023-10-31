@@ -8,7 +8,7 @@
 		entity="conversation"
 		keys-sql-types="INTEGER"
 		keys="C_ID"
-		(onDataLoaded)="getData()">
+		(onDataLoaded)="getData($event)">
 		<div class="custom-container">
 			<o-text-input
 				*ngIf="professionalCondition"
@@ -27,9 +27,13 @@
 				id="client"></o-text-input>
 			<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
 			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
-			<agreements-home
-				*ngIf="clientCondition"
-				[data]="{ C_ID: c_id, AG_ID: agreement }"></agreements-home>
+			<app-agreements-navigation
+				[data]="{
+					C_ID: c_id,
+					AG_ID: agreement,
+					PROFESSIONAL: user_,
+					CLIENT: u_client
+				}"></app-agreements-navigation>
 		</div>
 		<o-list
 			class="listChat"
