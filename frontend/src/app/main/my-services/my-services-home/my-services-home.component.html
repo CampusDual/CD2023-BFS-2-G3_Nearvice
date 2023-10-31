@@ -1,18 +1,14 @@
 <o-table
-	attr="table"
-	columns="S_NAME;A_TITLE;A_DESCRIPTION;A_ACTIVE"
+	attr="myServicesTable"
+	columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT;A_ID"
+	visible-columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT"
 	service="announces"
-	entity="announce"
+	entity="agreementsConversationsAnnounces"
 	keys="A_ID"
 	delete-button="no"
 	pagination-controls="no">
 	<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
 	<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" tooltip="yes"></o-table-column>
-	<o-table-column
-		attr="A_DESCRIPTION"
-		title="A_DESCRIPTION"
-		multiline="yes"
-		tooltip="yes"></o-table-column>
 	<o-table-column
 		attr="A_ACTIVE"
 		title="A_ACTIVE"
@@ -25,4 +21,14 @@
 		render-type="icon"
 		render-true-value="check_circle"
 		render-false-value="highlight_off"></o-table-column>
+	<o-table-column
+		attr="CONVERSATIONS_COUNT"
+		title="CONVERSATIONS_COUNTER"
+		multiline="yes"
+		tooltip="yes"></o-table-column>
+	<o-table-column
+		attr="AGREEMENTS_COUNT"
+		title="AGREEMENTS_COUNTER"
+		multiline="yes"
+		tooltip="yes"></o-table-column>
 </o-table>

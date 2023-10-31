@@ -43,7 +43,6 @@
 			(onClick)="onMapClick($event)"
 			search-control-button-visible="false"
 			layer-panel-visible="no">
-			<!-- <o-map-draw-controls></o-map-draw-controls> -->
 			<o-map-layer
 				#oMarker
 				class="marker"
@@ -54,3 +53,17 @@
 		</o-map>
 	</div>
 </o-form>
+<!--PENDIENTE DE AÑADIR UNA COLUMNA AG_DATE-->
+<o-table
+	attr="servicesDetailStats"
+	columns="NAME;AG_PRICE;A_ID"
+	visible-columns="NAME;AG_PRICE"
+	service="announces"
+	entity="agreementsConversationsUserAnnounces"
+	keys="A_ID"
+	delete-button="no"
+	pagination-controls="no">
+	<o-table-column attr="NAME" title="NAME" multiline="yes" tooltip="yes"></o-table-column>
+	<o-table-column attr="AG_PRICE" title="AG_PRICE" multiline="yes" tooltip="yes"></o-table-column>
+	*/
+</o-table>
