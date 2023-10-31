@@ -4,7 +4,8 @@
 		entity="agreement"
 		service="agreements"
 		undo-button="no"
-		editable-detail="no">
+		editable-detail="yes">
+		<h3>{{ "NEW_AGREEMENT" | oTranslate }}</h3>
 		<div class="form-group">
 			<o-integer-input attr="C_ID" [data]="c_id" hidden></o-integer-input>
 			<o-textarea-input

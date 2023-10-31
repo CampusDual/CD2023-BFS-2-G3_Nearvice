@@ -52,5 +52,7 @@
 	"VIEWDETAIL": "Detalles de la Oferta",
 	"MSG_DELETE_ERROR_MY_SERVICES": "No puedes eliminar este servicio porque tienes conversaciones abiertas con clientes.",
 	"NEW_SERVICE": "Nuevo servicio",
-	"SERVICE_DETAIL": "Detalles del Servicio"
+	"SERVICE_DETAIL": "Detalles del Servicio",
+	"NEW_AGREEMENT": "Nueva oferta",
+	"AGREEMENT_DETAIL": "Detalles de la oferta"
 }
