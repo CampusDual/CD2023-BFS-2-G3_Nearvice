@@ -15,6 +15,10 @@
 	background: rgba(0, 0, 0, 0);
 }
 
+div#newAgreement button[attr="update"] {
+	display: none !important;
+}
+
 // .o-app-header-medium + .header-layout {
 // 	overflow: hidden;
 // }
