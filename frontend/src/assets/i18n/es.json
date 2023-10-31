@@ -54,5 +54,6 @@
 	"NEW_SERVICE": "Nuevo servicio",
 	"SERVICE_DETAIL": "Detalles del Servicio",
 	"NEW_AGREEMENT": "Nueva oferta",
-	"AGREEMENT_DETAIL": "Detalles de la oferta"
+	"AGREEMENT_DETAIL": "Detalles de la oferta",
+	"VIEW_OFFER_CLIENT_BTN": "Ver oferta"
 }

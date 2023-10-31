@@ -1,11 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild, Renderer2, Injector } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import {
-	OFormComponent,
-	OListComponent,
-	OTextInputComponent,
-	OntimizeService,
-} from "ontimize-web-ngx";
+import { AfterViewInit, Component, OnInit, ViewChild, Injector } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { OFormComponent, OListComponent, OntimizeService } from "ontimize-web-ngx";
+import { MY_CHAT_MESSAGES_CLASS, OTHER_CHAT_MESSAGES_CLASS } from "src/app/shared/constants";
+import { getLoggedUser } from "src/app/shared/utils";
 
 @Component({
 	selector: "app-mailbox-chat",
@@ -15,9 +12,8 @@ import {
 export class MailboxChatComponent implements OnInit, AfterViewInit {
 	protected service: OntimizeService;
 	c_id: number;
-	localStorageData: any;
-	sessionData: any;
-	user: string;
+	user: string = getLoggedUser();
+	u_client: string;
 	rowsToQuery: number = 0;
 	professionalCondition: boolean = true;
 	clientCondition: boolean = true;
@@ -27,16 +23,9 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	chatMessagesClass: string = "chat-messages-styles";
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
-	@ViewChild("inputP", { static: false }) inputP: OTextInputComponent;
-	@ViewChild("inputC", { static: false }) inputC: OTextInputComponent;
 	@ViewChild("chatList", { static: false }) chatList: OListComponent;
 
-	constructor(
-		private route: ActivatedRoute,
-		private renderer: Renderer2,
-		protected injector: Injector,
-		private router: Router
-	) {
+	constructor(private route: ActivatedRoute, protected injector: Injector) {
 		this.service = this.injector.get(OntimizeService);
 	}
 
@@ -46,10 +35,6 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		});
 		this.configureService();
 		this.getAgreements();
-
-		this.localStorageData = localStorage.getItem("com.ontimize.web.ngx.jee.seed");
-		this.sessionData = JSON.parse(this.localStorageData);
-		this.user = this.sessionData.session.user;
 	}
 	protected configureService() {
 		const conf = this.service.getDefaultServiceConfiguration("agreements");
@@ -74,13 +59,13 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 			});
 		}
 	}
-	getData() {
-		let user_ = this.inputP.getValue();
-		let u_client = this.inputC.getValue();
+	getData(event) {
+		let user_ = event.USER_;
+		this.u_client = event.U_CLIENT;
 
 		if (this.user === user_) {
 			this.professionalCondition = false;
-		} else if (this.user === u_client) {
+		} else if (this.user === this.u_client) {
 			this.clientCondition = false;
 		}
 	}
@@ -93,6 +78,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.form && this.form.insert) {
 			this.form.insert();
 			setTimeout(() => {
+				// Este timeout nos lo deja pasar Alvaro :)
 				this.rowsToQuery++;
 				this.chatList.reloadData();
 			}, 100);
@@ -103,9 +89,9 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 
 	getChatMessageStyles(row: any): any {
 		if (this.user === row.U_EMITTER) {
-			return this.myChatMessagesClass;
+			return MY_CHAT_MESSAGES_CLASS;
 		} else {
-			return this.chatMessagesClass;
+			return OTHER_CHAT_MESSAGES_CLASS;
 		}
 	}
 
@@ -117,5 +103,9 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.user === row.U_EMITTER) {
 			return uEmitterUserStyles;
 		}
+	}
+
+	prueba(event) {
+		console.log(event);
 	}
 }
