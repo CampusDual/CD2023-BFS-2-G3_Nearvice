@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, ViewChild } from "@angular/core";
+import { OFormComponent } from "ontimize-web-ngx";
 
 @Component({
 	selector: "agreements-detail",
@@ -6,8 +7,10 @@ import { Component, Input, OnInit } from "@angular/core";
 	styleUrls: ["./agreements-detail.component.scss"],
 })
 export class AgreementsDetailComponent implements OnInit {
-	@Input() data: any;
+	@Input() isClient: boolean;
+	@ViewChild("agreementForm", { static: false }) form: OFormComponent;
 	constructor() {}
 
 	ngOnInit() {}
+	imClient() {}
 }

@@ -6,10 +6,21 @@ import { AgreementsNewComponent } from "./agreements-new/agreements-new.componen
 import { SharedModule } from "src/app/shared/shared.module";
 import { AgreementsDetailComponent } from "./agreements-detail/agreements-detail.component";
 import { AgreementsNavigationComponent } from "./agreements-navigation/agreements-navigation.component";
+import { AgreementsDetailClientComponent } from "./agreements-detail-client/agreements-detail-client.component";
 
 @NgModule({
-	declarations: [AgreementsNewComponent, AgreementsNavigationComponent, AgreementsDetailComponent],
+	declarations: [
+		AgreementsNewComponent,
+		AgreementsNavigationComponent,
+		AgreementsDetailComponent,
+		AgreementsDetailClientComponent,
+	],
 	imports: [CommonModule, AgreementsRoutingModule, OntimizeWebModule, SharedModule],
-	exports: [AgreementsNavigationComponent, AgreementsNewComponent, AgreementsDetailComponent],
+	exports: [
+		AgreementsNavigationComponent,
+		AgreementsNewComponent,
+		AgreementsDetailComponent,
+		AgreementsDetailClientComponent,
+	],
 })
 export class AgreementsModule {}

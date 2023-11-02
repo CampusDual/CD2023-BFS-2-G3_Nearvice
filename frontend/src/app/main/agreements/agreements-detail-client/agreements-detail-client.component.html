@@ -1,17 +1,17 @@
-<div class="form-container" id="agreementDetail">
+<div class="form-container">
 	<o-form
-		#agreementForm
+		#agreementFormClient
 		entity="agreement"
 		service="agreements"
 		keys="AG_ID"
 		undo-button="no"
-		header-actions="D"
 		editable-detail="no"
 		keys-sql-types="INTEGER"
 		show-header-navigation="yes"
 		label-header="AGREEMENT_DETAIL"
 		label-header-align="start"
-		(onDataLoaded)="imClient($event)">
+		(onDataLoaded)="onDataLoaded($event)">
+		<o-text-input attr="AG_ACCEPTED" hidden></o-text-input>
 		<div class="form-group">
 			<o-integer-input attr="C_ID" hidden></o-integer-input>
 			<o-textarea-input
@@ -31,6 +31,26 @@
 					read-only="yes"></o-real-input>
 				<span class="euro-symbol">€</span>
 			</div>
+		</div>
+		<div class="content-buttons" *ngIf="showAccept">
+			<o-button
+				class="accept-button"
+				(click)="acceptOffer()"
+				attr="raised1"
+				type="RAISED"
+				label="ACCEPT"
+				layout-padding
+				color="primary"
+				layout-padding></o-button>
+			<o-button
+				class="decline-button"
+				(click)="declineOffer()"
+				attr="raised1"
+				type="RAISED"
+				label="DECLINE"
+				layout-padding
+				color="warn"
+				layout-padding></o-button>
 		</div>
 	</o-form>
 </div>

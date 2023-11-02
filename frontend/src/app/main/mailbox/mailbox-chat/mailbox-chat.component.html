@@ -27,13 +27,8 @@
 				id="client"></o-text-input>
 			<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
 			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
-			<app-agreements-navigation
-				[data]="{
-					C_ID: c_id,
-					AG_ID: agreement,
-					PROFESSIONAL: user_,
-					CLIENT: u_client
-				}"></app-agreements-navigation>
+			<!--? Preguntar por [data] como era que se pasaba de forma correcta, sin crear objeto aquí -->
+			<app-agreements-navigation [data]="{ CLIENT: u_client }"></app-agreements-navigation>
 		</div>
 		<o-list
 			class="listChat"

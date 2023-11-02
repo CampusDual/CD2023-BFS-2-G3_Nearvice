@@ -58,5 +58,6 @@
 	"VIEW_OFFER_CLIENT_BTN": "Ver oferta",
 	"AGREEMENTS_COUNT": "Ofertas enviadas",
 	"ACCEPTED_AGREEMENTS_COUNT": "Ofertas aceptadas",
-	"CONVERSATIONS_COUNT": "Número de conversaciones"
+	"CONVERSATIONS_COUNT": "Número de conversaciones",
+	"DECLINE": "Rechazar"
 }

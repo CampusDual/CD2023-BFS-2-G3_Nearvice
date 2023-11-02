@@ -19,22 +19,18 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	clientCondition: boolean = true;
 	agreementOfferExists: boolean = false;
 	agreement: any;
-	myChatMessagesClass: string = "my-chat-messages-styles";
-	chatMessagesClass: string = "chat-messages-styles";
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("chatList", { static: false }) chatList: OListComponent;
 
-	constructor(private route: ActivatedRoute, protected injector: Injector) {
-		this.service = this.injector.get(OntimizeService);
-	}
+	constructor(private route: ActivatedRoute) {}
 
 	ngOnInit() {
 		this.route.params.subscribe((params) => {
 			this.c_id = params["C_ID"];
 		});
-		this.configureService();
-		this.getAgreements();
+		// this.configureService();
+		// this.getAgreements();
 	}
 	protected configureService() {
 		const conf = this.service.getDefaultServiceConfiguration("agreements");
@@ -103,9 +99,5 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.user === row.U_EMITTER) {
 			return uEmitterUserStyles;
 		}
-	}
-
-	prueba(event) {
-		console.log(event);
 	}
 }
