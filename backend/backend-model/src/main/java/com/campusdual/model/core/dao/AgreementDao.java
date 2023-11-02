@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 @ConfigurationFile(configurationFile = "dao/AgreementDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 public class AgreementDao extends OntimizeJdbcDaoSupport {
 
-    public static final String ID = "AG_ID";
-    public static final String CID = "C_ID";
-    public static final String  AGDATETIME= "AG_DATETIME";
+    public static final String AGID = "AG_ID";
+    public static final String AGCID = "C_ID";
+    public static final String AGDATETIME= "AG_DATETIME";
     public static final String AGPLACE = "AG_PLACE";
     public static final String AGDESCRIPTION = "AG_DESCRIPTION";
     public static final String AGPRICE = "AG_PRICE";
-    public static final String AGSTATUS = "AG_STATUS";
+    public static final String AGACCEPTED = "AG_ACCEPTED";
 }
