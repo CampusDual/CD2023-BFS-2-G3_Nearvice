@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container" id="agreementDetail">
 	<o-form
 		#agreementForm
 		entity="agreement"
@@ -8,8 +8,9 @@
 		header-actions="D"
 		editable-detail="no"
 		keys-sql-types="INTEGER"
-		show-header-navigation="yes">
-		<h3>{{ "AGREEMENT_DETAIL" | oTranslate }}</h3>
+		show-header-navigation="yes"
+		label-header="AGREEMENT_DETAIL"
+		label-header-align="start">
 		<div class="form-group">
 			<o-integer-input attr="C_ID" hidden></o-integer-input>
 			<o-textarea-input

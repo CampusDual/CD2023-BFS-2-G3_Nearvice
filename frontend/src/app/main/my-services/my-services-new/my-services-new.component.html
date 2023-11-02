@@ -1,10 +1,12 @@
 <o-form
 	#formNewService
+	id="newService"
 	service="announces"
 	entity="announce"
 	(onDataLoaded)="locationcharge()"
-	confirm-exit="no">
-	<h3>{{ "NEW_SERVICE" | oTranslate }}</h3>
+	confirm-exit="no"
+	label-header="NEW_SERVICE"
+	label-header-align="start">
 	<o-integer-input attr="A_ID" hidden></o-integer-input>
 	<o-combo
 		attr="S_ID"
