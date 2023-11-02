@@ -71,8 +71,9 @@
             </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
-                SELECT
-                    A.A_ID, COUNT(AG.AG_ID) AS AGREEMENTS_COUNT, COUNT(C.C_ID) AS CONVERSATIONS_COUNT, S.S_NAME, A.A_TITLE, A.A_ACTIVE
+				SELECT
+                    A.A_ID, COUNT(AG.AG_ID) AS AGREEMENTS_COUNT, COUNT(C.C_ID) AS CONVERSATIONS_COUNT, S.S_NAME, A.A_TITLE, A.A_ACTIVE,
+                    SUM(AG.AG_STATUS::int) AS ACCEPTED_AGREEMENTS_COUNT
                 FROM ANNOUNCES A
                 INNER JOIN SERVICES S ON A.S_ID = S.S_ID
                 LEFT JOIN CONVERSATIONS C ON A.A_ID = C.A_ID
@@ -98,6 +99,7 @@
                 LEFT JOIN AGREEMENTS AG ON C.C_ID = AG.C_ID
                 #WHERE#
                 GROUP BY A.A_ID, U.NAME, AG_PRICE
+
                 ]]>
             </Sentence>
         </Query>

@@ -56,6 +56,7 @@
 	"NEW_AGREEMENT": "New offer",
 	"AGREEMENT_DETAIL": "Offer detail",
 	"VIEW_OFFER_CLIENT_BTN": "View offer",
-	"AGREEMENTS_COUNTER": "Offers sent",
-	"CONVERSATIONS_COUNTER": "Number of conversations"
+	"AGREEMENTS_COUNT": "Offers sent",
+	"ACCEPTED_AGREEMENTS_COUNT": "Accepted offers",
+	"CONVERSATIONS_COUNT": "Number of conversations"
 }

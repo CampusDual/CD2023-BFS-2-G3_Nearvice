@@ -1,6 +1,7 @@
 package com.campusdual.model.core.service;
 
 import com.campusdual.api.core.service.IAnnounceService;
+import com.campusdual.model.core.dao.AgreementDao;
 import com.campusdual.model.core.dao.AnnounceDao;
 import com.campusdual.model.core.dao.UserDao;
 import com.ontimize.jee.common.dto.EntityResult;
@@ -23,6 +24,8 @@ public class AnnounceService implements IAnnounceService {
 
     @Autowired
     private AnnounceDao announceDao;
+    @Autowired
+    private AgreementDao agreementDao;
 
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
@@ -38,7 +41,11 @@ public class AnnounceService implements IAnnounceService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
         userKeyMap.put("USER_",authentication.getName());
-        return this.daoHelper.query(announceDao, userKeyMap, attrList, "agreementsConversationsAnnounces");
+        EntityResult result =  this.daoHelper.query(announceDao, userKeyMap, attrList, "agreementsConversationsAnnounces");
+        if(result.get(agreementDao.AGSTATUS)==null){
+            //result.put(agreementDao.AGSTATUS, "0");
+        }
+        return result;
     }
 
     public EntityResult agreementsConversationsUserAnnouncesQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
