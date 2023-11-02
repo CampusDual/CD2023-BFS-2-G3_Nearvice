@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, Inject, Injector } from "@angular/core";
 import { Router } from "@angular/router";
 import { OFormComponent, OntimizeService } from "ontimize-web-ngx";
+import { OMapComponent } from "ontimize-web-ngx-map";
 import { getLoggedUser } from "src/app/shared/utils";
 
 @Component({
@@ -12,6 +13,7 @@ export class HomeDetailCardComponent implements OnInit {
 	protected service: OntimizeService;
 	@Input() data: any;
 	@ViewChild("form", { static: false }) form: OFormComponent;
+	@ViewChild("oMapMarker", { static: false }) omap: OMapComponent;
 	user: String = getLoggedUser();
 	conversationExists: boolean = false;
 	conversation: any;
@@ -73,5 +75,11 @@ export class HomeDetailCardComponent implements OnInit {
 
 	getPositionGPS() {
 		return `${this.data.A_LATITUDE},${this.data.A_LONGITUDE}`;
+	}
+
+	ngOnDestroy() {
+		if (this.omap) {
+			this.omap.ngOnDestroy();
+		}
 	}
 }

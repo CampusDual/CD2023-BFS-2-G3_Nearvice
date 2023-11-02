@@ -1,6 +1,12 @@
-import { OTableComponent, OFormComponent, OnClickTableEvent } from "ontimize-web-ngx";
+import {
+	OTableComponent,
+	OFormComponent,
+	OnClickTableEvent,
+	OTableRowExpandableComponent,
+} from "ontimize-web-ngx";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { HomeDetailCardComponent } from "./home-detail-card/home-detail-card.component";
 
 @Component({
 	selector: "home",
@@ -12,15 +18,28 @@ export class HomeComponent implements OnInit {
 	longitude: number;
 	error: string;
 	locationObtained = false;
+	detailCardComponent: any;
+	currentDetailCardComponent: HomeDetailCardComponent | null = null;
 
 	@ViewChild("table", { static: false }) table: OTableComponent;
+	@ViewChild("expandibleRow", { static: false }) expandibleRow: OTableRowExpandableComponent;
 
 	constructor(private router: Router, private actRoute: ActivatedRoute) {
 		this.geoLocation();
 	}
 
 	onClick(event: OnClickTableEvent) {
+		console.log(event);
+
+		this.destroyCurrentDetailCardComponent();
 		this.table.toogleRowExpandable(event.row, event.rowIndex, event.mouseEvent);
+
+		console.log(this.expandibleRow);
+		this.expandibleRow.onExpanded.subscribe((rowExpanded) => {
+			if (rowExpanded.expanded) {
+				this.currentDetailCardComponent = rowExpanded.componentInstance;
+			}
+		});
 	}
 
 	ngOnInit() {}
@@ -86,5 +105,11 @@ export class HomeComponent implements OnInit {
 	}
 	navigate() {
 		this.router.navigate(["../", "login"], { relativeTo: this.actRoute });
+	}
+	destroyCurrentDetailCardComponent() {
+		if (this.currentDetailCardComponent) {
+			this.currentDetailCardComponent.ngOnDestroy();
+			this.currentDetailCardComponent = null;
+		}
 	}
 }

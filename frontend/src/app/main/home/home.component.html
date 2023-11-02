@@ -53,7 +53,7 @@
 			decimal-separator=","></o-table-cell-renderer-currency>
 	</o-table-column-calculated>
 
-	<o-table-row-expandable expandible-column-visible="no">
+	<o-table-row-expandable #expandibleRow expandible-column-visible="no">
 		<ng-template let-row>
 			<home-detail-card [data]="row"></home-detail-card>
 		</ng-template>
