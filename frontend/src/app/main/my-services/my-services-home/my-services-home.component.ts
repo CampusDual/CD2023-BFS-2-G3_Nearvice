@@ -14,12 +14,10 @@ export class MyServicesHomeComponent implements OnInit {
 	ngOnInit() {}
 
 	getData(event) {
-		console.log(event);
-		for (const evento of event) {
-			if (evento.ACCEPTED_AGREEMENTS_COUNT === undefined) {
-				evento.ACCEPTED_AGREEMENTS_COUNT = 0;
-				this.cell.textContent = "0";
+		event.forEach((row) => {
+			if (row["ACCEPTED_AGREEMENTS_COUNT"] == null) {
+				row["ACCEPTED_AGREEMENTS_COUNT"] = 0;
 			}
-		}
+		});
 	}
 }
