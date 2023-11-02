@@ -3,14 +3,11 @@ package com.campusdual.model.core.service;
 import com.campusdual.api.core.service.IAnnounceService;
 import com.campusdual.model.core.dao.AgreementDao;
 import com.campusdual.model.core.dao.AnnounceDao;
-import com.campusdual.model.core.dao.UserDao;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
-import com.ontimize.jee.common.security.PermissionsProviderSecured;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -41,11 +38,7 @@ public class AnnounceService implements IAnnounceService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
         userKeyMap.put("USER_",authentication.getName());
-        EntityResult result =  this.daoHelper.query(announceDao, userKeyMap, attrList, "agreementsConversationsAnnounces");
-        if(result.get(agreementDao.AGSTATUS)==null){
-            //result.put(agreementDao.AGSTATUS, "0");
-        }
-        return result;
+        return this.daoHelper.query(announceDao, userKeyMap, attrList, "agreementsConversationsAnnounces");
     }
 
     public EntityResult agreementsConversationsUserAnnouncesQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
