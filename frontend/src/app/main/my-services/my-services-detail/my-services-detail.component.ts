@@ -2,11 +2,15 @@ import { Component, AfterViewInit, ViewChild } from "@angular/core";
 import { OFormComponent } from "ontimize-web-ngx";
 import { OMapComponent, OMapLayerComponent } from "ontimize-web-ngx-map";
 import * as L from "leaflet";
+import { MyServicesDetailMessageService } from "./my-services-detail-message.service";
 
 @Component({
 	selector: "app-my-services-detail",
 	templateUrl: "./my-services-detail.component.html",
 	styleUrls: ["./my-services-detail.component.css"],
+	providers: [
+		{ provide: "myServicesDetailMessageService", useValue: MyServicesDetailMessageService },
+	],
 })
 export class MyServicesDetailComponent {
 	@ViewChild("formServiceDetail", { static: false }) form: OFormComponent;

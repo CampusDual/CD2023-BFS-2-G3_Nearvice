@@ -22,7 +22,7 @@
 	"SERVICES": "Mis servicios",
 	"A_TITLE": "Título de servicio",
 	"A_DESCRIPTION": "Descripción de servicio",
-	"A_ACTIVE": "Activo",
+	"A_ACTIVE": "Anuncio visible",
 	"S_NAME": "Categoría",
 	"MAILBOX": "Buzón",
 	"U_EMITTER": "Cliente",

@@ -8,14 +8,18 @@ import { OTableColumn } from "ontimize-web-ngx";
 })
 export class MyServicesHomeComponent implements OnInit {
 	@ViewChild("acceptedAgreements", { static: false }) accAg: OTableColumn;
+	cell = document.getElementById("acceptedAgreements");
 	constructor() {}
 
 	ngOnInit() {}
 
 	getData(event) {
 		console.log(event);
-		if (event[1].ACCEPTED_AGREEMENTS_COUNT == undefined) {
-			console.log(this.accAg);
+		for (const evento of event) {
+			if (evento.ACCEPTED_AGREEMENTS_COUNT === undefined) {
+				evento.ACCEPTED_AGREEMENTS_COUNT = 0;
+				this.cell.textContent = "0";
+			}
 		}
 	}
 }
