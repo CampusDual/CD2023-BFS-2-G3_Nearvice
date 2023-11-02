@@ -5,8 +5,9 @@
 	keys="A_ID"
 	header-actions="D;U;R"
 	(onDataLoaded)="formInit($event)"
-	message-service-type="myServicesDetailMessageService">
-	<h3>{{ "SERVICE_DETAIL" | oTranslate }}</h3>
+	message-service-type="myServicesDetailMessageService"
+	label-header="SERVICE_DETAIL"
+	label-header-align="start">
 	<o-integer-input attr="A_ID" hidden></o-integer-input>
 	<o-combo
 		#ocombo
