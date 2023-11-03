@@ -16,9 +16,9 @@
 
 .contactInfo {
 	display: flex;
-	justify-content: center;
-	margin: 0px !important;
-	padding: 0px !important;
+	justify-content: start;
+	margin: 0px;
+	padding: 2% !important;
 }
 
 .sendBtn {
@@ -39,9 +39,45 @@
 	z-index: 1;
 	border: 3px solid #e91e63;
 	height: 200px;
-	width: 100%;
+	width: 120%;
 	display: inline-flex;
+	margin-left: 3%;
 }
+
 .marker {
 	z-index: 2;
+}
+
+.detailCard {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 0.5%;
+	width: 100%;
+}
+
+.contactInfo {
+	flex: 1;
+	max-width: 50%;
+	display: flex;
+	flex-direction: row;
+	gap: 45px;
+}
+
+.contactAndMessageDiv {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	margin-left: 14%;
+}
+
+.cardButtonDiv {
+	align-self: flex-start;
+	width: 107%;
+	/* margin-top: 0.7%; */
+}
+
+#sendMessageDiv {
+	margin-bottom: -1%;
 }
