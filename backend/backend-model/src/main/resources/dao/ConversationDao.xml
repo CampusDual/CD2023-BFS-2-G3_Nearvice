@@ -75,5 +75,24 @@
                 ]]>
             </Sentence>
         </Query>
+        <Query id="conversationFinishedService">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="C_ID" prefix="C"  />
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                    WITH TEMPORAL AS (
+                        SELECT C.C_ID
+                        FROM CONVERSATIONS C
+                        WHERE C.C_END_DATETIME != NULL
+                    )
+                    SELECT
+                        #COLUMNS#
+                    FROM CONVERSATIONS C
+                    INNER JOIN TEMPORAL T ON T.C_ID = C.C_ID
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
     </Queries>
 </JdbcEntitySetup>

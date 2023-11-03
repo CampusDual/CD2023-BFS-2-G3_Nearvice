@@ -69,4 +69,7 @@ public class ConversationService implements IConversationService {
     public EntityResult conversationLastMessageChecker(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(conversationDao, keyMap, attrList,"lastConversationMessages");
     }
+    public EntityResult conversationIsFinishedChecker(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(conversationDao, keyMap, attrList,"conversationFinishedService");
+    }
 }

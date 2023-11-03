@@ -24,17 +24,19 @@ import java.util.*;
 @Component
 public class ConversationArchiveTask {
 
-    final int delay = -45;
+    final int timeLimitConversationDelay = -45;
+    final int finishedServiceConversationDelay = -15;
     @Autowired
     private ConversationService conversationService;
     @Autowired
     private AgreementService agreementService;
 
-    @Scheduled(cron = "0 0 11 * * ?")
+    @Scheduled(cron = "0 0 10 * * *")
     private void conversationActivityChecker() {
-        EntityResult results = timeLimitConversationChecker();
-        if (!results.isEmpty()) {
-            List<Object> cids = (List<Object>) results.get(ConversationDao.CID);
+        EntityResult timeLimitConversationCheckerResults = timeLimitConversationChecker();
+        finishedServiceConversationChecker();
+        if (!timeLimitConversationCheckerResults.isEmpty()) {
+            List<Object> cids = (List<Object>) timeLimitConversationCheckerResults.get(ConversationDao.CID);
             for (Object cid : cids) {
                 Map<String, Object> conversationUpdateMap = Map.of(ConversationDao.CACTIVE, false);
                 Map<String, Object> cidKeyMap = Map.of(ConversationDao.CID, cid);
@@ -58,15 +60,39 @@ public class ConversationArchiveTask {
     }
     private EntityResult timeLimitConversationChecker(){
         BasicField dateTimeField = new BasicField(MessageDao.MDATETIME);
+        BasicField finishDateTime = new BasicField(ConversationDao.CENDDATETIME);
         Calendar calendar = Calendar.getInstance();
         Date now = new Date();
         calendar.setTime(now);
-        calendar.add(Calendar.DAY_OF_MONTH, this.delay);
+        calendar.add(Calendar.DAY_OF_MONTH, this.timeLimitConversationDelay);
         Date dateTime = calendar.getTime();
         Timestamp limitDateTime = new Timestamp(dateTime.getTime());
         BasicExpression cidExpression = new BasicExpression(dateTimeField, BasicOperator.LESS_EQUAL_OP, limitDateTime);
-        Map<String, Object> expressionMap = Map.of(ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, cidExpression);
+        BasicExpression isNull = new BasicExpression(finishDateTime,  BasicOperator.NULL_OP, null);
+        BasicExpression complexExpression = new BasicExpression(cidExpression, BasicOperator.AND_OP, isNull);
+        Map<String, Object> expressionMap = Map.of(ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, complexExpression);
         List<String> attrList = List.of(ConversationDao.CID);
         return conversationService.conversationLastMessageChecker(expressionMap, attrList);
+    }
+    private void finishedServiceConversationChecker() {
+        BasicField endDateTimeField = new BasicField(ConversationDao.CENDDATETIME);
+        Calendar calendar = Calendar.getInstance();
+        Date now = new Date();
+        calendar.setTime(now);
+        calendar.add(Calendar.DAY_OF_MONTH, this.finishedServiceConversationDelay);
+        Date dateTime = calendar.getTime();
+        Timestamp limitDateTime = new Timestamp(dateTime.getTime());
+        BasicExpression isFinishedExpression = new BasicExpression(endDateTimeField, BasicOperator.LESS_EQUAL_OP, limitDateTime);
+        Map<String, Object> isFinishedExpressionMap = Map.of(ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, isFinishedExpression);
+        List<String> isFinishedAttrList = List.of(ConversationDao.CID);
+        EntityResult finishedConversations = conversationService.conversationIsFinishedChecker(isFinishedExpressionMap, isFinishedAttrList);
+        if(!finishedConversations.isEmpty()){
+            List<Object> cids = (List<Object>) finishedConversations.get(ConversationDao.CID);
+            for (Object cid : cids) {
+                Map<String, Object> conversationUpdateMap = Map.of(ConversationDao.CACTIVE, false);
+                Map<String, Object> cidKeyMap = Map.of(ConversationDao.CID, cid);
+                conversationService.conversationUpdate(conversationUpdateMap, cidKeyMap);
+            }
+        }
     }
 }

@@ -14,4 +14,5 @@ public class ConversationDao extends OntimizeJdbcDaoSupport {
     public static final String AID = "A_ID";
     public static final String UCLIENT= "U_CLIENT";
     public static final String CACTIVE = "C_ACTIVE";
+    public static final String CENDDATETIME = "C_END_DATETIME";
 }
