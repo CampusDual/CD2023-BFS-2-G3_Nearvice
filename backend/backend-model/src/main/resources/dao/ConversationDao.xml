@@ -55,7 +55,6 @@
                 <AmbiguousColumn name="USER_" prefix="U" />
                 <AmbiguousColumn name="M_ID" prefix="M"  />
                 <AmbiguousColumn name="S_ID" prefix="S"  />
-                <AmbiguousColumn name="AG_ACCEPTED" prefix="T2"  />
             </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
@@ -63,19 +62,12 @@
                         SELECT MAX(M.M_ID) AS M_ID
                         FROM MESSAGES M
                         GROUP BY M.C_ID
-                    ),
-                    TEMPORAL2 AS (
-                        SELECT MAX(AG.AG_ID) AS AG_ID, C_ID, AG_ACCEPTED
-                        FROM AGREEMENTS AG
-                        GROUP BY AG.C_ID, AG_ACCEPTED
                     )
                     SELECT
                         #COLUMNS#
                     FROM TEMPORAL T
                     INNER JOIN MESSAGES M ON T.M_ID = M.M_ID
                     INNER JOIN CONVERSATIONS C ON M.C_ID = C.C_ID
-                    INNER JOIN AGREEMENTS AG ON AG.C_ID = C.C_ID
-                    INNER JOIN TEMPORAL2 T2 ON T2.C_ID = C.C_ID
                     INNER JOIN ANNOUNCES A ON C.A_ID = A.A_ID
                     INNER JOIN TUSER U ON U.USER_ = A.USER_
                     INNER JOIN SERVICES S ON S.S_ID = A.S_ID

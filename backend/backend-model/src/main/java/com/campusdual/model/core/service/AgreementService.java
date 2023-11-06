@@ -31,6 +31,10 @@ public class AgreementService implements IAgreementService {
            return this.daoHelper.query(agreementDao, keyMap, attrList);
     }
 
+     public EntityResult agreementLastIdQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
+         return this.daoHelper.query(agreementDao, keyMap, attrList, "lastAgreementId");
+     }
+
     public EntityResult agreementAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(agreementDao, keyMap, attrList);
     }

@@ -19,9 +19,28 @@
             <Sentence>
                 <![CDATA[
                     SELECT
-                        #COLUMNS#
+                    #COLUMNS#
                     FROM AGREEMENTS AG
                     INNER JOIN CONVERSATIONS C ON AG.C_ID = C.C_ID
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+         <Query id="lastAgreementId">
+             <AmbiguousColumns>
+                 <AmbiguousColumn name="C_ID" prefix="t"/>
+                 <AmbiguousColumn name="AG_ID" prefix="agr"/>
+             </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                 WITH TEMPORAL AS (
+                    select max(ag_id) as ag_id, ag.c_id
+                    from agreements ag
+                    inner join conversations c on ag.c_id = c.c_id
+                    group by ag.c_id
+                    )
+                    SELECT #COLUMNS# FROM TEMPORAL t
+                    INNER JOIN AGREEMENTS agr ON agr.ag_id = t.ag_id
                     #WHERE#
                 ]]>
             </Sentence>

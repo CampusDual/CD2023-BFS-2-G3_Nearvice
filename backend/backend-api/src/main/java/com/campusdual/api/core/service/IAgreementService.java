@@ -7,6 +7,7 @@ import java.util.Map;
 
 public interface IAgreementService {
     public EntityResult agreementQuery(Map<?, ?> keyMap, List<?> attrList);
+     public EntityResult agreementLastIdQuery(Map<?, ?> keyMap, List<?> attrList);
     public EntityResult agreementAllQuery(Map<?, ?> keyMap, List<?> attrList);
     public EntityResult agreementInsert(Map<?, ?> attrMap);
     public EntityResult agreementUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
