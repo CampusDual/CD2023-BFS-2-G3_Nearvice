@@ -7,8 +7,8 @@
 	<o-table
 		fxFlex
 		title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME;AG_ACCEPTED"
-		visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME;AG_ACCEPTED"
+		columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME"
+		visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME"
 		service="conversations"
 		entity="conversationMessageReceiver"
 		keys="C_ID"
@@ -27,18 +27,6 @@
 			multiline="yes"
 			tooltip="yes"></o-table-column>
 		<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
-		<o-table-column
-			attr="AG_ACCEPTED"
-			title="AG_ACCEPTED"
-			multiline="yes"
-			tooltip="yes"
-			type="boolean"
-			true-value="true"
-			false-value="false"
-			boolean-type="text"
-			render-type="icon"
-			render-true-value="check_circle"
-			render-false-value="highlight_off"></o-table-column>
 	</o-table>
 	<o-table
 		fxFlex

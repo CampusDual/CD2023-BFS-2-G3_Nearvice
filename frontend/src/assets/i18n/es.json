@@ -49,7 +49,6 @@
 	"SEND_OFFER": "Enviar oferta",
 	"REMOVE_OFFER": "Eliminar oferta",
 	"DISTANCE": "Distancia",
-	"VIEWDETAIL": "Detalles de la oferta",
 	"MSG_DELETE_ERROR_MY_SERVICES": "No puedes eliminar este servicio porque tienes conversaciones abiertas con clientes. Puedes modificar el servicio a 'no visible' para que desaparezca en el listado de servicios.",
 	"NEW_SERVICE": "Nuevo servicio",
 	"SERVICE_DETAIL": "Detalles del servicio",

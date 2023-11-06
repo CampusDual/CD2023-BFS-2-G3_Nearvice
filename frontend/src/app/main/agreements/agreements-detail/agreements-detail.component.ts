@@ -9,8 +9,18 @@ import { OFormComponent } from "ontimize-web-ngx";
 export class AgreementsDetailComponent implements OnInit {
 	@Input() isClient: boolean;
 	@ViewChild("agreementForm", { static: false }) form: OFormComponent;
+	status: string;
 	constructor() {}
 
 	ngOnInit() {}
-	imClient() {}
+
+	imClient(event) {
+		if (event.AG_ACCEPTED) {
+			this.status = "ACCEPTED";
+		} else if (event.AG_ACCEPTED == false) {
+			this.status = "DECLINED";
+		} else if (event.AG_ACCEPTED == undefined) {
+			this.status = "PENDING";
+		}
+	}
 }

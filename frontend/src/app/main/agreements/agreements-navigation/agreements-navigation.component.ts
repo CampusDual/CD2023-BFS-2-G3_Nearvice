@@ -18,6 +18,7 @@ export class AgreementsNavigationComponent implements OnInit, AfterContentInit {
 	agreement: any;
 	accepted: any;
 	isClient: boolean = true;
+	dataIsLoaded: boolean = false;
 
 	constructor(private router: Router, private route: ActivatedRoute, protected injector: Injector) {
 		this.service = this.injector.get(OntimizeService);
@@ -28,16 +29,16 @@ export class AgreementsNavigationComponent implements OnInit, AfterContentInit {
 			if (this.data.CLIENT == this.user) {
 				this.viewOfferClient = true;
 			}
-		}, 1000);
+		}, 300);
 	}
 
-	onDataLoaded(data: any) {
-		console.log(data);
-		this.c_id = data.C_ID;
-		this.ag_id = data.AG_ID;
-		this.accepted = data.A_ACCEPTED;
-		this.agreement = data.AG_ID;
-		console.log(this.accepted);
+	onDataLoaded(event: any) {
+		this.c_id = event.C_ID;
+		this.ag_id = event.AG_ID;
+		this.accepted = event.AG_ACCEPTED;
+		this.agreement = event.AG_ID;
+		this.dataIsLoaded = event;
+		console.log(event);
 	}
 
 	public openAgreementFormNew() {
