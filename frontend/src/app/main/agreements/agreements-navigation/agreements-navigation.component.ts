@@ -30,10 +30,12 @@ export class AgreementsNavigationComponent implements OnInit, AfterContentInit {
 				this.viewOfferClient = true;
 			}
 		}, 300);
+		this.route.params.subscribe((params) => {
+			this.c_id = params["C_ID"];
+		});
 	}
 
 	onDataLoaded(event: any) {
-		this.c_id = event.C_ID;
 		this.ag_id = event.AG_ID;
 		this.accepted = event.AG_ACCEPTED;
 		this.agreement = event.AG_ID;
