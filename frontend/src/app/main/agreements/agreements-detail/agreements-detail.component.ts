@@ -17,6 +17,10 @@ export class AgreementsDetailComponent implements OnInit {
 	imClient(event) {
 		if (event.AG_ACCEPTED) {
 			this.status = "ACCEPTED";
+			const elementToDelete = document.querySelector('[attr="delete"]');
+			if (elementToDelete) {
+				(elementToDelete as HTMLElement).style.display = "none";
+			}
 		} else if (event.AG_ACCEPTED == false) {
 			this.status = "DECLINED";
 		} else if (event.AG_ACCEPTED == undefined) {
