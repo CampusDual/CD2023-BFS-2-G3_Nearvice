@@ -59,5 +59,11 @@
 	"AGREEMENTS_COUNT": "Sent offers",
 	"ACCEPTED_AGREEMENTS_COUNT": "Accepted offers",
 	"CONVERSATIONS_COUNT": "Number of conversations",
-	"DECLINE": "Decline"
+	"DECLINE": "Decline",
+	"AG_ACCEPTED": "Deal?",
+	"C_END_DATETIME": "Service end date",
+	"ACCEPTED": "Accepted",
+	"DECLINED": "Declined",
+	"PENDING": "Pending",
+	"STATUS_OFFR": "Status of the offer"
 }
