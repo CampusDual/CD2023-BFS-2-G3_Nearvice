@@ -62,3 +62,25 @@ input[type="time"] {
 	display: flex;
 	justify-content: center;
 }
+
+.status {
+	margin-top: 40px;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.status-accepted {
+	color: green;
+	font-weight: bold;
+}
+
+.status-declined {
+	color: red;
+	font-weight: bold;
+}
+
+.status-pending {
+	color: orange;
+	font-weight: bold;
+}

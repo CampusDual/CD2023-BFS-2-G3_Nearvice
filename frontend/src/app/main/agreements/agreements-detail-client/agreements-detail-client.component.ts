@@ -11,6 +11,7 @@ export class AgreementsDetailClientComponent implements OnInit {
 	protected service: OntimizeService;
 	ag_accepted: boolean;
 	showAccept: boolean = true;
+	status: string;
 	constructor() {}
 
 	ngOnInit() {}
@@ -18,6 +19,14 @@ export class AgreementsDetailClientComponent implements OnInit {
 		this.ag_accepted = data.AG_ACCEPTED;
 		if (this.ag_accepted != null) {
 			this.showAccept = false;
+		}
+
+		if (data.AG_ACCEPTED) {
+			this.status = "ACCEPTED";
+		} else if (data.AG_ACCEPTED == false) {
+			this.status = "DECLINED";
+		} else if (data.AG_ACCEPTED == undefined) {
+			this.status = "PENDING";
 		}
 	}
 	acceptOffer() {

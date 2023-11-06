@@ -11,7 +11,6 @@
 		label-header="AGREEMENT_DETAIL"
 		label-header-align="start"
 		(onDataLoaded)="onDataLoaded($event)">
-		<o-text-input attr="AG_ACCEPTED" hidden></o-text-input>
 		<div class="form-group">
 			<o-integer-input attr="C_ID" hidden></o-integer-input>
 			<o-textarea-input
@@ -39,7 +38,6 @@
 				attr="raised1"
 				type="RAISED"
 				label="ACCEPT"
-				layout-padding
 				color="primary"
 				layout-padding></o-button>
 			<o-button
@@ -48,9 +46,19 @@
 				attr="raised1"
 				type="RAISED"
 				label="DECLINE"
-				layout-padding
 				color="warn"
 				layout-padding></o-button>
 		</div>
+
+		<o-text-input
+			[ngClass]="{
+				'status-accepted': status === 'ACCEPTED',
+				'status-declined': status === 'DECLINED',
+				'status-pending': status === 'PENDING'
+			}"
+			class="status"
+			attr="AG_ACCEPTED"
+			label="STATUS_OFFR"
+			[data]="status | oTranslate"></o-text-input>
 	</o-form>
 </div>

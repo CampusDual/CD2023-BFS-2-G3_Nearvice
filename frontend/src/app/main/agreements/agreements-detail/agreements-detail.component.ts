@@ -4,7 +4,7 @@ import { OFormComponent } from "ontimize-web-ngx";
 @Component({
 	selector: "agreements-detail",
 	templateUrl: "./agreements-detail.component.html",
-	styleUrls: ["./agreements-detail.component.scss"],
+	styleUrls: ["./agreements-detail.component.css"],
 })
 export class AgreementsDetailComponent implements OnInit {
 	@Input() isClient: boolean;
