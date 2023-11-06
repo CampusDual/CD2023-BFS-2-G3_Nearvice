@@ -92,11 +92,12 @@
                 WITH TEMPORAL AS (
                 select *
                 from conversations c
+                inner join agreements AG on AG.c_id = C.c_id
                 where c.c_end_datetime is not null
+                and AG.ag_accepted = TRUE
                 )
                 select #COLUMNS#
                 from TEMPORAL T
-                inner join AGREEMENTS AG on AG.c_id = T.C_ID
                 #WHERE#
                 ]]>
             </Sentence>

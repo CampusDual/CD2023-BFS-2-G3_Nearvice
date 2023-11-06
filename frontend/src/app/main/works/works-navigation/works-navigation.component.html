@@ -1,0 +1,23 @@
+<o-form
+	service="agreements"
+	entity="agreementLastId"
+	parent-keys="C_ID"
+	columns="AG_ID;AG_ACCEPTED;C_ID"
+	show-header="no"
+	(onDataLoaded)="dataLoaded($event)">
+	<o-integer-input attr="C_ID" hidden></o-integer-input>
+	<o-integer-input attr="AG_ID" hidden></o-integer-input>
+	<o-text-input attr="AG_ACCEPTED" hidden></o-text-input>
+	<div *ngIf="finishWorkCondition && !viewOfferClient">
+		<button
+			class="btn-style"
+			color="primary"
+			mat-stroked-button=""
+			type="button"
+			ng-reflect-color="primary">
+			<span class="mat-button-wrapper">
+				<span class="ng-star-inserted">{{ "FINISH_WORK" | oTranslate }}</span>
+			</span>
+		</button>
+	</div>
+</o-form>

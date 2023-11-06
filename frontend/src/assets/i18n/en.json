@@ -64,5 +64,6 @@
 	"ACCEPTED": "Accepted",
 	"DECLINED": "Declined",
 	"PENDING": "Pending",
-	"STATUS_OFFR": "Status of the offer"
+	"STATUS_OFFR": "Status of the offer",
+	"FINISH_WORK": "Finish work"
 }

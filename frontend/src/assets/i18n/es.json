@@ -64,5 +64,6 @@
 	"ACCEPTED": "Aceptado",
 	"DECLINED": "Rechazado",
 	"PENDING": "Pendiente",
-	"STATUS_OFFR": "Estado de la oferta"
+	"STATUS_OFFR": "Estado de la oferta",
+	"FINISH_WORK": "Finalizar trabajo"
 }
