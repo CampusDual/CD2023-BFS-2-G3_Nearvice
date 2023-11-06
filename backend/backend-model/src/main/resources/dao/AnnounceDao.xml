@@ -85,21 +85,19 @@
         </Query>
         <Query id="agreementsConversationsUserAnnounces">
             <AmbiguousColumns>
-                <AmbiguousColumn name="A_ID" prefix="A"/>
                 <AmbiguousColumn name="C_ID" prefix="C"/>
-                <AmbiguousColumn name="USER_" prefix="U"/>
             </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
-                SELECT
-                    A.A_ID, U.NAME, AG_PRICE
-                FROM ANNOUNCES A
-                INNER JOIN TUSER U ON U.USER_ = A.USER_
-                LEFT JOIN CONVERSATIONS C ON A.A_ID = C.A_ID
-                LEFT JOIN AGREEMENTS AG ON C.C_ID = AG.C_ID
+                WITH TEMPORAL AS (
+                select *
+                from conversations c
+                where c.c_end_datetime is not null
+                )
+                select #COLUMNS#
+                from TEMPORAL T
+                inner join AGREEMENTS AG on AG.c_id = T.C_ID
                 #WHERE#
-                GROUP BY A.A_ID, U.NAME, AG_PRICE
-
                 ]]>
             </Sentence>
         </Query>

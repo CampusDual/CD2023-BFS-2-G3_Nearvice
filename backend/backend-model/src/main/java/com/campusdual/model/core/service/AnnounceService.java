@@ -42,10 +42,7 @@ public class AnnounceService implements IAnnounceService {
     }
 
     public EntityResult agreementsConversationsUserAnnouncesQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> userKeyMap = new HashMap<>((Map<String, Object>) keyMap);
-        userKeyMap.put("USER_",authentication.getName());
-        return this.daoHelper.query(announceDao, userKeyMap, attrList, "agreementsConversationsUserAnnounces");
+        return this.daoHelper.query(announceDao, keyMap, attrList, "agreementsConversationsUserAnnounces");
     }
 
     public EntityResult announceAllQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
