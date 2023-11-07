@@ -54,6 +54,7 @@ input[type="time"] {
 .price-input {
 	display: flex;
 	align-items: center;
+	justify-content: end;
 }
 
 .euro-symbol {
@@ -70,6 +71,13 @@ input[type="time"] {
 	width: auto;
 	margin-left: 25px;
 	margin-right: 25px;
+}
+textarea {
+	cursor: pointer;
+}
+.content-buttons {
+	display: flex;
+	justify-content: center;
 }
 
 .status {
