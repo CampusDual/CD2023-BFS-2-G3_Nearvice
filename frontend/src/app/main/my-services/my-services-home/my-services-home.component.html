@@ -1,20 +1,18 @@
 <o-table
 	attr="myServicesTable"
-	columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT;ACCEPTED_AGREEMENTS_COUNT"
-	visible-columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT;ACCEPTED_AGREEMENTS_COUNT"
+	columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT;ACCEPTED_AGREEMENTS_COUNT;DECLINED_AGREEMENTS_COUNT"
+	visible-columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT;ACCEPTED_AGREEMENTS_COUNT;DECLINED_AGREEMENTS_COUNT"
 	service="announces"
 	entity="agreementsConversationsAnnounces"
 	keys="A_ID"
 	delete-button="no"
 	pagination-controls="no"
 	(onDataLoaded)="getData($event)">
-	<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
+	<o-table-column attr="S_NAME" title="S_NAME"></o-table-column>
 	<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" tooltip="yes"></o-table-column>
 	<o-table-column
 		attr="A_ACTIVE"
 		title="A_ACTIVE"
-		multiline="yes"
-		tooltip="yes"
 		type="boolean"
 		true-value="true"
 		false-value="false"
@@ -22,20 +20,14 @@
 		render-type="icon"
 		render-true-value="check_circle"
 		render-false-value="highlight_off"></o-table-column>
-	<o-table-column
-		attr="CONVERSATIONS_COUNT"
-		title="CONVERSATIONS_COUNT"
-		multiline="yes"
-		tooltip="yes"></o-table-column>
-	<o-table-column
-		attr="AGREEMENTS_COUNT"
-		title="AGREEMENTS_COUNT"
-		multiline="yes"
-		tooltip="yes"></o-table-column>
+	<o-table-column attr="CONVERSATIONS_COUNT" title="CONVERSATIONS_COUNT"></o-table-column>
+	<o-table-column attr="AGREEMENTS_COUNT" title="AGREEMENTS_COUNT"></o-table-column>
 	<o-table-column
 		#acceptedAgreements
 		attr="ACCEPTED_AGREEMENTS_COUNT"
-		title="ACCEPTED_AGREEMENTS_COUNT"
-		multiline="yes"
-		tooltip="yes"></o-table-column>
+		title="ACCEPTED_AGREEMENTS_COUNT"></o-table-column>
+	<o-table-column
+		#declinedAgreements
+		attr="DECLINED_AGREEMENTS_COUNT"
+		title="DECLINED_AGREEMENTS_COUNT"></o-table-column>
 </o-table>
