@@ -29,12 +29,9 @@ export class HomeComponent implements OnInit {
 	}
 
 	onClick(event: OnClickTableEvent) {
-		console.log(event);
-
 		this.destroyCurrentDetailCardComponent();
 		this.table.toogleRowExpandable(event.row, event.rowIndex, event.mouseEvent);
 
-		console.log(this.expandibleRow);
 		this.expandibleRow.onExpanded.subscribe((rowExpanded) => {
 			if (rowExpanded.expanded) {
 				this.currentDetailCardComponent = rowExpanded.componentInstance;
@@ -111,5 +108,8 @@ export class HomeComponent implements OnInit {
 			this.currentDetailCardComponent.ngOnDestroy();
 			this.currentDetailCardComponent = null;
 		}
+	}
+	destroyDetailCardComponent(event) {
+		console.log(event);
 	}
 }

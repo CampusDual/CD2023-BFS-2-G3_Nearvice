@@ -1,9 +1,11 @@
 <o-form
+	#formWork
 	service="agreements"
 	entity="agreementLastId"
 	parent-keys="C_ID"
 	columns="AG_ID;AG_ACCEPTED;C_ID"
 	show-header="no"
+	keys-sql-types="INTEGER"
 	(onDataLoaded)="dataLoaded($event)">
 	<o-integer-input attr="C_ID" hidden></o-integer-input>
 	<o-integer-input attr="AG_ID" hidden></o-integer-input>
@@ -14,7 +16,8 @@
 			color="primary"
 			mat-stroked-button=""
 			type="button"
-			ng-reflect-color="primary">
+			ng-reflect-color="primary"
+			(click)="insertDate($event)">
 			<span class="mat-button-wrapper">
 				<span class="ng-star-inserted">{{ "FINISH_WORK" | oTranslate }}</span>
 			</span>

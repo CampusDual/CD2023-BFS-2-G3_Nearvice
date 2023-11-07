@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Injector, Input, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+
+import { OFormComponent, OntimizeService } from "ontimize-web-ngx";
 import { getLoggedUser } from "src/app/shared/utils";
 
 @Component({
@@ -8,13 +10,17 @@ import { getLoggedUser } from "src/app/shared/utils";
 	styleUrls: ["./works-navigation.component.css"],
 })
 export class WorksNavigationComponent implements OnInit {
-	c_id: any;
-	finishWorkCondition: boolean = false;
 	@Input() data: any;
+	protected service: OntimizeService;
+	@ViewChild("formWork", { static: false }) formW: OFormComponent;
 	viewOfferClient: boolean = false;
 	user: string = getLoggedUser();
+	c_id: any;
+	finishWorkCondition: boolean = false;
 
-	constructor(private route: ActivatedRoute) {}
+	constructor(private route: ActivatedRoute, protected injector: Injector) {
+		this.service = this.injector.get(OntimizeService);
+	}
 
 	ngOnInit() {
 		setTimeout(() => {
@@ -28,10 +34,25 @@ export class WorksNavigationComponent implements OnInit {
 	}
 
 	dataLoaded(event) {
-		console.log(event);
 		if (event.AG_ACCEPTED) {
 			this.finishWorkCondition = true;
 		}
-		console.log(this.c_id);
+	}
+
+	insertDate() {
+		const filter = {
+			C_ID: Number(this.c_id),
+		};
+
+		const columns = {
+			C_END_DATETIME: new Date(),
+		};
+		const sqlTypes = {
+			C_END_DATETIME: 93,
+			C_ID: 4,
+		};
+		this.service.update(filter, columns, "conversation", sqlTypes).subscribe((resp) => {
+			console.log(resp);
+		});
 	}
 }
