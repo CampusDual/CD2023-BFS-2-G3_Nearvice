@@ -1,4 +1,10 @@
-<div class="form-container">
+<div
+	[ngClass]="{
+		'form-status-accepted': status === 'ACCEPTED',
+		'form-status-declined': status === 'DECLINED',
+		'form-status-pending': status === 'PENDING'
+	}"
+	class="form-container">
 	<o-form
 		#agreementFormClient
 		entity="agreement"
@@ -10,15 +16,22 @@
 		show-header-navigation="yes"
 		label-header="AGREEMENT_DETAIL"
 		label-header-align="start"
-		(onDataLoaded)="onDataLoaded($event)">
+		(onDataLoaded)="onDataLoaded($event)"
+		[ngClass]="">
+		<o-text-input
+			[ngClass]="{
+				'status-accepted': status === 'ACCEPTED',
+				'status-declined': status === 'DECLINED',
+				'status-pending': status === 'PENDING'
+			}"
+			class="status"
+			attr="AG_ACCEPTED"
+			label="STATUS_OFFR"
+			[data]="status | oTranslate"></o-text-input>
+
 		<div class="form-group">
 			<o-integer-input attr="C_ID" hidden></o-integer-input>
-			<o-textarea-input
-				attr="AG_DESCRIPTION"
-				id="observaciones"
-				name="observaciones"
-				rows="3"
-				read-only="yes"></o-textarea-input>
+			<o-textarea-input attr="AG_DESCRIPTION" read-only="yes" rows="0"></o-textarea-input>
 		</div>
 		<div class="form-group">
 			<div class="price-input">
@@ -49,16 +62,5 @@
 				color="warn"
 				layout-padding></o-button>
 		</div>
-
-		<o-text-input
-			[ngClass]="{
-				'status-accepted': status === 'ACCEPTED',
-				'status-declined': status === 'DECLINED',
-				'status-pending': status === 'PENDING'
-			}"
-			class="status"
-			attr="AG_ACCEPTED"
-			label="STATUS_OFFR"
-			[data]="status | oTranslate"></o-text-input>
 	</o-form>
 </div>

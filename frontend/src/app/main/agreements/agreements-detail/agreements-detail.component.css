@@ -5,8 +5,22 @@
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	padding: 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	background-color: white;
+}
+
+.form-status-accepted {
+	animation: pulse-accepted 2s infinite;
+	border: 1px solid green;
+}
+
+.form-status-declined {
+	animation: pulse-declined 2s infinite;
+	border: 1px solid red;
+}
+
+.form-status-pending {
+	animation: pulse-pending 2s infinite;
+	border: 1px solid orange;
 }
 
 .form-row {
@@ -59,10 +73,9 @@ input[type="time"] {
 }
 
 .status {
-	margin-top: 40px;
+	margin-top: 20px;
 	display: flex;
 	align-content: center;
-	justify-content: center;
 }
 
 .status-accepted {
@@ -78,4 +91,40 @@ input[type="time"] {
 .status-pending {
 	color: orange;
 	font-weight: bold;
+}
+
+@keyframes pulse-accepted {
+	0% {
+		box-shadow: 0 0 0 0 rgba(44, 204, 71, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+	}
+}
+
+@keyframes pulse-declined {
+	0% {
+		box-shadow: 0 0 0 0 rgba(204, 44, 44, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+	}
+}
+
+@keyframes pulse-pending {
+	0% {
+		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+	}
 }
