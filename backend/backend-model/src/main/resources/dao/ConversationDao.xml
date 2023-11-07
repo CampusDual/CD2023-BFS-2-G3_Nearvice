@@ -61,8 +61,6 @@
                     WITH TEMPORAL AS (
                         SELECT MAX(M.M_ID) AS M_ID
                         FROM MESSAGES M
-                        INNER JOIN CONVERSATIONS C ON M.C_ID = C.C_ID
-                        WHERE C.C_ACTIVE = TRUE
                         GROUP BY M.C_ID
                     )
                     SELECT
