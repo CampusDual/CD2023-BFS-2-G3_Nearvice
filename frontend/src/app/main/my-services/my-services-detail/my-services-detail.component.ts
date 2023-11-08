@@ -54,7 +54,6 @@ export class MyServicesDetailComponent {
 			this.oMapMarker.getLMap().removeLayer(this.currentMarker);
 		}
 		this.currentMarker = L.marker([lat, lng]).addTo(this.oMapMarker.getLMap());
-		this.currentMarker.bindPopup("Nueva Ubicación").openPopup();
 		this.form.setFieldValues({ A_LATITUDE: lat, A_LONGITUDE: lng });
 	}
 }

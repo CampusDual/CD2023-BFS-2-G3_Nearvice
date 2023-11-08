@@ -10,7 +10,7 @@
 	<o-integer-input attr="C_ID" hidden></o-integer-input>
 	<o-integer-input attr="AG_ID" hidden></o-integer-input>
 	<o-text-input attr="AG_ACCEPTED" hidden></o-text-input>
-	<div *ngIf="finishWorkCondition">
+	<div *ngIf="!viewOfferClient && finishWorkCondition">
 		<button
 			id="finishWorkButton"
 			class="btn-style"

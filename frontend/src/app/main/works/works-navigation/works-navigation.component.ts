@@ -28,10 +28,13 @@ export class WorksNavigationComponent implements OnInit {
 			if (this.data.CLIENT == this.user) {
 				this.viewOfferClient = true;
 			}
-		}, 300);
+		}, 200);
 		this.route.params.subscribe((params) => {
 			this.c_id = params["C_ID"];
 		});
+	}
+
+	dataLoaded(event) {
 		const filter = {
 			C_ID: Number(this.c_id),
 		};
@@ -43,10 +46,8 @@ export class WorksNavigationComponent implements OnInit {
 				this.viewFinishWorkButton = true;
 			}
 		});
-	}
 
-	dataLoaded(event) {
-		if (event.AG_ACCEPTED && !this.viewOfferClient && !this.viewFinishWorkButton) {
+		if (event.AG_ACCEPTED && !this.viewFinishWorkButton) {
 			this.finishWorkCondition = true;
 		}
 	}
