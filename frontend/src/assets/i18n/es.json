@@ -70,5 +70,6 @@
 	"FILTERS_MAILBOX_HOME": "Filtro de conversación",
 	"ARCHIVE": "Archivar conversacion",
 	"DEFAULT_CONVERSATION_FILTER": "Mostrar todas las conversaciones",
-	"CONVERSATION_FILTER": "Filtro de conversaciones"
+	"CONVERSATION_FILTER": "Filtro de conversaciones",
+	"FINISHEDWORKS": "Trabajos finalizados"
 }
