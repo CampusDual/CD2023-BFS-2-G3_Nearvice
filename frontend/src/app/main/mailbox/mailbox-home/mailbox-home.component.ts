@@ -15,10 +15,6 @@ export class MailboxHomeComponent implements OnInit {
 
 	public conversationArray = [
 		{
-			conversationStatusCode: null,
-			conversationStatus: "Mostrar todas las conversaciones",
-		},
-		{
 			conversationStatusCode: false,
 			conversationStatus: "Mostrar las conversaciones archivadas",
 		},
