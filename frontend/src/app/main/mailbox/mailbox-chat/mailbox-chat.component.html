@@ -9,7 +9,7 @@
 		keys-sql-types="INTEGER"
 		keys="C_ID"
 		(onDataLoaded)="getData($event)"
-		columns="C_ID; USER_; U_CLIENT;A_TITLE;S_NAME">
+		columns="C_ID; USER_; U_CLIENT;A_TITLE;S_NAME;C_ACTIVE">
 		<div class="custom-container">
 			<o-text-input
 				*ngIf="professionalCondition"
@@ -28,6 +28,19 @@
 				id="client"></o-text-input>
 			<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
 			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
+			<o-text-input attr="C_ACTIVE" hidden></o-text-input>
+			<div *ngIf="isConversationActive">
+				<button
+					class="btn-style archive"
+					mat-stroked-button=""
+					type="button"
+					ng-reflect-color="primary"
+					(click)="archiveConversation()">
+					<span class="mat-button-wrapper">
+						<span class="ng-star-inserted">{{ "ARCHIVE" | oTranslate }}</span>
+					</span>
+				</button>
+			</div>
 			<!--? Preguntar por [data] como era que se pasaba de forma correcta, sin crear objeto aquí -->
 			<app-agreements-navigation [data]="{ CLIENT: u_client }"></app-agreements-navigation>
 			<app-works-navigation [data]="{ CLIENT: u_client }"></app-works-navigation>

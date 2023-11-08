@@ -67,5 +67,6 @@
 	"STATUS_OFFR": "Estado de la oferta",
 	"FINISH_WORK": "Finalizar trabajo",
 	"DECLINED_AGREEMENTS_COUNT": "Ofertas rechazadas",
-	"FILTERS_MAILBOX_HOME": "Filtro de conversación"
+	"FILTERS_MAILBOX_HOME": "Filtro de conversación",
+	"ARCHIVE": "Archivar conversacion"
 }

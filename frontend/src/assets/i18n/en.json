@@ -67,5 +67,6 @@
 	"STATUS_OFFR": "Status of the offer",
 	"FINISH_WORK": "Finish work",
 	"DECLINED_AGREEMENTS_COUNT": "Declined offers",
-	"FILTERS_MAILBOX_HOME": "Conversation filter"
+	"FILTERS_MAILBOX_HOME": "Conversation filter",
+	"ARCHIVE": "Archive conversation"
 }

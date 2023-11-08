@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild, Injector } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { OFormComponent, OListComponent, OntimizeService } from "ontimize-web-ngx";
 import { MY_CHAT_MESSAGES_CLASS, OTHER_CHAT_MESSAGES_CLASS } from "src/app/shared/constants";
 import { getLoggedUser } from "src/app/shared/utils";
@@ -19,38 +19,37 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	clientCondition: boolean = true;
 	agreementOfferExists: boolean = false;
 	agreement: any;
+	isConversationActive: boolean;
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("chatList", { static: false }) chatList: OListComponent;
 
-	constructor(private route: ActivatedRoute) {}
+	constructor(private route: ActivatedRoute, protected injector: Injector, private router: Router) {
+		this.service = this.injector.get(OntimizeService);
+	}
 
 	ngOnInit() {
 		this.route.params.subscribe((params) => {
 			this.c_id = params["C_ID"];
 		});
-		// this.configureService();
-		// this.getAgreements();
+		this.configureService();
 	}
 	protected configureService() {
-		const conf = this.service.getDefaultServiceConfiguration("agreements");
+		const conf = this.service.getDefaultServiceConfiguration("conversations");
 		this.service.configureService(conf);
 	}
 
-	getAgreements() {
-		const _cid: number = +this.c_id;
+	archiveConversation() {
+		const _cid: number = Number(this.c_id);
 		if (_cid && this.service !== null) {
 			const filter = {
 				C_ID: _cid,
 			};
 
-			const columns = ["AG_ID"];
-			this.service.query(filter, columns, "agreement").subscribe((resp) => {
-				if (resp.code === 0 && resp.data[0]) {
-					if (resp.data[0]) {
-						this.agreementOfferExists = true;
-						this.agreement = resp.data[0].AG_ID;
-					}
+			const columns = { C_ACTIVE: false };
+			this.service.update(filter, columns, "conversation").subscribe((resp) => {
+				if (resp.code === 0) {
+					this.router.navigateByUrl(`/main/mailbox`);
 				}
 			});
 		}
@@ -58,6 +57,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	getData(event) {
 		let user_ = event.USER_;
 		this.u_client = event.U_CLIENT;
+		this.isConversationActive = event.C_ACTIVE;
 
 		if (this.user === user_) {
 			this.professionalCondition = false;

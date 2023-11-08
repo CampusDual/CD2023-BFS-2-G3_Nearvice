@@ -1,5 +1,5 @@
 import { Component, Injector, Input, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { OFormComponent, OntimizeService } from "ontimize-web-ngx";
 import { getLoggedUser } from "src/app/shared/utils";
@@ -17,8 +17,9 @@ export class WorksNavigationComponent implements OnInit {
 	user: string = getLoggedUser();
 	c_id: any;
 	finishWorkCondition: boolean = false;
+	viewFinishWorkButton: boolean = false;
 
-	constructor(private route: ActivatedRoute, protected injector: Injector) {
+	constructor(private route: ActivatedRoute, protected injector: Injector, private router: Router) {
 		this.service = this.injector.get(OntimizeService);
 	}
 
@@ -31,15 +32,26 @@ export class WorksNavigationComponent implements OnInit {
 		this.route.params.subscribe((params) => {
 			this.c_id = params["C_ID"];
 		});
+		const filter = {
+			C_ID: Number(this.c_id),
+		};
+
+		const columns = ["C_END_DATETIME"];
+
+		this.service.query(filter, columns, "conversation").subscribe((resp) => {
+			if (resp.data[0].C_END_DATETIME != null) {
+				this.viewFinishWorkButton = true;
+			}
+		});
 	}
 
 	dataLoaded(event) {
-		if (event.AG_ACCEPTED) {
+		if (event.AG_ACCEPTED && !this.viewOfferClient && !this.viewFinishWorkButton) {
 			this.finishWorkCondition = true;
 		}
 	}
 
-	insertDate() {
+	insertDate(event) {
 		const filter = {
 			C_ID: Number(this.c_id),
 		};
@@ -52,7 +64,7 @@ export class WorksNavigationComponent implements OnInit {
 			C_ID: 4,
 		};
 		this.service.update(filter, columns, "conversation", sqlTypes).subscribe((resp) => {
-			console.log(resp);
+			this.router.navigateByUrl(`/main/mailbox`);
 		});
 	}
 }
