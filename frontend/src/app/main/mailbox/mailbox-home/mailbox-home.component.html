@@ -4,17 +4,18 @@
 	main-min-width="50"
 	detail-min-width="10"> -->
 <div style="display: flex; flex-direction: column">
-	<!--PENDIENTE AÑADIR EXPANDED = "NO"-->
-
 	<o-form show-header="no">
-		<o-column-collapsible title="{{ 'FILTERS_MAILBOX_HOME' | oTranslate }}" appearance="outline">
+		<o-column-collapsible
+			title="{{ 'FILTERS_MAILBOX_HOME' | oTranslate }}"
+			appearance="outline"
+			expanded="no">
 			<o-column fxFlex="50">
 				<o-combo
 					#conversationStatus
 					attr="conversationStatus2"
 					label="{{ 'DEFAULT_CONVERSATION_FILTER' | oTranslate }}"
 					label-visible="no"
-					null-selection="no"
+					null-selection="yes"
 					[static-data]="conversationArray"
 					[data]="selectedConversationStatusCode"
 					value-column="conversationStatusCode"
@@ -43,7 +44,7 @@
 			fxFlex
 			title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
 			columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME;C_ACTIVE"
-			visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME;C_ACTIVE"
+			visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME"
 			service="conversations"
 			entity="conversationMessageReceiver"
 			keys="C_ID"
@@ -64,29 +65,69 @@
 			<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
 		</o-table>
 	</o-form>
-	<o-table
-		#professionalConversation
-		fxFlex
-		title="{{ 'SENT_MESSAGES' | oTranslate }}"
-		columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME"
-		visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"
-		service="conversations"
-		entity="conversationMessageEmitter"
-		keys="C_ID"
-		delete-button="no"
-		insert-button="no"
-		sort-columns="M_ID:DESC"
-		show-title="yes"
-		horizontal-scroll="false"
-		auto-adjust="true"
-		virtual-scroll="no">
-		<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" width="auto"></o-table-column>
-		<o-table-column attr="USER_" title="PROFESSIONAL" multiline="yes" width="auto"></o-table-column>
-		<o-table-column
-			attr="M_MESSAGE"
-			title="M_MESSAGE"
-			multiline="yes"
-			tooltip="yes"></o-table-column>
-		<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
-	</o-table>
+	<o-form show-header="no">
+		<o-column-collapsible
+			title="{{ 'FILTERS_MAILBOX_HOME' | oTranslate }}"
+			appearance="outline"
+			expanded="no">
+			<o-column fxFlex="50">
+				<o-combo
+					#conversationStatus
+					attr="conversationStatus2"
+					label="{{ 'DEFAULT_CONVERSATION_FILTER' | oTranslate }}"
+					label-visible="no"
+					null-selection="yes"
+					[static-data]="conversationArray"
+					[data]="selectedConversationStatusCode"
+					value-column="conversationStatusCode"
+					visible-columns="conversationStatus"
+					required="no"
+					null-selection-label="{{ 'DEFAULT_CONVERSATION_FILTER' | oTranslate }}"
+					fxFlex></o-combo>
+				<o-button
+					attr="filter"
+					[oFilterBuilderQuery]="filterBuilder2"
+					type="RAISED"
+					label="FILTER"
+					class="filter-button"></o-button>
+			</o-column>
+		</o-column-collapsible>
+		<o-filter-builder
+			#filterBuilder2
+			attr="thefilter"
+			filters="CONV_STATUS:conversationStatus2"
+			[target]="professionalConversation"
+			[expression-builder]="createFilter"
+			query-on-change="no"
+			query-on-change-delay="500"></o-filter-builder>
+		<o-table
+			#professionalConversation
+			fxFlex
+			title="{{ 'SENT_MESSAGES' | oTranslate }}"
+			columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME;C_ACTIVE"
+			visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"
+			service="conversations"
+			entity="conversationMessageEmitter"
+			keys="C_ID"
+			delete-button="no"
+			insert-button="no"
+			sort-columns="M_ID:DESC"
+			show-title="yes"
+			horizontal-scroll="false"
+			auto-adjust="true"
+			virtual-scroll="no">
+			<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" width="auto"></o-table-column>
+			<o-table-column
+				attr="USER_"
+				title="PROFESSIONAL"
+				multiline="yes"
+				width="auto"></o-table-column>
+			<o-table-column
+				attr="M_MESSAGE"
+				title="M_MESSAGE"
+				multiline="yes"
+				tooltip="yes"></o-table-column>
+			<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
+		</o-table>
+	</o-form>
 </div>
