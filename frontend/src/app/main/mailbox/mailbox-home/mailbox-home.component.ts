@@ -1,5 +1,10 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { FilterExpressionUtils, Expression, OComboComponent } from "ontimize-web-ngx";
+import { Component, Injector, OnInit, ViewChild } from "@angular/core";
+import {
+	FilterExpressionUtils,
+	Expression,
+	OntimizeService,
+	OTranslateService,
+} from "ontimize-web-ngx";
 
 @Component({
 	selector: "app-mailbox-home",
@@ -8,21 +13,38 @@ import { FilterExpressionUtils, Expression, OComboComponent } from "ontimize-web
 })
 export class MailboxHomeComponent implements OnInit {
 	public selectedConversationStatusCode = 2;
+	lang: string;
+	public service: OntimizeService;
+	public conversationArray: Array<any> = [];
 
-	constructor() {}
+	constructor(private translateService: OTranslateService, protected injector: Injector) {
+		this.conversationArray = [
+			{
+				conversationStatusCode: false,
+				conversationStatus: this.translateService.get("SHOW_ARCHIVED_CONVERSATIONS"),
+			},
+			{
+				conversationStatusCode: true,
+				conversationStatus: this.translateService.get("SHOW_ACTIVE_CONVERSATIONS"),
+			},
+		];
+	}
 
+	getDataArray() {
+		return this.conversationArray;
+	}
 	ngOnInit() {}
 
-	public conversationArray = [
-		{
-			conversationStatusCode: false,
-			conversationStatus: "Mostrar las conversaciones archivadas",
-		},
-		{
-			conversationStatusCode: true,
-			conversationStatus: "Mostrar las conversaciones activas",
-		},
-	];
+	// public conversationArray = [
+	// 	{
+	// 		conversationStatusCode: false,
+	// 		conversationStatus: "Mostrar las conversaciones archivadas",
+	// 	},
+	// 	{
+	// 		conversationStatusCode: true,
+	// 		conversationStatus: "Mostrar las conversaciones activas",
+	// 	},
+	// ];
 
 	createFilter(values: Array<{ attr; value }>): Expression {
 		let filters: Array<Expression> = [];

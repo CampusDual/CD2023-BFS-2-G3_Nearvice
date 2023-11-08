@@ -36,7 +36,7 @@
 	"SEND": "Enviar mensaje",
 	"PROFESSIONAL": "Profesional",
 	"U_CLIENT": "Cliente",
-	"GO_ANNOUNCE": "Ir al anuncio",
+	"GO_ANNOUNCE": "Editar anuncio",
 	"A_LATITUDE": "Latitud",
 	"A_LONGITUDE": "Longitud",
 	"LOCATION": "Ubicación",
@@ -71,5 +71,7 @@
 	"ARCHIVE": "Archivar conversacion",
 	"DEFAULT_CONVERSATION_FILTER": "Mostrar todas las conversaciones",
 	"CONVERSATION_FILTER": "Filtro de conversaciones",
-	"FINISHEDWORKS": "Trabajos finalizados"
+	"FINISHEDWORKS": "Trabajos finalizados",
+	"SHOW_ARCHIVED_CONVERSATIONS": "Mostrar conversaciones archivadas",
+	"SHOW_ACTIVE_CONVERSATIONS": "Mostrar conversaciones activas"
 }
