@@ -1,4 +1,4 @@
-/* .o-form {
+.o-form {
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 8px;
@@ -8,7 +8,11 @@
 	height: auto;
 	margin: 0 auto;
 	margin-top: 25px;
-} */
+}
+
+.serviceDetailContainer {
+	overflow: hidden;
+}
 
 .o-integer-input,
 .o-combo,
@@ -34,7 +38,7 @@
 }
 .mapDetailService {
 	z-index: 1;
-	border: 3px solid #e91e63;
+	border: 3px solid #ffc847;
 	height: 400px;
 	width: 100%;
 	display: flex;
