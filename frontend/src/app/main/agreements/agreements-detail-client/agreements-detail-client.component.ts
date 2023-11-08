@@ -10,15 +10,15 @@ export class AgreementsDetailClientComponent implements OnInit {
 	@ViewChild("agreementFormClient", { static: false }) form: OFormComponent;
 	protected service: OntimizeService;
 	ag_accepted: boolean;
-	showAccept: boolean = true;
+	showAccept: boolean = false;
 	status: string;
 	constructor() {}
 
 	ngOnInit() {}
 	onDataLoaded(data: any) {
 		this.ag_accepted = data.AG_ACCEPTED;
-		if (this.ag_accepted != null) {
-			this.showAccept = false;
+		if (this.ag_accepted == null) {
+			this.showAccept = true;
 		}
 
 		if (data.AG_ACCEPTED) {
