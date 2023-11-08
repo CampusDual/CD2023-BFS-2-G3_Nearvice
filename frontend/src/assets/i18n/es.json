@@ -68,5 +68,7 @@
 	"FINISH_WORK": "Finalizar trabajo",
 	"DECLINED_AGREEMENTS_COUNT": "Ofertas rechazadas",
 	"FILTERS_MAILBOX_HOME": "Filtro de conversación",
-	"ARCHIVE": "Archivar conversacion"
+	"ARCHIVE": "Archivar conversacion",
+	"DEFAULT_CONVERSATION_FILTER": "Mostrar todas las conversaciones",
+	"CONVERSATION_FILTER": "Filtro de conversaciones"
 }
