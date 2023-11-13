@@ -73,5 +73,8 @@
 	"CONVERSATION_FILTER": "Conversation filter",
 	"FINISHEDWORKS": "Finished works",
 	"SHOW_ARCHIVED_CONVERSATIONS": "Show archived conversations",
-	"SHOW_ACTIVE_CONVERSATIONS": "Show active conversations"
+	"SHOW_ACTIVE_CONVERSATIONS": "Show active conversations",
+	"ACCEPTED_AGREEMENTS_PERCENTAGE": "Percentage of accepted offers:",
+	"DECLINED_AGREEMENTS_PERCENTAGE": "Percentage of declined offers:",
+	"PENDING_AGREEMENTS_PERCENTAGE": "Percentage of pending offers:"
 }

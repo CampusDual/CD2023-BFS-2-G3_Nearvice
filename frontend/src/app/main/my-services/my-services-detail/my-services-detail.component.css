@@ -67,3 +67,48 @@
 	margin-top: 1vh;
 	margin-bottom: 4vh;
 }
+
+/*CSS TEMPORAL*/
+
+.form-row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
+}
+
+.form-column {
+	flex-basis: 100%;
+	margin-bottom: 15px; /* Espacio entre las filas */
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.form-row label {
+	flex-basis: calc(50% - 10px);
+	margin-bottom: 0;
+	margin-right: 10px; /* Separación entre elementos en la misma fila */
+}
+
+/* Estilos para organizar en dos columnas */
+@media (min-width: 600px) {
+	.form-row label {
+		flex-basis: auto;
+		margin-bottom: 5px;
+		margin-right: 10px; /* Separación entre elementos en la misma fila en pantallas más grandes */
+	}
+
+	.form-row label:last-child {
+		margin-right: 0; /* Reinicia el margen derecho en el último elemento en pantallas más grandes */
+	}
+}
+
+/* Agrega algún estilo adicional según tus preferencias */
+body {
+	font-family: "Arial", sans-serif;
+	background-color: #f4f4f4;
+	margin: 20px;
+}

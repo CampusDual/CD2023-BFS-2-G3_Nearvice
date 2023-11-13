@@ -17,6 +17,13 @@ export class MyServicesDetailComponent {
 	@ViewChild("oMapMarker", { static: false }) oMapMarker: OMapComponent;
 	@ViewChild("oMarker", { static: false }) oMarker: OMapLayerComponent;
 
+	acceptedAgreementsPercentage: number;
+	declinedAgreementsPercentage: number;
+	pendingAgreementsPercentage: number;
+	acc_ags: number;
+	dec_ags: number;
+	pen_ags: number;
+	ags_count: number;
 	a_id: number;
 	longitudeService: number = null;
 	latitudeService: number = null;
@@ -55,5 +62,36 @@ export class MyServicesDetailComponent {
 		}
 		this.currentMarker = L.marker([lat, lng]).addTo(this.oMapMarker.getLMap());
 		this.form.setFieldValues({ A_LATITUDE: lat, A_LONGITUDE: lng });
+	}
+
+	metricsCalculator() {
+		if (this.ags_count !== 0) {
+			this.acceptedAgreementsPercentage = Math.round((this.acc_ags * 100) / this.ags_count);
+			this.declinedAgreementsPercentage = Math.round((this.dec_ags * 100) / this.ags_count);
+			this.pendingAgreementsPercentage = Math.round((this.pen_ags * 100) / this.ags_count);
+		} else {
+			this.declinedAgreementsPercentage = 0;
+			this.acceptedAgreementsPercentage = 0;
+			this.pendingAgreementsPercentage = 0;
+		}
+
+		console.log(this.acceptedAgreementsPercentage + "%");
+		console.log(this.declinedAgreementsPercentage + "%");
+		console.log(this.pendingAgreementsPercentage + "%");
+	}
+
+	dataLoaded(event) {
+		this.a_id = event.A_ID;
+		this.acc_ags = event.accepted_agreements_count;
+		this.dec_ags = event.declined_agreements_count;
+		this.ags_count = event.agreements_count;
+		this.pen_ags = this.ags_count - this.acc_ags - this.dec_ags;
+		/*
+		console.log(this.a_id);
+		console.log(this.acc_ags);
+		console.log(this.dec_ags);
+		console.log(this.ags_count);
+		*/
+		this.metricsCalculator();
 	}
 }
