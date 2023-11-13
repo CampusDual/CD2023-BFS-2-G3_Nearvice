@@ -82,33 +82,43 @@
 				pagination-controls="no"
 				refresh-button="no"
 				insert-button="no">
+				<o-table-column
+					attr="AG_PRICE"
+					title="AG_PRICE"
+					type="currency"
+					thousand-separator="."
+					decimal-separator=","
+					currency-symbol="€"
+					currency-symbol-position="right"></o-table-column>
 				<o-table-column attr="C_END_DATETIME" type="date"></o-table-column>
 			</o-table>
-			<o-form
-				show-header="no"
-				(onDataLoaded)="dataLoaded($event)"
-				service="announces"
-				entity="agreementsConversationsAnnounces"
-				parent-keys="A_ID"
-				keys-sql-types="INTEGER"
-				keys="A_ID"
-				columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
-				visible-columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT">
-				<div class="form-column">
-					<div class="form-row">
-						<label>{{ "ACCEPTED_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
-						<label id="campo1">{{ acceptedAgreementsPercentage }}%</label>
+			<div class="percentageDiv">
+				<o-form
+					show-header="no"
+					(onDataLoaded)="dataLoaded($event)"
+					service="announces"
+					entity="agreementsConversationsAnnounces"
+					parent-keys="A_ID"
+					keys-sql-types="INTEGER"
+					keys="A_ID"
+					columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
+					visible-columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT">
+					<div class="form-column">
+						<div class="form-row">
+							<label>{{ "ACCEPTED_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
+							<label id="campo1">{{ acceptedAgreementsPercentage }}%</label>
+						</div>
+						<div class="form-row">
+							<label>{{ "DECLINED_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
+							<label id="campo2">{{ declinedAgreementsPercentage }}%</label>
+						</div>
+						<div class="form-row">
+							<label>{{ "PENDING_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
+							<label id="campo3">{{ pendingAgreementsPercentage }}%</label>
+						</div>
 					</div>
-					<div class="form-row">
-						<label>{{ "DECLINED_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
-						<label id="campo2">{{ declinedAgreementsPercentage }}%</label>
-					</div>
-					<div class="form-row">
-						<label>{{ "PENDING_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
-						<label id="campo3">{{ pendingAgreementsPercentage }}%</label>
-					</div>
-				</div>
-			</o-form>
+				</o-form>
+			</div>
 		</o-row>
 	</o-form>
 </div>
