@@ -23,6 +23,8 @@
                 <Column>USERBLOCKED</Column>
                 <Column>LASTPASSWORDUPDATE</Column>
                 <Column>FIRSTLOGIN</Column>
+                <Column>U_LATITUDE</Column>
+                <Column>U_LONGITUDE</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[

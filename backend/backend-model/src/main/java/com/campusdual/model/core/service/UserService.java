@@ -12,6 +12,8 @@ import com.ontimize.jee.common.security.PermissionsProviderSecured;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.campusdual.api.core.service.IUserService;
@@ -35,6 +37,18 @@ public class UserService implements IUserService {
 
 	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) throws OntimizeJEERuntimeException {
 		return this.daoHelper.query(userDao, keyMap, attrList);
+	}
+	public EntityResult userLocationQuery(List<?> attrList) throws OntimizeJEERuntimeException {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Map<String, Object> userKeyMap = new HashMap<>();
+		userKeyMap.put("USER_",authentication.getName());
+		return this.daoHelper.query(userDao, userKeyMap, attrList);
+	}
+	public EntityResult userAuthenticatedQuery(List<?> attrList) throws OntimizeJEERuntimeException {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Map<String, Object> userKeyMap = new HashMap<>();
+		userKeyMap.put("USER_",authentication.getName());
+		return this.daoHelper.query(userDao, userKeyMap, attrList);
 	}
 
 	public EntityResult userInsert(Map<?, ?> attrMap) {
