@@ -1,8 +1,10 @@
 import { Component, Inject, Injector, OnInit, ViewEncapsulation } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AuthService, LocalStorageService, NavigationService } from "ontimize-web-ngx";
 import { Observable } from "rxjs";
+import { RegisterHomeComponent } from "../main/register/register-home/register-home.component";
 
 @Component({
 	selector: "login",
@@ -19,6 +21,7 @@ export class LoginComponent implements OnInit {
 	router: Router;
 
 	constructor(
+		protected dialog: MatDialog,
 		private actRoute: ActivatedRoute,
 		router: Router,
 		@Inject(NavigationService) public navigation: NavigationService,
@@ -74,5 +77,13 @@ export class LoginComponent implements OnInit {
 			default:
 				break;
 		}
+	}
+
+	public openRegister(): void {
+		this.dialog.open(RegisterHomeComponent, {
+			disableClose: true,
+			height: "740px",
+			width: "500px",
+		});
 	}
 }

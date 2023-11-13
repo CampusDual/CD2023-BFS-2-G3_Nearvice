@@ -10,6 +10,10 @@ export const routes: Routes = [
 		path: "login",
 		loadChildren: () => import("./login/login.module").then((m) => m.LoginModule),
 	},
+	{
+		path: "register",
+		loadChildren: () => import("./main/register/register.module").then((m) => m.RegisterModule),
+	},
 	{ path: "", redirectTo: "main", pathMatch: "full" },
 ];
 
