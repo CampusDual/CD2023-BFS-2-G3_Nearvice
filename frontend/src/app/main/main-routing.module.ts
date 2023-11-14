@@ -10,7 +10,7 @@ export const routes: Routes = [
 		component: MainComponent,
 		canActivate: [AuthGuardService],
 		children: [
-			{ path: "", redirectTo: "home", pathMatch: "full" },
+			{ path: "", redirectTo: "announces", pathMatch: "full" },
 			{
 				path: "home",
 				loadChildren: () => import("./home/home.module").then((m) => m.HomeModule),
@@ -28,6 +28,10 @@ export const routes: Routes = [
 				path: "agreements",
 				loadChildren: () =>
 					import("./agreements/agreements.module").then((m) => m.AgreementsModule),
+			},
+			{
+				path: "announces",
+				loadChildren: () => import("./announces/announces.module").then((m) => m.AnnouncesModule),
 			},
 		],
 	},

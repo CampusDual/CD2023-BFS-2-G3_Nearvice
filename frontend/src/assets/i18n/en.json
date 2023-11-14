@@ -76,5 +76,16 @@
 	"SHOW_ACTIVE_CONVERSATIONS": "Show active conversations",
 	"ACCEPTED_AGREEMENTS_PERCENTAGE": "Percentage of accepted offers:",
 	"DECLINED_AGREEMENTS_PERCENTAGE": "Percentage of declined offers:",
-	"PENDING_AGREEMENTS_PERCENTAGE": "Percentage of pending offers:"
+	"PENDING_AGREEMENTS_PERCENTAGE": "Percentage of pending offers:",
+	"CREATION_OF": "Creation of ",
+	"ELECTRICITY": "Electricity",
+	"PLUMBING": "Plumbing",
+	"BRICKWORK": "Brickwork",
+	"USER_": "User",
+	"NAME": "Name",
+	"SURNAME": "Surname",
+	"PASSWORD": "Password",
+	"confirm_password": "Confirm password",
+	"EMAIL": "Email",
+	"USER_REGISTER": "User register"
 }

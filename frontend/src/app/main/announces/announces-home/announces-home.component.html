@@ -1,0 +1,117 @@
+<o-row-collapsible>
+	<o-map
+		#oMapHome
+		fxflex
+		class="homeMap"
+		zoom="12"
+		min-zoom="3"
+		max-zoom="20"
+		zoom-control="no"
+		search-control="false"
+		[center]="getPositionGPS()"
+		search-control-button-visible="false"
+		layer-panel-visible="no"></o-map>
+</o-row-collapsible>
+<o-form show-header="no">
+	<o-row>
+		<o-combo
+			class="filterService"
+			attr="S_ID"
+			label="S_NAME"
+			service="services"
+			entity="service"
+			columns="S_ID;S_NAME"
+			filter="no"
+			null-selection="yes"
+			value-column="S_NAME"
+			visible-columns="S_NAME"
+			read-only="false"></o-combo>
+		<o-button
+			attr="filter"
+			[oFilterBuilderQuery]="filterBuilder"
+			type="RAISED"
+			label="FILTER"
+			class="filter-button"></o-button>
+		<o-filter-builder
+			#filterBuilder
+			attr="thefilter"
+			[target]="announcesGrid"
+			query-on-change="no"
+			filters="S_NAME:S_ID"
+			query-on-change-delay="500"
+			[expression-builder]="createFilter"></o-filter-builder>
+	</o-row>
+	<o-grid
+		#announcesGrid
+		attr="announcesGrid"
+		service="announces"
+		entity="announceAll"
+		keys="A_ID"
+		columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL;A_LATITUDE;A_LONGITUDE"
+		query-rows="4"
+		pagination-controls="no"
+		orderable="yes"
+		sortable-columns="DISTANCE;DISTANCE:DESC;S_NAME:DESC;S_NAME;USER_:DESC;USER_"
+		quick-filter-appearance="field"
+		show-page-size="yes"
+		quick-filter="yes"
+		pagination-controls="no"
+		quick-filter-columns="S_NAME;USER_"
+		(onDataLoaded)="loadAnnounces($event)"
+		controls="yes"
+		gutter-size="5px"
+		detail-mode="none">
+		<o-grid-item *ngFor="let list of grid.dataArray">
+			<div
+				[ngClass]="{
+					'class-fontaneria': list.S_NAME === 'PLUMBING',
+					'class-electricidad': list.S_NAME === 'ELECTRICITY',
+					'class-albañileria': list.S_NAME === 'BRICKWORK'
+				}"
+				class="card"
+				(click)="openDetail(list)">
+				<div class="main">
+					<img
+						class="cardImage"
+						*ngIf="list.S_NAME === 'ELECTRICITY'"
+						src="../../../assets/images/herramientas_electricista.png" />
+					<img
+						class="cardImage"
+						*ngIf="list.S_NAME === 'PLUMBING'"
+						src="../../../assets/images/herramientas_Fontanero.png" />
+					<img
+						class="cardImage"
+						*ngIf="list.S_NAME === 'BRICKWORK'"
+						src="../../../assets/images/herramientas_obra.png" />
+					<h3>{{ list.A_TITLE }}</h3>
+					<div class="cardInfo">
+						<div class="distance">
+							<span class="material-symbols-outlined">distance</span>
+							<p>{{ list.DISTANCE }} Km</p>
+						</div>
+						<div class="service">
+							<span *ngIf="list.S_NAME === 'ELECTRICITY'" class="material-symbols-outlined">
+								electric_bolt
+							</span>
+							<span *ngIf="list.S_NAME === 'PLUMBING'" class="material-symbols-outlined">
+								plumbing
+							</span>
+							<span *ngIf="list.S_NAME === 'BRICKWORK'" class="material-symbols-outlined">
+								construction
+							</span>
+							<p>{{ list.S_NAME | oTranslate }}</p>
+						</div>
+					</div>
+					<hr />
+					<div class="creator">
+						<span class="material-symbols-outlined">account_circle</span>
+						<p>
+							<ins>{{ "CREATION_OF" | oTranslate }}</ins>
+							<span class="name-creator">{{ list.USER_ }}</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</o-grid-item>
+	</o-grid>
+</o-form>
