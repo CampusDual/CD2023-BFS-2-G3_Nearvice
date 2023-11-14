@@ -66,59 +66,106 @@
 				</div>
 			</o-row>
 		</div>
-		<o-row>
-			<o-table
-				show-title="yes"
-				title="FINISHEDWORKS"
-				detail-mode="none"
-				attr="servicesDetailStats"
-				columns="U_CLIENT;AG_PRICE;C_END_DATETIME;A_ID"
-				visible-columns="U_CLIENT;AG_PRICE;C_END_DATETIME"
-				service="announces"
-				entity="agreementsConversationsUserAnnounces"
-				keys="A_ID"
-				parent-keys="A_ID"
-				delete-button="no"
-				pagination-controls="no"
-				refresh-button="no"
-				insert-button="no">
-				<o-table-column
-					attr="AG_PRICE"
-					title="AG_PRICE"
-					type="currency"
-					thousand-separator="."
-					decimal-separator=","
-					currency-symbol="€"
-					currency-symbol-position="right"></o-table-column>
-				<o-table-column attr="C_END_DATETIME" type="date"></o-table-column>
-			</o-table>
-			<div class="percentageDiv">
-				<o-form
-					show-header="no"
-					(onDataLoaded)="dataLoaded($event)"
-					service="announces"
-					entity="agreementsConversationsAnnounces"
-					parent-keys="A_ID"
-					keys-sql-types="INTEGER"
-					keys="A_ID"
-					columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
-					visible-columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT">
-					<div class="form-column">
-						<div class="form-row">
-							<label>{{ "ACCEPTED_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
-							<label id="campo1">{{ acceptedAgreementsPercentage }}%</label>
+		<div class="percentageContainer">
+			<o-row>
+				<div class="percentageDiv">
+					<o-form
+						show-header="no"
+						(onDataLoaded)="dataLoaded($event)"
+						service="announces"
+						entity="agreementsConversationsAnnounces"
+						parent-keys="A_ID"
+						keys-sql-types="INTEGER"
+						keys="A_ID"
+						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
+						class="percentageAccepted">
+						<div class="form-column">
+							<div>
+								<label class="percentageTitle">
+									{{ "ACCEPTED_AGREEMENTS_PERCENTAGE" | oTranslate }}
+								</label>
+								<br />
+								<label id="campo1" class="percentageLabel">
+									{{ acceptedAgreementsPercentage }}%
+								</label>
+							</div>
 						</div>
-						<div class="form-row">
-							<label>{{ "DECLINED_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
-							<label id="campo2">{{ declinedAgreementsPercentage }}%</label>
+					</o-form>
+				</div>
+				<div class="percentageDiv">
+					<o-form
+						show-header="no"
+						(onDataLoaded)="dataLoaded($event)"
+						service="announces"
+						entity="agreementsConversationsAnnounces"
+						parent-keys="A_ID"
+						keys-sql-types="INTEGER"
+						keys="A_ID"
+						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
+						class="percentageRejected">
+						<div class="form-column">
+							<div>
+								<label class="percentageTitle">
+									{{ "DECLINED_AGREEMENTS_PERCENTAGE" | oTranslate }}
+								</label>
+								<br />
+								<label id="campo2" class="percentageLabel">
+									{{ declinedAgreementsPercentage }}%
+								</label>
+							</div>
 						</div>
-						<div class="form-row">
-							<label>{{ "PENDING_AGREEMENTS_PERCENTAGE" | oTranslate }}</label>
-							<label id="campo3">{{ pendingAgreementsPercentage }}%</label>
+					</o-form>
+				</div>
+				<div class="percentageDiv" id="percentageDivPending">
+					<o-form
+						show-header="no"
+						(onDataLoaded)="dataLoaded($event)"
+						service="announces"
+						entity="agreementsConversationsAnnounces"
+						parent-keys="A_ID"
+						keys-sql-types="INTEGER"
+						keys="A_ID"
+						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
+						class="percentagePending">
+						<div class="form-column">
+							<div>
+								<label class="percentageTitle">
+									{{ "PENDING_AGREEMENTS_PERCENTAGE" | oTranslate }}
+								</label>
+								<br />
+								<label id="campo3" class="percentageLabel">
+									{{ pendingAgreementsPercentage }}%
+								</label>
+							</div>
 						</div>
-					</div>
-				</o-form>
-			</div>
-		</o-row>
+					</o-form>
+				</div>
+			</o-row>
+		</div>
+		<o-table
+			show-title="yes"
+			title="FINISHEDWORKS"
+			detail-mode="none"
+			attr="servicesDetailStats"
+			columns="U_CLIENT;AG_PRICE;C_END_DATETIME;A_ID"
+			visible-columns="U_CLIENT;AG_PRICE;C_END_DATETIME"
+			service="announces"
+			entity="agreementsConversationsUserAnnounces"
+			keys="A_ID"
+			parent-keys="A_ID"
+			delete-button="no"
+			pagination-controls="no"
+			refresh-button="no"
+			insert-button="no">
+			<o-table-column
+				attr="AG_PRICE"
+				title="AG_PRICE"
+				type="currency"
+				thousand-separator="."
+				decimal-separator=","
+				currency-symbol="€"
+				currency-symbol-position="right"></o-table-column>
+			<o-table-column attr="C_END_DATETIME" type="date"></o-table-column>
+		</o-table>
 	</o-form>
 </div>

@@ -27,3 +27,7 @@ div#newAgreement button[attr="update"] {
 .agreementsHistoryContainer {
 	margin-top: 1.5%;
 }
+
+.percentageDiv ng-host.scrolling.o-scroll {
+	overflow: hidden;
+}
