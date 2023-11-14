@@ -14,4 +14,10 @@ export const SERVICE_CONFIG: Object = {
 	agreements: {
 		path: "/agreements",
 	},
+	users: {
+		path: "/users",
+	},
+	registers: {
+		path: "/registers",
+	},
 };

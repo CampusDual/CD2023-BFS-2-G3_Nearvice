@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { MatDialogRef } from "@angular/material";
 import {
 	OCheckboxComponent,
 	OFormComponent,
@@ -16,28 +17,20 @@ export class RegisterHomeComponent implements OnInit {
 
 	@ViewChild("registerForm", { static: false }) form: OFormComponent;
 
-	constructor() {}
+	constructor(private dialogRef: MatDialogRef<RegisterHomeComponent>) {}
 
 	ngOnInit() {}
 
 	public async send() {
-		const password = this.form.formGroup.get("password").value;
+		const password = this.form.formGroup.get("PASSWORD").value;
 		const confirmPassword = this.form.formGroup.get("confirm_password").value;
-		const userName = this.form.formGroup.get("user_").value;
-		this.form.insert();
+		const userName = this.form.formGroup.get("USER_").value;
 
-		/*
 		if (password !== confirmPassword) {
 			console.log("pass no igual");
-			alert("Las contraseñas no coinciden");
 		} else {
+			this.form.insert();
 		}
-		*/
-	}
-
-	public configureUserService() {
-		const conf = this.userService.getDefaultServiceConfiguration("users");
-		this.userService.configureService(conf);
 	}
 
 	public forceInsertMode(event: any) {
@@ -47,7 +40,7 @@ export class RegisterHomeComponent implements OnInit {
 	}
 
 	public closeDialog(event: any) {
-		//this.dialogRef.close();
+		this.dialogRef.close();
 	}
 
 	passwordMatchValidator(control: any): any {
