@@ -1,11 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatDialogRef } from "@angular/material";
-import {
-	OCheckboxComponent,
-	OFormComponent,
-	OTextInputComponent,
-	OntimizeService,
-} from "ontimize-web-ngx";
+import { DialogService, ODialogConfig, OFormComponent, OntimizeService } from "ontimize-web-ngx";
 
 @Component({
 	selector: "app-register-home",
@@ -17,7 +12,10 @@ export class RegisterHomeComponent implements OnInit {
 
 	@ViewChild("registerForm", { static: false }) form: OFormComponent;
 
-	constructor(private dialogRef: MatDialogRef<RegisterHomeComponent>) {}
+	constructor(
+		private dialogRef: MatDialogRef<RegisterHomeComponent>,
+		protected dialogService: DialogService
+	) {}
 
 	ngOnInit() {}
 
@@ -28,6 +26,11 @@ export class RegisterHomeComponent implements OnInit {
 
 		if (password !== confirmPassword) {
 			console.log("pass no igual");
+			const config: ODialogConfig = {
+				icon: "",
+				okButtonText: "Ok",
+			};
+			this.dialogService.info("Error", "PASSWORD_ERROR", config);
 		} else {
 			this.form.insert();
 		}

@@ -89,5 +89,6 @@
 	"EMAIL": "Correo electrónico",
 	"USER_REGISTER": "Registro de usuario",
 	"ERROR_DUPLICATE_USER_ID": "El usuario escogido ya existe",
-	"REGISTER": "Registrarse"
+	"REGISTER": "Registrarse",
+	"PASSWORD_ERROR": "La contraseña no coincide"
 }
