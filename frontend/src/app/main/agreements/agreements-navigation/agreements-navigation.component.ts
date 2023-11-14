@@ -40,7 +40,6 @@ export class AgreementsNavigationComponent implements OnInit, AfterContentInit {
 		this.accepted = event.AG_ACCEPTED;
 		this.agreement = event.AG_ID;
 		this.dataIsLoaded = event;
-		console.log(event);
 	}
 
 	public openAgreementFormNew() {

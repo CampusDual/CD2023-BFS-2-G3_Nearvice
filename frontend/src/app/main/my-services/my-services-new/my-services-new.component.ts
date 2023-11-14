@@ -42,9 +42,7 @@ export class MyServicesNewComponent implements OnInit, AfterViewInit {
 			this.locationObtained = true;
 		}
 	}
-	ngAfterViewInit(): void {
-		console.log(this.check);
-	}
+	ngAfterViewInit(): void {}
 	hasGPSPosition() {
 		return this.latitudeService !== null && this.longitudeService !== null;
 	}

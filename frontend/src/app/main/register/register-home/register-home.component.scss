@@ -1,9 +1,6 @@
 .o-form {
 	background-color: #fff;
-	border: 1px solid #ccc;
 	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	padding: 20px;
 	max-width: 80%;
 	height: auto;
 	margin: 0 auto;
@@ -31,4 +28,16 @@
 	padding: 10px 20px;
 	border-radius: 4px;
 	cursor: pointer;
+}
+
+.login-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

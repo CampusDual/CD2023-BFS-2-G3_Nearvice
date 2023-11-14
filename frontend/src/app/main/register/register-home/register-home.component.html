@@ -7,70 +7,52 @@
 	service="registers"
 	entity="user"
 	show-header="no">
-	<o-row>
-		<o-column title="USER_REGISTER" class="login-column">
-			<o-row>
-				<o-text-input
-					matInput
-					class="input-padding"
-					attr="NAME"
-					width="250px"
-					required="yes"></o-text-input>
-			</o-row>
-			<o-row>
-				<o-text-input
-					class="input-padding"
-					attr="SURNAME"
-					width="250px"
-					required="yes"></o-text-input>
-			</o-row>
-			<o-row>
-				<o-email-input attr="EMAIL" width="250px"></o-email-input>
-			</o-row>
-			<o-row>
-				<o-text-input
-					class="input-padding"
-					attr="USER_"
-					required="yes"
-					width="250px"></o-text-input>
-			</o-row>
-			<o-row>
-				<o-password-input
-					class="input-padding"
-					attr="PASSWORD"
-					required="yes"
-					width="250px"
-					show-password-button="yes"
-					(onChange)="reviewMatches($event)"></o-password-input>
-			</o-row>
-			<o-row>
-				<o-password-input
-					class="this.className"
-					attr="confirm_password"
-					width="250px"
-					required="yes"
-					show-password-button="yes">
-					<o-validator
-						error-name="passwordsNotMatched"
-						error-text="Password must match"></o-validator>
-				</o-password-input>
-			</o-row>
-			<div class="ontimize-buttons">
-				<o-button
-					attr="basic1"
-					type="STROKED"
-					label="CANCELAR"
-					layout-padding
-					color="primary"
-					(click)="closeDialog()"></o-button>
-				<o-button
-					attr="basic1"
-					type="STROKED"
-					label="REGISTRAR"
-					layout-padding
-					color="primary"
-					(click)="send()"></o-button>
-			</div>
-		</o-column>
-	</o-row>
+	<o-column title="USER_REGISTER" class="login-column">
+		<o-text-input
+			matInput
+			class="input-padding"
+			attr="NAME"
+			width="250px"
+			required="yes"></o-text-input>
+
+		<o-text-input class="input-padding" attr="SURNAME" width="250px" required="yes"></o-text-input>
+
+		<o-email-input attr="EMAIL" width="250px"></o-email-input>
+
+		<o-text-input class="input-padding" attr="USER_" required="yes" width="250px"></o-text-input>
+
+		<o-password-input
+			class="input-padding"
+			attr="PASSWORD"
+			required="yes"
+			width="250px"
+			show-password-button="yes"
+			(onChange)="reviewMatches($event)"></o-password-input>
+
+		<o-password-input
+			class="this.className"
+			attr="confirm_password"
+			width="250px"
+			required="yes"
+			show-password-button="yes">
+			<o-validator error-name="passwordsNotMatched" error-text="Password must match"></o-validator>
+		</o-password-input>
+
+		<div class="ontimize-buttons">
+			<o-button
+				attr="basic1"
+				type="STROKED"
+				label="CANCELAR"
+				layout-padding
+				color="primary"
+				(click)="closeDialog()"></o-button>
+			<o-button
+				attr="basic1"
+				type="STROKED"
+				label="REGISTRAR"
+				layout-padding
+				color="primary"
+				(click)="send()"></o-button>
+		</div>
+	</o-column>
 </o-form>

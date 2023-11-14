@@ -87,5 +87,7 @@
 	"PASSWORD": "Password",
 	"confirm_password": "Confirm password",
 	"EMAIL": "Email",
-	"USER_REGISTER": "User register"
+	"USER_REGISTER": "User register",
+	"ERROR_DUPLICATE_USER_ID": "The chosen user already exists",
+	"REGISTER": "Sign up"
 }

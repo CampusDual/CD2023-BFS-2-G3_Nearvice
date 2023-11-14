@@ -74,10 +74,6 @@ export class MyServicesDetailComponent {
 			this.acceptedAgreementsPercentage = 0;
 			this.pendingAgreementsPercentage = 0;
 		}
-
-		console.log(this.acceptedAgreementsPercentage + "%");
-		console.log(this.declinedAgreementsPercentage + "%");
-		console.log(this.pendingAgreementsPercentage + "%");
 	}
 
 	dataLoaded(event) {
@@ -86,12 +82,6 @@ export class MyServicesDetailComponent {
 		this.dec_ags = event.declined_agreements_count;
 		this.ags_count = event.agreements_count;
 		this.pen_ags = this.ags_count - this.acc_ags - this.dec_ags;
-		/*
-		console.log(this.a_id);
-		console.log(this.acc_ags);
-		console.log(this.dec_ags);
-		console.log(this.ags_count);
-		*/
 		this.metricsCalculator();
 	}
 }
