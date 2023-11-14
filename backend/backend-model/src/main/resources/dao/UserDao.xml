@@ -19,7 +19,6 @@
                 <Column>NAME</Column>
                 <Column>SURNAME</Column>
                 <Column>EMAIL</Column>
-                <Column>NIF</Column>
                 <Column>USERBLOCKED</Column>
                 <Column>LASTPASSWORDUPDATE</Column>
                 <Column>FIRSTLOGIN</Column>
@@ -43,7 +42,6 @@
                 <Column>NAME</Column>
                 <Column>SURNAME</Column>
                 <Column>EMAIL</Column>
-                <Column>NIF</Column>
                 <Column>USERBLOCKED</Column>
                 <Column>LASTPASSWORDUPDATE</Column>
                 <Column>FIRSTLOGIN</Column>

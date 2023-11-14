@@ -27,7 +27,7 @@ ontimize:
          upper-like: true
    security:
       mode: default
-      ignore-paths: /app/**
+      ignore-paths: /app/**,/registers/user
       role-information-service:
          role-repository: UserRoleDao
          role-name-column: ROLENAME
@@ -44,7 +44,6 @@ ontimize:
             - NAME
             - SURNAME
             - EMAIL
-            - NIF
             - USERBLOCKED
             - LASTPASSWORDUPDATE
             - FIRSTLOGIN
