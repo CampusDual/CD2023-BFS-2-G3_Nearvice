@@ -90,5 +90,5 @@
 	"USER_REGISTER": "Registro de usuario",
 	"ERROR_DUPLICATE_USER_ID": "El usuario escogido ya existe",
 	"REGISTER": "Registrarse",
-	"PASSWORD_ERROR": "La contraseña no coincide"
+	"PASSWORD_ERROR": "Las contraseñas no coinciden"
 }

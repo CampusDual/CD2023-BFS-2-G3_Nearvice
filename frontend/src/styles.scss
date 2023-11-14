@@ -31,3 +31,7 @@ div#newAgreement button[attr="update"] {
 .percentageDiv ng-host.scrolling.o-scroll {
 	overflow: hidden;
 }
+
+.alert-content mat-icon {
+	display: none;
+}
