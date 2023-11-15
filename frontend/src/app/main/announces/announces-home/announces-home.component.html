@@ -13,7 +13,7 @@
 		layer-panel-visible="no"></o-map>
 </o-row-collapsible>
 <o-form show-header="no">
-	<o-row>
+	<div>
 		<o-combo
 			class="filterService"
 			attr="S_ID"
@@ -25,6 +25,7 @@
 			null-selection="yes"
 			value-column="S_NAME"
 			visible-columns="S_NAME"
+			translate="yes"
 			read-only="false"></o-combo>
 		<o-button
 			attr="filter"
@@ -40,7 +41,7 @@
 			filters="S_NAME:S_ID"
 			query-on-change-delay="500"
 			[expression-builder]="createFilter"></o-filter-builder>
-	</o-row>
+	</div>
 	<o-grid
 		#announcesGrid
 		attr="announcesGrid"
