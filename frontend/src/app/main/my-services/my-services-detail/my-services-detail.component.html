@@ -78,7 +78,7 @@
 						parent-keys="A_ID"
 						keys-sql-types="INTEGER"
 						keys="A_ID"
-						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
+						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT; CONVERSATIONS_COUNT"
 						class="percentageAccepted">
 						<div class="form-column">
 							<div>
@@ -87,7 +87,11 @@
 								</label>
 								<br />
 								<label id="campo1" class="percentageLabel">
-									{{ acceptedAgreementsPercentage }}%
+									{{ acc_ags }}
+								</label>
+								<br />
+								<label id="campo1" class="percentageLabel">
+									({{ acceptedAgreementsPercentage }}%)
 								</label>
 							</div>
 						</div>
@@ -102,7 +106,7 @@
 						parent-keys="A_ID"
 						keys-sql-types="INTEGER"
 						keys="A_ID"
-						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
+						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT; CONVERSATIONS_COUNT"
 						class="percentageRejected">
 						<div class="form-column">
 							<div>
@@ -111,7 +115,11 @@
 								</label>
 								<br />
 								<label id="campo2" class="percentageLabel">
-									{{ declinedAgreementsPercentage }}%
+									{{ dec_ags }}
+								</label>
+								<br />
+								<label id="campo2" class="percentageLabel">
+									({{ declinedAgreementsPercentage }}%)
 								</label>
 							</div>
 						</div>
@@ -126,7 +134,7 @@
 						parent-keys="A_ID"
 						keys-sql-types="INTEGER"
 						keys="A_ID"
-						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT"
+						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT; CONVERSATIONS_COUNT"
 						class="percentagePending">
 						<div class="form-column">
 							<div>
@@ -135,7 +143,31 @@
 								</label>
 								<br />
 								<label id="campo3" class="percentageLabel">
-									{{ pendingAgreementsPercentage }}%
+									{{ pen_ags }}
+								</label>
+							</div>
+						</div>
+					</o-form>
+				</div>
+				<div class="percentageDiv" id="percentageDivPending">
+					<o-form
+						show-header="no"
+						(onDataLoaded)="dataLoaded($event)"
+						service="announces"
+						entity="agreementsConversationsAnnounces"
+						parent-keys="A_ID"
+						keys-sql-types="INTEGER"
+						keys="A_ID"
+						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT; CONVERSATIONS_COUNT"
+						class="percentagePending">
+						<div class="form-column">
+							<div>
+								<label class="percentageTitle">
+									{{ "CONVERSATIONS_COUNT" | oTranslate }}
+								</label>
+								<br />
+								<label id="campo3" class="percentageLabel">
+									{{ conv_count }}
 								</label>
 							</div>
 						</div>

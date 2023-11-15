@@ -20,10 +20,12 @@ export class MyServicesDetailComponent {
 	acceptedAgreementsPercentage: number;
 	declinedAgreementsPercentage: number;
 	pendingAgreementsPercentage: number;
+	conv_count: number;
 	acc_ags: number;
 	dec_ags: number;
 	pen_ags: number;
-	ags_count: number;
+	total_ags_count: number;
+	valid_ags_count: number;
 	a_id: number;
 	longitudeService: number = null;
 	latitudeService: number = null;
@@ -65,10 +67,10 @@ export class MyServicesDetailComponent {
 	}
 
 	metricsCalculator() {
-		if (this.ags_count !== 0) {
-			this.acceptedAgreementsPercentage = Math.round((this.acc_ags * 100) / this.ags_count);
-			this.declinedAgreementsPercentage = Math.round((this.dec_ags * 100) / this.ags_count);
-			this.pendingAgreementsPercentage = Math.round((this.pen_ags * 100) / this.ags_count);
+		if (this.total_ags_count !== 0) {
+			this.acceptedAgreementsPercentage = Math.round((this.acc_ags * 100) / this.valid_ags_count);
+			this.declinedAgreementsPercentage = Math.round((this.dec_ags * 100) / this.valid_ags_count);
+			this.pendingAgreementsPercentage = Math.round((this.pen_ags * 100) / this.valid_ags_count);
 		} else {
 			this.declinedAgreementsPercentage = 0;
 			this.acceptedAgreementsPercentage = 0;
@@ -80,8 +82,11 @@ export class MyServicesDetailComponent {
 		this.a_id = event.A_ID;
 		this.acc_ags = event.accepted_agreements_count;
 		this.dec_ags = event.declined_agreements_count;
-		this.ags_count = event.agreements_count;
-		this.pen_ags = this.ags_count - this.acc_ags - this.dec_ags;
+		this.total_ags_count = event.agreements_count;
+		this.pen_ags = this.total_ags_count - this.acc_ags - this.dec_ags;
+		this.valid_ags_count = this.acc_ags + this.dec_ags;
+		this.conv_count = event.conversations_count;
+
 		this.metricsCalculator();
 	}
 }
