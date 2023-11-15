@@ -61,7 +61,8 @@
 		(onDataLoaded)="loadAnnounces($event)"
 		controls="yes"
 		gutter-size="25px"
-		detail-mode="none">
+		detail-mode="none"
+		show-footer="no">
 		<o-grid-item *ngFor="let list of grid.dataArray">
 			<div
 				[ngClass]="{
