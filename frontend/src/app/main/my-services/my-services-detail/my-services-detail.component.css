@@ -68,8 +68,6 @@
 	margin-bottom: 4vh;
 }
 
-/*CSS TEMPORAL*/
-
 .form-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -108,7 +106,7 @@ label {
 
 .percentageDiv {
 	width: 50%;
-	height: 55%;
+	height: 61%;
 }
 
 .percentageAccepted {
@@ -124,11 +122,27 @@ label {
 	border: 1px solid red;
 }
 
-.percentagePending {
+.pendingCount {
 	background-color: #ffb347;
 	width: 65%;
 	margin-left: -5%;
 	border: 1px solid #ff9900;
+	height: 100%;
+}
+
+.conversationsCount {
+	background-color: #cfcfc4;
+	width: 65%;
+	margin-left: -21.2%;
+	border: 1px solid #a1a198;
+	height: 100%;
+}
+
+@media (max-width: 1440px) {
+	.conversationsCount {
+		margin-left: -18%;
+		width: 68%;
+	}
 }
 
 .percentageContainer {
@@ -142,58 +156,14 @@ label {
 	font-weight: bolder;
 }
 
+#percentageText {
+	font-size: 20px;
+}
+
 .percentageTitle {
 	text-align: center;
 	margin-top: -5%;
 	font-size: large;
-}
-
-@keyframes pulse-accepted {
-	0% {
-		box-shadow: 0 0 0 0 rgba(44, 204, 71, 0.4);
-	}
-	70% {
-		box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
-	}
-	100% {
-		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-	}
-}
-
-@keyframes pulse-declined {
-	0% {
-		box-shadow: 0 0 0 0 rgba(204, 44, 44, 0.4);
-	}
-	70% {
-		box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
-	}
-	100% {
-		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-	}
-}
-
-@keyframes pulse-pending {
-	0% {
-		box-shadow: 0 0 0 0 rgba(204, 161, 44, 0.4);
-	}
-	70% {
-		box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
-	}
-	100% {
-		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-	}
-}
-
-.percentageAccepted:hover {
-	animation: pulse-accepted 2s infinite;
-}
-
-.percentageRejected:hover {
-	animation: pulse-declined 2s infinite;
-}
-
-.percentagePending:hover {
-	animation: pulse-pending 2s infinite;
 }
 
 /* Agrega algún estilo adicional según tus preferencias */

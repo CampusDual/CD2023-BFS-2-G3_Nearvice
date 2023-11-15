@@ -93,5 +93,6 @@
 	"USER_REGISTER": "User register",
 	"ERROR_DUPLICATE_USER_ID": "The chosen user already exists",
 	"REGISTER": "Sign up",
-	"PASSWORD_ERROR": "Passwords do not match"
+	"PASSWORD_ERROR": "Passwords do not match",
+	"CONVERSATIONS_COUNT_DETAIL": "Conversations"
 }

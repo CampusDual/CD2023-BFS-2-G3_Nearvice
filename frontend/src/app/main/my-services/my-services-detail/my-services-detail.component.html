@@ -29,7 +29,7 @@
 						read-only="false"
 						translate="yes"></o-combo>
 					<o-text-input attr="A_TITLE"></o-text-input>
-					<o-textarea-input attr="A_DESCRIPTION" rows="3"></o-textarea-input>
+					<o-textarea-input attr="A_DESCRIPTION" rows="4"></o-textarea-input>
 					<o-checkbox attr="A_ACTIVE"></o-checkbox>
 				</div>
 
@@ -90,7 +90,7 @@
 									{{ acc_ags }}
 								</label>
 								<br />
-								<label id="campo1" class="percentageLabel">
+								<label id="percentageText" class="percentageLabel">
 									({{ acceptedAgreementsPercentage }}%)
 								</label>
 							</div>
@@ -118,14 +118,14 @@
 									{{ dec_ags }}
 								</label>
 								<br />
-								<label id="campo2" class="percentageLabel">
+								<label id="percentageText" class="percentageLabel">
 									({{ declinedAgreementsPercentage }}%)
 								</label>
 							</div>
 						</div>
 					</o-form>
 				</div>
-				<div class="percentageDiv" id="percentageDivPending">
+				<div class="percentageDiv" id="pendingCount">
 					<o-form
 						show-header="no"
 						(onDataLoaded)="dataLoaded($event)"
@@ -135,7 +135,7 @@
 						keys-sql-types="INTEGER"
 						keys="A_ID"
 						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT; CONVERSATIONS_COUNT"
-						class="percentagePending">
+						class="pendingCount">
 						<div class="form-column">
 							<div>
 								<label class="percentageTitle">
@@ -149,7 +149,7 @@
 						</div>
 					</o-form>
 				</div>
-				<div class="percentageDiv" id="percentageDivPending">
+				<div class="percentageDiv" id="conversationsCount">
 					<o-form
 						show-header="no"
 						(onDataLoaded)="dataLoaded($event)"
@@ -159,11 +159,11 @@
 						keys-sql-types="INTEGER"
 						keys="A_ID"
 						columns="A_ID; AGREEMENTS_COUNT; ACCEPTED_AGREEMENTS_COUNT; DECLINED_AGREEMENTS_COUNT; CONVERSATIONS_COUNT"
-						class="percentagePending">
+						class="conversationsCount">
 						<div class="form-column">
 							<div>
 								<label class="percentageTitle">
-									{{ "CONVERSATIONS_COUNT" | oTranslate }}
+									{{ "CONVERSATIONS_COUNT_DETAIL" | oTranslate }}
 								</label>
 								<br />
 								<label id="campo3" class="percentageLabel">
