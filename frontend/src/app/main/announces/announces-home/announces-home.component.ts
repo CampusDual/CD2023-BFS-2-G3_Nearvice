@@ -83,8 +83,8 @@ export class AnnouncesHomeComponent implements OnInit, AfterViewInit {
 	}
 	public openDetail(data: any): void {
 		this.dialog.open(AnnouncesDetailComponent, {
-			height: "auto",
-			width: "520px",
+			height: "600px",
+			width: "1100px",
 			data: data,
 		});
 	}
@@ -95,6 +95,10 @@ export class AnnouncesHomeComponent implements OnInit, AfterViewInit {
 			BRICKWORK: "../assets/images/ladrillo.svg",
 			PLUMBING: "../assets/images/gota.svg",
 			ELECTRICITY: "../assets/images/rayo.svg",
+			TECHNICAL_SERVICE: "../assets/images/memory_black_24dp.svg",
+			CLEANING: "../assets/images/cleaning_services_black_24dp.svg",
+			ANTENIST: "../assets/images/settings_input_antenna_black_24dp.svg",
+			MOVING: "../assets/images/local_shipping_black_24dp.svg",
 		};
 		for (const announce of event) {
 			if (this.selectedService === null || announce.S_NAME === this.selectedService) {

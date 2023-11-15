@@ -56,17 +56,21 @@
 		show-page-size="yes"
 		quick-filter="yes"
 		pagination-controls="no"
-		quick-filter-columns="S_NAME;USER_"
+		quick-filter-columns="S_NAME;USER_;A_TITLE"
 		(onDataLoaded)="loadAnnounces($event)"
 		controls="yes"
-		gutter-size="5px"
+		gutter-size="25px"
 		detail-mode="none">
 		<o-grid-item *ngFor="let list of grid.dataArray">
 			<div
 				[ngClass]="{
 					'class-fontaneria': list.S_NAME === 'PLUMBING',
 					'class-electricidad': list.S_NAME === 'ELECTRICITY',
-					'class-albañileria': list.S_NAME === 'BRICKWORK'
+					'class-albañileria': list.S_NAME === 'BRICKWORK',
+					'class-technical': list.S_NAME === 'TECHNICAL_SERVICE',
+					'class-cleaning': list.S_NAME === 'CLEANING',
+					'class-antenist': list.S_NAME === 'ANTENIST',
+					'class-moving': list.S_NAME === 'MOVING'
 				}"
 				class="card"
 				(click)="openDetail(list)">
@@ -83,6 +87,22 @@
 						class="cardImage"
 						*ngIf="list.S_NAME === 'BRICKWORK'"
 						src="../../../assets/images/herramientas_obra.png" />
+					<img
+						class="cardImage"
+						*ngIf="list.S_NAME === 'TECHNICAL_SERVICE'"
+						src="../../../assets/images/technical_service_img.png" />
+					<img
+						class="cardImage"
+						*ngIf="list.S_NAME === 'CLEANING'"
+						src="../../../assets/images/cleaning_img.png" />
+					<img
+						class="cardImage"
+						*ngIf="list.S_NAME === 'ANTENIST'"
+						src="../../../assets/images/antenist_img.png" />
+					<img
+						class="cardImage"
+						*ngIf="list.S_NAME === 'MOVING'"
+						src="../../../assets/images/moving_img.png" />
 					<h3>{{ list.A_TITLE }}</h3>
 					<div class="cardInfo">
 						<div class="distance">
@@ -98,6 +118,18 @@
 							</span>
 							<span *ngIf="list.S_NAME === 'BRICKWORK'" class="material-symbols-outlined">
 								construction
+							</span>
+							<span *ngIf="list.S_NAME === 'TECHNICAL_SERVICE'" class="material-symbols-outlined">
+								memory
+							</span>
+							<span *ngIf="list.S_NAME === 'CLEANING'" class="material-symbols-outlined">
+								cleaning_services
+							</span>
+							<span *ngIf="list.S_NAME === 'ANTENIST'" class="material-symbols-outlined">
+								settings_input_antenna
+							</span>
+							<span *ngIf="list.S_NAME === 'MOVING'" class="material-symbols-outlined">
+								local_shipping
 							</span>
 							<p>{{ list.S_NAME | oTranslate }}</p>
 						</div>

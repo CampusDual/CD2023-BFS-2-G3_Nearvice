@@ -22,6 +22,7 @@
 
 	background-color: #282c34;
 	/* background: linear-gradient(0deg, rgba(255, 200, 71, 1) 0%, rgba(178, 139, 49, 0.5) 100%); */
+	background-color: rgb(255, 200, 71);
 	border-radius: 0.7rem;
 	backdrop-filter: blur(7px);
 	-webkit-backdrop-filter: blur(7px);
@@ -181,4 +182,16 @@ h3 {
 .class-albañileria {
 	/* background: linear-gradient(0deg, rgba(255, 174, 15, 1) 0%, rgba(198, 62, 27, 0.5) 100%); */
 	background-color: rgba(255, 174, 15, 1);
+}
+.class-technical {
+	background-color: rgb(51, 157, 77);
+}
+.class-cleaning {
+	background-color: rgb(255, 245, 219);
+}
+.class-antenist {
+	background-color: rgb(203, 232, 242);
+}
+.class-moving {
+	background-color: rgb(202, 144, 95);
 }

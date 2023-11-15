@@ -1,49 +1,70 @@
-.detailCard:hover {
-	box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.25), 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-	cursor: context-menu;
-}
-
-.textArea {
-	padding: 10px;
-	margin: 0px 10px 10px 10px;
-	max-width: 100%;
-	line-height: 1.5;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	box-shadow: 1px 1px 1px #999;
-}
-
-.contactInfo {
-	display: flex;
-	justify-content: center;
-	margin: 0px !important;
-	padding: 0px !important;
-}
-
-hr {
-	display: none !important;
-}
-
-.sendBtn {
-	display: flex;
-	align-self: center;
-	justify-content: center;
-	width: 100%;
-	background-color: rgb(39, 126, 207);
-	border: 1px solid black;
-	border-radius: 5px;
-	box-shadow: 1px 1px 1px rgb(41, 233, 16);
-}
-
-.sendBtn span {
-	font-weight: bold;
-}
 .o-map {
 	display: flex;
-	height: 70%px;
+	height: 400px;
 	width: 100%;
+	border: #ffc847 solid 3px;
+	border-radius: 15px;
+	overflow: hidden;
 }
+
+/* Estilos generales para el contenedor */
+.announce-detail {
+	font-family: "Arial", sans-serif;
+	color: #333;
+	padding: 20px;
+	border-radius: 5px;
+	min-width: 0 !important;
+}
+
+/* Mejorar el título */
 .announce-title {
+	font-size: 1.5em;
+	color: black;
+	margin-bottom: 10px;
 	text-align: center;
 	font-weight: bold;
+}
+
+/* Estilos para la descripción */
+.announce-description {
+	font-size: 1em;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+/* Estilos para el nombre y el correo electrónico */
+.user-name b,
+.user-email mat-icon {
+	color: #ffc847;
+}
+
+/* Estilos para los botones */
+.o-form-toolbar-button,
+.mat-stroked-button {
+	background-color: #ffc847;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	border-radius: 3px;
+	transition: background-color 0.3s ease;
+}
+
+.o-form-toolbar-button:hover,
+.mat-stroked-button:hover {
+	background-color: #cea139;
+}
+
+.btn {
+	width: 100%;
+	height: 50px;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 80px;
+}
+/* Estilos para la responsividad */
+@media (max-width: 768px) {
+	.announce-detail {
+		padding: 10px;
+	}
 }

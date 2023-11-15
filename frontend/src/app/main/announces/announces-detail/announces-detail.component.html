@@ -1,29 +1,28 @@
-<div fxLayout="column" fxLayoutAlign="space-evenly stretch" class="announce-detail" fxFill>
-	<div fxLayout="row" fxLayoutAlign="end center" fxFlex="100">
-		<span class="announce-title">{{ data.A_TITLE }}</span>
-	</div>
-	<div fxLayout="row" fxLayoutAlign="end center">
-		<span class="announce-description">{{ data.A_DESCRIPTION }}</span>
-	</div>
-	<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="24px">
-		<div fxLayout="column" fxLayoutAlign="center center" fxFlex="40">
-			<span class="user-name">
-				<b>{{ data.NAME }} {{ data.SURNAME }}</b>
-			</span>
-			<mat-divider></mat-divider>
-			<span class="alias">
-				<i>{{ data.USER_ }}</i>
-			</span>
-			<mat-divider></mat-divider>
+<div class="prueba">
+	<div fxLayout="column" fxLayoutAlign="space-evenly stretch" class="announce-detail" fxFill>
+		<div fxLayout="row" fxLayoutAlign="center" fxFlex="100">
+			<span class="announce-title">{{ data.A_TITLE }}</span>
 		</div>
-		<div fxLayout="column" fxFlex="60" class="user-email">
-			<span>
-				<mat-icon>email</mat-icon>
-				{{ data.EMAIL }}
-			</span>
+		<div fxLayout="row" fxLayoutAlign="center">
+			<span class="announce-description">{{ data.A_DESCRIPTION }}</span>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="24px">
+			<div fxLayout="column" fxLayoutAlign="center center" fxFlex="40">
+				<mat-divider></mat-divider>
+				<span class="material-symbols-outlined">account_circle</span>
+				<span class="alias">
+					<i>{{ data.USER_ }}</i>
+				</span>
+				<mat-divider></mat-divider>
+			</div>
+			<div fxLayout="column" fxLayoutAlign="center center" fxFlex="40" class="user-email">
+				<span class="material-symbols-outlined">mail</span>
+				<span>
+					{{ data.EMAIL }}
+				</span>
+			</div>
 		</div>
 	</div>
-
 	<div
 		fxFlex="40"
 		class="o-map-container"
@@ -36,66 +35,58 @@
 			min-zoom="3"
 			max-zoom="20"
 			zoom-control="yes"
-			search-control="no"
 			layer-panel-visible="no"
-			style="height: 500px">
+			show-workspace-menu="false"
+			show-base-layers-menu="false"
+			show-layers-menu="false"
+			search-control="false">
 			<o-map-layer
 				layer-type="marker"
 				layer-id="location_marker"
 				[layer-center]="getPositionGPS()"></o-map-layer>
 		</o-map>
 	</div>
-
-	<ng-container *ngIf="user !== data.USER_; else announceDetail">
-		<ng-container *ngIf="!conversationExists; else conversationButton">
-			<o-form
-				editable-detail="no"
-				show-header="no"
-				layout-direction="column"
-				service="messages"
-				entity="message"
-				columns="M_MESSAGE"
-				#form>
-				<o-text-input attr="A_ID" [data]="data.A_ID" hidden></o-text-input>
-				<o-textarea-input
-					attr="M_MESSAGE"
-					label="M_MESSAGE"
-					read-only="no"
-					rows="1"
-					class="textArea"
-					rows="3"></o-textarea-input>
-				<button
-					class="o-form-toolbar-button o-form-toolbar-button-insert mat-stroked-button mat-button-base mat-primary ng-star-inserted sendBtn"
-					color="primary"
-					mat-stroked-button=""
-					type="button"
-					ng-reflect-color="primary"
-					(click)="conversationInit()">
-					<span class="mat-button-wrapper">
-						<span class="ng-star-inserted">{{ "SEND" | oTranslate }}</span>
-					</span>
-				</button>
-			</o-form>
-		</ng-container>
-
-		<ng-template #conversationButton>
-			<button
-				class="mat-stroked-button mat-button-base mat-primary ng-star-inserted sendBtn"
-				color="primary"
-				type="button"
-				(click)="goToChat()">
-				<span class="mat-button-wrapper">{{ "GO_CHAT" | oTranslate }}</span>
-			</button>
-		</ng-template>
+</div>
+<ng-container *ngIf="user !== data.USER_; else announceDetail">
+	<ng-container *ngIf="!conversationExists; else conversationButton">
+		<o-form
+			editable-detail="no"
+			show-header="no"
+			layout-direction="column"
+			service="messages"
+			entity="message"
+			columns="M_MESSAGE"
+			#form>
+			<o-text-input attr="A_ID" [data]="data.A_ID" hidden></o-text-input>
+			<o-textarea-input
+				attr="M_MESSAGE"
+				label="M_MESSAGE"
+				read-only="no"
+				class="textArea"
+				rows="2"></o-textarea-input>
+			<o-button (onClick)="conversationInit()" label="SEND"></o-button>
+		</o-form>
 	</ng-container>
 
-	<ng-template #announceDetail>
-		<button
+	<ng-template #conversationButton>
+		<!-- <button
 			class="mat-stroked-button mat-button-base mat-primary ng-star-inserted sendBtn"
 			color="primary"
 			type="button"
-			(click)="goToAnnounceDetail()">
-			<span class="mat-button-wrapper">{{ "GO_ANNOUNCE" | oTranslate }}</span>
-		</button>
+			(click)="goToChat()">
+			<span class="mat-button-wrapper">{{ "GO_CHAT" | oTranslate }}</span>
+		</button> -->
+		<o-button (click)="goToChat()" class="btn" label="GO_CHAT"></o-button>
 	</ng-template>
-</div>
+</ng-container>
+
+<ng-template #announceDetail>
+	<!-- <button
+		class="mat-stroked-button mat-button-base mat-primary ng-star-inserted sendBtn"
+		color="primary"
+		type="button"
+		(click)="goToAnnounceDetail()">
+		<span class="mat-button-wrapper">{{ "GO_ANNOUNCE" | oTranslate }}</span>
+	</button> -->
+	<o-button (click)="goToAnnounceDetail()" class="btn" label="GO_ANNOUNCE"></o-button>
+</ng-template>
