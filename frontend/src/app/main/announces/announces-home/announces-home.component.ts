@@ -52,8 +52,6 @@ export class AnnouncesHomeComponent implements OnInit, AfterViewInit {
 				(position) => {
 					this.latitudeown = position.coords.latitude;
 					this.longitudeown = position.coords.longitude;
-					console.log(this.latitudeown);
-					console.log(this.longitudeown);
 					this.locationObtained = true;
 
 					this.updateUserLocation().subscribe((res) => {

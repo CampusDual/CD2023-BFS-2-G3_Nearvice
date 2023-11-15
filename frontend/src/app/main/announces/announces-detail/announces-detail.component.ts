@@ -63,7 +63,6 @@ export class AnnouncesDetailComponent implements OnInit {
 	}
 
 	conversationInit() {
-		console.log(this.data);
 		if (this.form && this.form.insert) {
 			const data2 = this.form.getAttributesValuesToInsert();
 			this.form.insertData(data2).subscribe((data3) => {

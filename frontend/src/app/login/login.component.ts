@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
 	public openRegister(): void {
 		this.dialog.open(RegisterHomeComponent, {
 			disableClose: true,
-			height: "665px",
+			height: "600px",
 			width: "500px",
 		});
 	}
