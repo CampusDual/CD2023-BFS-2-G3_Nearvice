@@ -110,6 +110,7 @@
 	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 .chat-messages-styles {
+	background-color: #ffffff;
 	border: 1px solid #bbbbbb;
 	border-radius: 2px 10px 10px 10px;
 	padding: 10px;

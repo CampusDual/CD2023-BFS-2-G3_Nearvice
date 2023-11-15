@@ -11,9 +11,12 @@ import { getLoggedUser } from "src/app/shared/utils";
 })
 export class MailboxChatComponent implements OnInit, AfterViewInit {
 	protected service: OntimizeService;
+	s_name: string;
+	a_title: string;
 	c_id: number;
 	user: string = getLoggedUser();
 	u_client: string;
+	user_: string;
 	rowsToQuery: number = 0;
 	professionalCondition: boolean = true;
 	clientCondition: boolean = true;
@@ -55,6 +58,10 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		}
 	}
 	getData(event) {
+		this.user_ = event.USER_;
+		this.u_client = event.U_CLIENT;
+		this.s_name = event.S_NAME;
+		this.a_title = event.A_TITLE;
 		let user_ = event.USER_;
 		this.u_client = event.U_CLIENT;
 		this.isConversationActive = event.C_ACTIVE;

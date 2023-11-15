@@ -12,6 +12,7 @@
 		columns="C_ID; USER_; U_CLIENT;A_TITLE;S_NAME;C_ACTIVE">
 		<div class="custom-container">
 			<o-text-input
+				hidden
 				*ngIf="professionalCondition"
 				#inputP
 				fxFlex="10%"
@@ -20,15 +21,34 @@
 				read-only="yes"
 				id="professional"></o-text-input>
 			<o-text-input
+				hidden
 				*ngIf="clientCondition"
 				#inputC
 				fxFlex="10%"
 				attr="U_CLIENT"
 				read-only="yes"
 				id="client"></o-text-input>
-			<o-text-input fxFlex="50%" attr="A_TITLE" read-only="yes"></o-text-input>
-			<o-text-input fxFlex="10%" attr="S_NAME" read-only="yes"></o-text-input>
-			<o-text-input attr="C_ACTIVE" hidden></o-text-input>
+			<div class="EXTRAÑA">
+				<div *ngIf="professionalCondition">
+					<label>{{ "USER_" | oTranslate }}</label>
+					<label>{{ user_ | oTranslate }}</label>
+				</div>
+				<div *ngIf="clientCondition">
+					<label>{{ "U_CLIENT" | oTranslate }}</label>
+					<label>{{ u_client | oTranslate }}</label>
+				</div>
+
+				<div>
+					<label>{{ "A_TITLE" | oTranslate }}</label>
+					<label>{{ a_title | oTranslate }}</label>
+				</div>
+
+				<div>
+					<label>{{ "S_NAME" | oTranslate }}</label>
+					<label>{{ s_name | oTranslate }}</label>
+				</div>
+			</div>
+
 			<div *ngIf="isConversationActive">
 				<button
 					class="btn-style archive"

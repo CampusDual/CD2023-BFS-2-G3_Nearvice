@@ -88,7 +88,6 @@
 	"USER_": "Usuario",
 	"NAME": "Nombre",
 	"SURNAME": "Apellido",
-	"PASSWORD": "Contraseña",
 	"confirm_password": "Confirmar contraseña",
 	"EMAIL": "Correo electrónico",
 	"USER_REGISTER": "Registro de usuario",
