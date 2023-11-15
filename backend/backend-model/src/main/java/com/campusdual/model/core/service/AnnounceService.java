@@ -62,17 +62,31 @@ public class AnnounceService implements IAnnounceService {
         EntityResult toret = new EntityResultMapImpl();
         if (queryAllResult.getCode() == EntityResult.OPERATION_SUCCESSFUL) {
             ArrayList<Double> listDistance = new ArrayList<>();
+            List<Map<String,Object>> records = new ArrayList<>();
             for (int i = 0; i < queryAllResult.calculateRecordNumber(); i++) {
+                Map<String,Object> record = queryAllResult.getRecordValues(i);
+
                 double distanceCalculated = calculateDistances.calculateDistance(userLatitude.doubleValue(), userLongitude.doubleValue(), (double) queryAllResult.getRecordValues(i).get(AnnounceDao.ALATITUDE), (double) queryAllResult.getRecordValues(i).get(AnnounceDao.ALONGITUDE));
-                listDistance.add(distanceCalculated);
+                record.put("DISTANCE", distanceCalculated);
+                records.add(record);
+                //listDistance.add(distanceCalculated);
             }
-            queryAllResult.put("DISTANCE", listDistance);
-            ArrayList<Double> listSorted = listDistance.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
+            //queryAllResult.put("DISTANCE", listDistance);
+            List<Map<String,Object>> sortedRecords = records.stream().sorted((r1,r2) -> {
+                Double d1 = (Double) r1.get("DISTANCE");
+                Double d2 = (Double) r2.get("DISTANCE");
+                return d2.compareTo(d1);
+            }).collect(Collectors.toList());
+            for (Map<String,Object> r: sortedRecords) {
+                toret.addRecord(r);
+            }
+            /*ArrayList<Double> listSorted = listDistance.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
             Collections.reverse(listSorted);
             for (Double d : listSorted) {
                 int index = listDistance.indexOf(d);
                 toret.addRecord(queryAllResult.getRecordValues(index));
             }
+            */
         }
         return toret;
     }
