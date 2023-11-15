@@ -16,6 +16,8 @@ export class MailboxHomeComponent implements OnInit {
 	lang: string;
 	public service: OntimizeService;
 	public conversationArray: Array<any> = [];
+	showClientList: boolean = true;
+	showProfessionalList: boolean = true;
 
 	constructor(private translateService: OTranslateService, protected injector: Injector) {
 		this.conversationArray = [
@@ -35,17 +37,6 @@ export class MailboxHomeComponent implements OnInit {
 	}
 	ngOnInit() {}
 
-	// public conversationArray = [
-	// 	{
-	// 		conversationStatusCode: false,
-	// 		conversationStatus: "Mostrar las conversaciones archivadas",
-	// 	},
-	// 	{
-	// 		conversationStatusCode: true,
-	// 		conversationStatus: "Mostrar las conversaciones activas",
-	// 	},
-	// ];
-
 	createFilter(values: Array<{ attr; value }>): Expression {
 		let filters: Array<Expression> = [];
 		values.forEach((fil) => {
@@ -62,6 +53,22 @@ export class MailboxHomeComponent implements OnInit {
 			);
 		} else {
 			return null;
+		}
+	}
+
+	clientIsEmpty(event) {
+		if (event.length > 0) {
+			this.showClientList = true;
+		} else {
+			this.showClientList = false;
+		}
+	}
+
+	professionalIsEmpty(event) {
+		if (event.length > 0) {
+			this.showProfessionalList = true;
+		} else {
+			this.showProfessionalList = false;
 		}
 	}
 }

@@ -1,11 +1,7 @@
-<!-- <o-form-layout-manager
-	mode="split-pane"
-	attr="o-form-layout-split-pane-form"
-	main-min-width="50"
-	detail-min-width="10"> -->
 <div style="display: flex; flex-direction: column">
 	<o-form show-header="no">
 		<o-column-collapsible
+			*ngIf="showClientList"
 			title="{{ 'FILTERS_MAILBOX_HOME' | oTranslate }}"
 			appearance="outline"
 			expanded="no">
@@ -41,6 +37,8 @@
 			query-on-change-delay="500"></o-filter-builder>
 		<o-list
 			#clientConversation
+			(onDataLoaded)="clientIsEmpty($event)"
+			*ngIf="showClientList"
 			service="conversations"
 			entity="conversationMessageReceiver"
 			keys="C_ID"
@@ -72,6 +70,7 @@
 	</o-form>
 	<o-form show-header="no">
 		<o-column-collapsible
+			*ngIf="showProfessionalList"
 			title="{{ 'FILTERS_MAILBOX_HOME' | oTranslate }}"
 			appearance="outline"
 			expanded="no">
@@ -107,12 +106,14 @@
 			query-on-change-delay="500"></o-filter-builder>
 		<o-list
 			#professionalConversation
+			(onDataLoaded)="professionalIsEmpty($event)"
+			*ngIf="showProfessionalList"
 			service="conversations"
 			entity="conversationMessageEmitter"
 			keys="C_ID"
 			columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME"
 			title="{{ 'SENT_MESSAGES' | oTranslate }}"
-			quick-filter="false"
+			quick-filter="true"
 			quick-filter-columns="S_NAME;U_CLIENT"
 			refresh-button="true"
 			insert-button="false"
