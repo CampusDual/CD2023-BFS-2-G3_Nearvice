@@ -39,31 +39,36 @@
 			[expression-builder]="createFilter"
 			query-on-change="no"
 			query-on-change-delay="500"></o-filter-builder>
-		<o-table
+		<o-list
 			#clientConversation
-			fxFlex
-			title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
-			columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME;C_ACTIVE"
-			visible-columns="A_TITLE;U_CLIENT;M_MESSAGE;S_NAME"
 			service="conversations"
 			entity="conversationMessageReceiver"
 			keys="C_ID"
-			delete-button="no"
-			insert-button="no"
-			sort-columns="M_ID:DESC"
-			show-table-buttons-text="no"
-			show-title="yes"
-			auto-adjust="true"
-			virtual-scroll="no">
-			<o-table-column attr="A_TITLE" title="A_TITLE" width="auto"></o-table-column>
-			<o-table-column attr="U_CLIENT" title="U_CLIENT" width="auto"></o-table-column>
-			<o-table-column
-				attr="M_MESSAGE"
-				title="M_MESSAGE"
-				multiline="yes"
-				tooltip="yes"></o-table-column>
-			<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
-		</o-table>
+			columns="M_ID;U_CLIENT;M_MESSAGE;C_ID;A_TITLE;S_NAME"
+			title="{{ 'RECEIVED_MESSAGES' | oTranslate }}"
+			quick-filter="true"
+			quick-filter-columns="S_NAME;U_CLIENT"
+			refresh-button="true"
+			insert-button="false"
+			delete-button="false"
+			detail-mode="click"
+			selectable="false"
+			dense="false"
+			keys-sql-types="INTEGER"
+			detail-button-in-row="false"
+			detail-button-in-row-icon="chevron_right"
+			edit-button-in-row="false"
+			edit-button-in-row-icon="edit">
+			<mat-card *ngFor="let row of clientConversation.dataArray" [o-list-item]="row">
+				<mat-card-header>
+					<mat-card-title>{{ row.A_TITLE }}</mat-card-title>
+					<mat-card-subtitle icon="mail">
+						{{ row.M_MESSAGE }}
+						<b>({{ row.U_CLIENT }})</b>
+					</mat-card-subtitle>
+				</mat-card-header>
+			</mat-card>
+		</o-list>
 	</o-form>
 	<o-form show-header="no">
 		<o-column-collapsible
@@ -100,34 +105,35 @@
 			[expression-builder]="createFilter"
 			query-on-change="no"
 			query-on-change-delay="500"></o-filter-builder>
-		<o-table
+		<o-list
 			#professionalConversation
-			fxFlex
-			title="{{ 'SENT_MESSAGES' | oTranslate }}"
-			columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME;C_ACTIVE"
-			visible-columns="A_TITLE;USER_;M_MESSAGE;S_NAME"
 			service="conversations"
 			entity="conversationMessageEmitter"
 			keys="C_ID"
-			delete-button="no"
-			insert-button="no"
-			sort-columns="M_ID:DESC"
-			show-title="yes"
-			horizontal-scroll="false"
-			auto-adjust="true"
-			virtual-scroll="no">
-			<o-table-column attr="A_TITLE" title="A_TITLE" multiline="yes" width="auto"></o-table-column>
-			<o-table-column
-				attr="USER_"
-				title="PROFESSIONAL"
-				multiline="yes"
-				width="auto"></o-table-column>
-			<o-table-column
-				attr="M_MESSAGE"
-				title="M_MESSAGE"
-				multiline="yes"
-				tooltip="yes"></o-table-column>
-			<o-table-column attr="S_NAME" title="S_NAME" multiline="yes" tooltip="yes"></o-table-column>
-		</o-table>
+			columns="M_ID;U_EMITTER;M_MESSAGE;C_ID;USER_;A_TITLE;S_NAME"
+			title="{{ 'SENT_MESSAGES' | oTranslate }}"
+			quick-filter="false"
+			quick-filter-columns="S_NAME;U_CLIENT"
+			refresh-button="true"
+			insert-button="false"
+			delete-button="false"
+			detail-mode="click"
+			selectable="false"
+			dense="false"
+			keys-sql-types="INTEGER"
+			detail-button-in-row="false"
+			detail-button-in-row-icon="chevron_right"
+			edit-button-in-row="false"
+			edit-button-in-row-icon="edit">
+			<mat-card *ngFor="let row of professionalConversation.dataArray" [o-list-item]="row">
+				<mat-card-header>
+					<mat-card-title>{{ row.A_TITLE }}</mat-card-title>
+					<mat-card-subtitle>
+						{{ row.M_MESSAGE }}
+						<b>({{ row.USER_ }})</b>
+					</mat-card-subtitle>
+				</mat-card-header>
+			</mat-card>
+		</o-list>
 	</o-form>
 </div>
