@@ -83,11 +83,27 @@
 .custom-container {
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
 	border-radius: 10px;
 	background-color: #ffffff;
 	padding: 10px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.chatHeader {
+	display: flex;
+	flex-direction: column;
+}
+
+.chatHeader div {
+	margin-left: 30px;
+	margin-bottom: 5px;
+}
+
+.chatHeaderButtons {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	margin-left: auto;
 }
 
 .messageAndBtn {
