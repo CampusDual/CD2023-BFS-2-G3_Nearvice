@@ -1,4 +1,5 @@
 <o-table
+	*ngIf="showServicesTable; else myFirstService"
 	attr="myServicesTable"
 	columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT;ACCEPTED_AGREEMENTS_COUNT;DECLINED_AGREEMENTS_COUNT"
 	visible-columns="S_NAME;A_TITLE;A_ACTIVE;CONVERSATIONS_COUNT;AGREEMENTS_COUNT;ACCEPTED_AGREEMENTS_COUNT;DECLINED_AGREEMENTS_COUNT"
@@ -31,3 +32,13 @@
 		attr="DECLINED_AGREEMENTS_COUNT"
 		title="DECLINED_AGREEMENTS_COUNT"></o-table-column>
 </o-table>
+<ng-template #myFirstService>
+	<h3>{{ "NO_SERVICES_MESSAGE" | oTranslate }}</h3>
+
+	<img class="idk" src="assets/images/idk.png" />
+
+	<o-button
+		(onClick)="goToNewService()"
+		class="myFirstServiceButton"
+		label="{{ 'NEW_SERVICE' }}"></o-button>
+</ng-template>

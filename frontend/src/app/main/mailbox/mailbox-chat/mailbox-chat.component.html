@@ -28,43 +28,44 @@
 				attr="U_CLIENT"
 				read-only="yes"
 				id="client"></o-text-input>
-			<div class="EXTRAÑA">
+			<div class="chatHeader">
 				<div *ngIf="professionalCondition">
-					<label>{{ "PROFESSIONAL" | oTranslate }}</label>
+					<label style="font-weight: bold">{{ "PROFESSIONAL_WITH_SPACE" | oTranslate }}</label>
 					<label>{{ user_ | oTranslate }}</label>
 				</div>
 				<div *ngIf="clientCondition">
-					<label>{{ "U_CLIENT" | oTranslate }}</label>
+					<label style="font-weight: bold">{{ "U_CLIENT_WITH_SPACE" | oTranslate }}</label>
 					<label>{{ u_client | oTranslate }}</label>
 				</div>
 
 				<div>
-					<label>{{ "A_TITLE" | oTranslate }}</label>
+					<label style="font-weight: bold">{{ "A_TITLE_WITH_SPACE" | oTranslate }}</label>
 					<label>{{ a_title | oTranslate }}</label>
 				</div>
 
 				<div>
-					<label>{{ "S_NAME" | oTranslate }}</label>
+					<label style="font-weight: bold">{{ "S_NAME_WITH_SPACE" | oTranslate }}</label>
 					<label>{{ s_name | oTranslate }}</label>
 				</div>
 			</div>
-
-			<div *ngIf="isConversationActive">
-				<button
-					class="btn-style archive"
-					id="archiveButton"
-					mat-stroked-button=""
-					type="button"
-					ng-reflect-color="primary"
-					(click)="archiveConversation()">
-					<span class="mat-button-wrapper">
-						<span class="ng-star-inserted">{{ "ARCHIVE" | oTranslate }}</span>
-					</span>
-				</button>
+			<div class="chatHeaderButtons">
+				<div *ngIf="isConversationActive">
+					<button
+						class="btn-style archive"
+						id="archiveButton"
+						mat-stroked-button=""
+						type="button"
+						ng-reflect-color="primary"
+						(click)="archiveConversation()">
+						<span class="mat-button-wrapper">
+							<span class="ng-star-inserted">{{ "ARCHIVE" | oTranslate }}</span>
+						</span>
+					</button>
+				</div>
+				<!--? Preguntar por [data] como era que se pasaba de forma correcta, sin crear objeto aquí -->
+				<app-agreements-navigation [data]="{ CLIENT: u_client }"></app-agreements-navigation>
+				<app-works-navigation [data]="{ CLIENT: u_client }"></app-works-navigation>
 			</div>
-			<!--? Preguntar por [data] como era que se pasaba de forma correcta, sin crear objeto aquí -->
-			<app-agreements-navigation [data]="{ CLIENT: u_client }"></app-agreements-navigation>
-			<app-works-navigation [data]="{ CLIENT: u_client }"></app-works-navigation>
 		</div>
 		<o-list
 			class="listChat"

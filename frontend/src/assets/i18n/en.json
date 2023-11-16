@@ -94,5 +94,10 @@
 	"ERROR_DUPLICATE_USER_ID": "The chosen user already exists",
 	"REGISTER": "Sign up",
 	"PASSWORD_ERROR": "Passwords do not match",
-	"CONVERSATIONS_COUNT_DETAIL": "Conversations"
+	"CONVERSATIONS_COUNT_DETAIL": "Conversations",
+	"U_CLIENT_WITH_SPACE": "Client: ",
+	"PROFESSIONAL_WITH_SPACE": "Professional: ",
+	"A_TITLE_WITH_SPACE": "Service: ",
+	"S_NAME_WITH_SPACE": "Category: ",
+	"NO_SERVICES_MESSAGE": "You don't have any services offered yet. Are you up for it?"
 }

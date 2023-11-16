@@ -20,6 +20,14 @@ div#newAgreement button[attr="update"] {
 	padding-left: 1% !important;
 }
 
+div.serviceDetailContainer ng-host {
+	overflow: hidden;
+}
+
+div.serviceDetailContainer div.o-container-scroll.o-scroll {
+	overflow: hidden;
+}
+
 // .o-app-header-medium + .header-layout {
 // 	overflow: hidden;
 // }
