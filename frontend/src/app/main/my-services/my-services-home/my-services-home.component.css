@@ -10,7 +10,6 @@
 
 .title {
 	font-size: 2em;
-	animation: aparecerDesdeAbajo 1s ease-out, sombreadoTexto 1s ease-out;
 }
 
 .idk {
