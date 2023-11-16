@@ -25,7 +25,6 @@ export class RegisterHomeComponent implements OnInit {
 		const userName = this.form.formGroup.get("USER_").value;
 
 		if (password !== confirmPassword) {
-			console.log("pass no igual");
 			const config: ODialogConfig = {
 				icon: "",
 				okButtonText: "Ok",

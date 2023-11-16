@@ -20,7 +20,6 @@ export class MyServicesHomeComponent implements OnInit {
 	}
 
 	getData(event) {
-		console.log(event);
 		if (event.length <= 0) {
 			this.showServicesTable = false;
 		}

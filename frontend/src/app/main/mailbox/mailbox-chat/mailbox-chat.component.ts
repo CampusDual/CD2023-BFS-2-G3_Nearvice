@@ -6,6 +6,8 @@ import {
 	Injector,
 	ElementRef,
 	ChangeDetectorRef,
+	QueryList,
+	ViewChildren,
 } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { OFormComponent, OListComponent, OntimizeService } from "ontimize-web-ngx";
@@ -35,6 +37,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("chatList", { static: false }) chatList: OListComponent;
 	@ViewChild("scroll", { static: false }) myScrollContainer: ElementRef;
+	@ViewChildren("chatItem") chatItems: QueryList<ElementRef>;
 
 	constructor(
 		private route: ActivatedRoute,
@@ -89,7 +92,6 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 
 	dinamicQueryRows(event: Array<any>) {
 		this.rowsToQuery = event.length;
-		console.log(event.length);
 	}
 
 	messageSend() {
@@ -99,12 +101,15 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 				// Este timeout nos lo deja pasar Alvaro :)
 				this.rowsToQuery++;
 				this.chatList.reloadData();
+				this.scrollToBottom();
 			}, 100);
 		}
 	}
 
 	ngAfterViewInit() {
-		this.scrollToBottom();
+		this.chatItems.changes.subscribe((list: QueryList<ElementRef>) => {
+			this.scrollToBottom();
+		});
 	}
 
 	getChatMessageStyles(row: any): any {
@@ -125,9 +130,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	onLastItem() {
-		//this.scrollToBottom();
-	}
+	onLastItem() {}
 
 	scrollToBottom() {
 		var scroll = document.querySelector(".application-layout-content-wrapper.header-layout");

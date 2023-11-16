@@ -29,7 +29,7 @@
 				read-only="yes"
 				id="client"></o-text-input>
 			<div class="chatHeader">
-				<div *ngIf="professionalCondition">
+				<div *ngIf="professionalCondition" #chatItem>
 					<label style="font-weight: bold">{{ "PROFESSIONAL_WITH_SPACE" | oTranslate }}</label>
 					<label>{{ user_ | oTranslate }}</label>
 				</div>
@@ -62,7 +62,6 @@
 						</span>
 					</button>
 				</div>
-				<!--? Preguntar por [data] como era que se pasaba de forma correcta, sin crear objeto aquí -->
 				<app-agreements-navigation [data]="{ CLIENT: u_client }"></app-agreements-navigation>
 				<app-works-navigation [data]="{ CLIENT: u_client }"></app-works-navigation>
 			</div>
@@ -75,7 +74,7 @@
 			columns="M_MESSAGE;M_DATETIME;U_EMITTER"
 			service="messages"
 			entity="message"
-			sort-columns="M_DATETIME:DESC"
+			sort-columns="M_DATETIME"
 			delete-button="no"
 			refresh-button="no"
 			[query-rows]="rowsToQuery"
