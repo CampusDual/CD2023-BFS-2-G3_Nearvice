@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Injector, OnInit, ViewChild } from "@angular/
 import {
 	Expression,
 	FilterExpressionUtils,
+	OButtonComponent,
 	OFilterBuilderComponent,
 	OGridComponent,
 	OntimizeService,
@@ -123,7 +124,7 @@ export class AnnouncesHomeComponent implements OnInit, AfterViewInit {
 		let filters: Array<Expression> = [];
 		values.forEach((fil) => {
 			if (fil.value) {
-				if (fil.attr === "S_NAME") {
+				if (fil.attr === "announceCombo") {
 					filters.push(FilterExpressionUtils.buildExpressionEquals("S_NAME", fil.value));
 				}
 			}
