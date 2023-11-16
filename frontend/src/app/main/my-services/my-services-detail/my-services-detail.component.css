@@ -4,7 +4,7 @@
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	padding: 20px;
-	max-width: 80%;
+	max-width: 90%;
 	height: auto;
 	margin: 0 auto;
 	margin-top: 25px;
@@ -40,7 +40,7 @@
 	z-index: 1;
 	border: 3px solid #ffc847;
 	height: 350px;
-	width: 95%;
+	width: 85%;
 }
 .marker {
 	z-index: 2;
@@ -51,6 +51,7 @@
 	align-self: flex-end;
 	flex-direction: column;
 	margin-left: 5%;
+	/* margin-right: 2%; */
 }
 
 .serviceDetailMapContainer span {
@@ -66,6 +67,7 @@
 .serviceDetailEditableContainer {
 	margin-top: 1vh;
 	margin-bottom: 4vh;
+	width: 105%;
 }
 
 .form-row {
@@ -138,10 +140,14 @@ label {
 	height: 100%;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1525px) {
 	.conversationsCount {
 		margin-left: -18%;
 		width: 68%;
+	}
+
+	.percentageDiv {
+		height: 65%;
 	}
 }
 
