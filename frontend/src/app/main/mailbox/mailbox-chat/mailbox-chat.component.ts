@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, OnInit, ViewChild, Injector } from "@angular/core";
+import {
+	AfterViewInit,
+	Component,
+	OnInit,
+	ViewChild,
+	Injector,
+	ElementRef,
+	ChangeDetectorRef,
+} from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { OFormComponent, OListComponent, OntimizeService } from "ontimize-web-ngx";
 import { MY_CHAT_MESSAGES_CLASS, OTHER_CHAT_MESSAGES_CLASS } from "src/app/shared/constants";
@@ -26,8 +34,14 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 
 	@ViewChild("formchat", { static: false }) form: OFormComponent;
 	@ViewChild("chatList", { static: false }) chatList: OListComponent;
+	@ViewChild("scroll", { static: false }) myScrollContainer: ElementRef;
 
-	constructor(private route: ActivatedRoute, protected injector: Injector, private router: Router) {
+	constructor(
+		private route: ActivatedRoute,
+		protected injector: Injector,
+		private router: Router,
+		private cdr: ChangeDetectorRef
+	) {
 		this.service = this.injector.get(OntimizeService);
 	}
 
@@ -75,6 +89,7 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 
 	dinamicQueryRows(event: Array<any>) {
 		this.rowsToQuery = event.length;
+		console.log(event.length);
 	}
 
 	messageSend() {
@@ -88,7 +103,9 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	ngAfterViewInit() {}
+	ngAfterViewInit() {
+		this.scrollToBottom();
+	}
 
 	getChatMessageStyles(row: any): any {
 		if (this.user === row.U_EMITTER) {
@@ -106,5 +123,14 @@ export class MailboxChatComponent implements OnInit, AfterViewInit {
 		if (this.user === row.U_EMITTER) {
 			return uEmitterUserStyles;
 		}
+	}
+
+	onLastItem() {
+		//this.scrollToBottom();
+	}
+
+	scrollToBottom() {
+		var scroll = document.querySelector(".application-layout-content-wrapper.header-layout");
+		scroll.scrollTop = scroll.scrollHeight;
 	}
 }
