@@ -94,5 +94,6 @@
 	"ERROR_DUPLICATE_USER_ID": "El usuario escogido ya existe",
 	"REGISTER": "Registrarse",
 	"PASSWORD_ERROR": "Las contraseñas no coinciden",
-	"CONVERSATIONS_COUNT_DETAIL": "Conversaciones"
+	"CONVERSATIONS_COUNT_DETAIL": "Conversaciones",
+	"NO_SERVICES_MESSAGE": "Todavía no tienes ningún servicio ofertado. ¿Te animas?"
 }
