@@ -172,6 +172,11 @@ label {
 	font-size: large;
 }
 
+.finishedWorksDiv h2 {
+	text-align: center;
+	margin-top: 5%;
+}
+
 /* Agrega algún estilo adicional según tus preferencias */
 body {
 	font-family: "Arial", sans-serif;
