@@ -101,5 +101,6 @@
 	"S_NAME_WITH_SPACE": "Categoría: ",
 	"NO_SERVICES_MESSAGE": "Todavía no tienes ningún servicio ofertado. ¿Te animas?",
 	"MAP": "Ver en mapa",
-	"SHOW_ALL": "Mostrar todos"
+	"SHOW_ALL": "Mostrar todos",
+	"CATEGORYSELECT": "Selecione una categoría"
 }
