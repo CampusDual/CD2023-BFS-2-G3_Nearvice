@@ -34,10 +34,13 @@
 }
 .mapDetailService {
 	z-index: 1;
-	border: 3px solid #e91e63;
+	display: flex;
 	height: 400px;
 	width: 100%;
-	display: flex;
+	align-self: center;
+	overflow: hidden;
+	border-radius: 15px;
+	border: 3px solid #ffc847;
 }
 .marker {
 	z-index: 2;
