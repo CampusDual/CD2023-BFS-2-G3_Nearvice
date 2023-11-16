@@ -19,9 +19,9 @@
 
 .myFirstServiceButton {
 	position: absolute;
-	top: 64%;
-	left: 52%;
-	transform: translate(-50%, -50%);
+	top: 60%;
+	left: 47%;
+
 	padding: 15px 30px;
 	border: 2px solid #ffffff;
 	border-radius: 15px;
@@ -29,6 +29,7 @@
 	background-color: rgba(255, 200, 71, 0.8);
 	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 	animation: sombreadoNenon 1.5s infinite alternate;
+	animation: aparecerDesdeAbajo 1s ease-out;
 }
 
 @keyframes aparecerDesdeAbajo {
@@ -56,6 +57,6 @@
 		box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 	}
 	to {
-		box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+		box-shadow: 0px 0px 20px rgba(187, 19, 19, 0.8);
 	}
 }
