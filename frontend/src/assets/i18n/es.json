@@ -98,5 +98,6 @@
 	"U_CLIENT_WITH_SPACE": "Cliente: ",
 	"PROFESSIONAL_WITH_SPACE": "Profesional: ",
 	"A_TITLE_WITH_SPACE": "Servicio: ",
-	"S_NAME_WITH_SPACE": "Categoría: "
+	"S_NAME_WITH_SPACE": "Categoría: ",
+	"NO_SERVICES_MESSAGE": "Todavía no tienes ningún servicio ofertado. ¿Te animas?"
 }
