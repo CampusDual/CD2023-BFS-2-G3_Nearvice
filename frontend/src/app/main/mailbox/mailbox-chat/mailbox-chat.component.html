@@ -106,6 +106,7 @@
 			label="M_MESSAGE"
 			enabled="yes"
 			attr="M_MESSAGE"
+			(keyup.enter)="messageSend()"
 			class="textInputMessage"></o-text-input>
 		<o-integer-input id="cid" attr="C_ID" enabled="no" [data]="c_id" hidden></o-integer-input>
 		<div class="cont-btn">

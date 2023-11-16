@@ -83,7 +83,7 @@ export class AnnouncesHomeComponent implements OnInit, AfterViewInit {
 	}
 	public openDetail(data: any): void {
 		this.dialog.open(AnnouncesDetailComponent, {
-			height: "600px",
+			height: "660px",
 			width: "1100px",
 			data: data,
 		});
