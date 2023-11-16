@@ -99,5 +99,7 @@
 	"PROFESSIONAL_WITH_SPACE": "Professional: ",
 	"A_TITLE_WITH_SPACE": "Service: ",
 	"S_NAME_WITH_SPACE": "Category: ",
-	"NO_SERVICES_MESSAGE": "You don't have any services offered yet. Are you up for it?"
+	"NO_SERVICES_MESSAGE": "You don't have any services offered yet. Are you up for it?",
+	"MAP": "Show on map",
+	"SHOW_ALL": "Show all"
 }

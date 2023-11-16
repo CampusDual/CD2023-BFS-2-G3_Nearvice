@@ -1,12 +1,11 @@
 .o-map {
-	margin: 25px;
 	display: flex;
 	height: 450px;
 	width: 100%;
 	align-self: center;
 	overflow: hidden;
 	border-radius: 15px;
-	border: 3px solid #e91e63;
+	border: 3px solid #ffc847;
 }
 .filterService {
 	margin-left: 25px;
@@ -194,4 +193,10 @@ h3 {
 }
 .class-moving {
 	background-color: rgb(202, 144, 95);
+}
+
+.filter {
+	display: flex;
+	align-items: center;
+	gap: 20px;
 }

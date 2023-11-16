@@ -13,7 +13,21 @@
 		layer-panel-visible="no"></o-map>
 </o-row-collapsible>
 <o-form show-header="no">
-	<div>
+	<o-row-collapsible title="{{ 'MAP' | oTranslate }}" appearance="outline" expanded="no">
+		<o-map
+			#oMapHome
+			fxflex
+			class="homeMap"
+			zoom="12"
+			min-zoom="3"
+			max-zoom="20"
+			zoom-control="no"
+			search-control="false"
+			[center]="getPositionGPS()"
+			search-control-button-visible="false"
+			layer-panel-visible="no"></o-map>
+	</o-row-collapsible>
+	<div class="filter">
 		<o-combo
 			#announceCombo
 			class="filterService"
@@ -28,7 +42,7 @@
 			visible-columns="S_NAME"
 			translate="yes"
 			searchable="yes"
-			(onValueChange)="onComboValueChange()"
+			null-selection-label="{{ 'SHOW_ALL' | oTranslate }}"
 			read-only="false"></o-combo>
 		<!-- <o-button
 			#filter
@@ -46,6 +60,15 @@
 			query-on-change-delay="500"
 			[expression-builder]="createFilter"></o-filter-builder>
 	</div>
+
+	<o-filter-builder
+		#filterBuilder
+		attr="thefilter"
+		[target]="announcesGrid"
+		query-on-change="no"
+		filters="S_NAME:S_ID"
+		query-on-change-delay="500"
+		[expression-builder]="createFilter"></o-filter-builder>
 	<o-grid
 		#announcesGrid
 		attr="announcesGrid"

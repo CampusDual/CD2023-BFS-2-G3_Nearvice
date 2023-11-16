@@ -82,7 +82,7 @@
 			(onDataLoaded)="dinamicQueryRows($event)">
 			<div class="chatContainer">
 				<div *ngFor="let row of chatList.dataArray" [ngClass]="getChatMessageStyles(row)">
-					<div class="userChat" [ngStyle]="uEmitterStyles(row)">{{ row.U_EMITTER }}</div>
+					<div class="userChat" [ngStyle]="uEmitterStyles(row)" #elem>{{ row.U_EMITTER }}</div>
 					<div class="messageChat">{{ row.M_MESSAGE }}</div>
 					<div class="dateTimeChat">
 						{{ row.M_DATETIME | date : "dd-MM-yyyy hh:mm" }}
