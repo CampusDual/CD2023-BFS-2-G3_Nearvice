@@ -1,19 +1,62 @@
-.myFirstServiceButton {
-	background-color: rgb(255, 255, 255);
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+.noService {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	align-self: center;
+	position: relative;
+}
+
+.title {
+	font-size: 2em;
+	animation: aparecerDesdeAbajo 1s ease-out, sombreadoTexto 1s ease-out;
 }
 
 .idk {
-	animation: aparecer 0.35s ease-out;
+	margin-top: 20px;
+	animation: aparecerDesdeAbajo 1s ease-out;
 }
 
-@keyframes aparecer {
+.myFirstServiceButton {
+	position: absolute;
+	top: 64%;
+	left: 52%;
+	transform: translate(-50%, -50%);
+	padding: 15px 30px;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	font-size: 1.2em;
+	background-color: rgba(255, 200, 71, 0.8);
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+	animation: sombreadoNenon 1.5s infinite alternate;
+}
+
+@keyframes aparecerDesdeAbajo {
 	from {
 		opacity: 0;
-		transform: translateY(20px);
+		transform: translateY(50px);
 	}
 	to {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+@keyframes sombreadoTexto {
+	from {
+		text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	}
+	to {
+		text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+	}
+}
+
+@keyframes sombreadoNenon {
+	from {
+		box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+	}
+	to {
+		box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
 	}
 }

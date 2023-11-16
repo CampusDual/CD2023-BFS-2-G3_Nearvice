@@ -33,12 +33,13 @@
 		title="DECLINED_AGREEMENTS_COUNT"></o-table-column>
 </o-table>
 <ng-template #myFirstService>
-	<h3>{{ "NO_SERVICES_MESSAGE" | oTranslate }}</h3>
+	<div class="noService">
+		<h3 class="title">{{ "NO_SERVICES_MESSAGE" | oTranslate }}</h3>
 
-	<img class="idk" src="assets/images/idk.png" />
+		<img class="idk" src="assets/images/idk.png" />
 
-	<o-button
-		(onClick)="goToNewService()"
-		class="myFirstServiceButton"
-		label="{{ 'NEW_SERVICE' }}"></o-button>
+		<button (click)="goToNewService()" class="myFirstServiceButton">
+			<span>{{ "NEW_SERVICE" | oTranslate }}</span>
+		</button>
+	</div>
 </ng-template>
