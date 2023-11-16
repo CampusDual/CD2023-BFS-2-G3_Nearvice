@@ -1,148 +1,150 @@
-<o-form show-header="no">
-	<o-row-collapsible title="{{ 'MAP' | oTranslate }}" appearance="outline" expanded="no">
-		<o-map
-			#oMapHome
-			fxflex
-			class="homeMap"
-			zoom="15"
-			min-zoom="3"
-			max-zoom="18"
-			zoom-control="no"
-			search-control="false"
-			[center]="getPositionGPS()"
-			search-control-button-visible="false"
-			layer-panel-visible="no"></o-map>
-	</o-row-collapsible>
-	<div class="filter">
-		<o-combo
-			#announceCombo
-			class="filterService"
-			attr="announceCombo"
-			label="CATEGORYSELECT"
-			service="services"
-			entity="service"
-			columns="S_ID;S_NAME"
-			filter="no"
-			null-selection="yes"
-			value-column="S_NAME"
-			visible-columns="S_NAME"
-			translate="yes"
-			searchable="yes"
-			null-selection-label="{{ 'SHOW_ALL' | oTranslate }}"
-			read-only="false"></o-combo>
-		<o-filter-builder
-			#filterBuilder
-			attr="thefilter"
-			[target]="announcesGrid"
-			query-on-change="yes"
-			filters="announceCombo:announceCombo"
-			query-on-change-delay="500"
-			[expression-builder]="createFilter"></o-filter-builder>
-	</div>
-	<o-grid
-		#announcesGrid
-		attr="announcesGrid"
-		service="announces"
-		entity="announceAll"
-		keys="A_ID"
-		columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL;A_LATITUDE;A_LONGITUDE"
-		query-rows="8"
-		pagination-controls="no"
-		orderable="yes"
-		sortable-columns="DISTANCE;DISTANCE:DESC;S_NAME:DESC;S_NAME;USER_:DESC;USER_"
-		quick-filter-appearance="field"
-		show-page-size="yes"
-		quick-filter="yes"
-		pagination-controls="no"
-		quick-filter-columns="S_NAME;USER_;A_TITLE"
-		(onDataLoaded)="loadAnnounces($event)"
-		controls="yes"
-		gutter-size="25px"
-		detail-mode="none"
-		show-footer="no">
-		<o-grid-item *ngFor="let list of grid.dataArray">
-			<div
-				[ngClass]="{
-					'class-fontaneria': list.S_NAME === 'PLUMBING',
-					'class-electricidad': list.S_NAME === 'ELECTRICITY',
-					'class-albañileria': list.S_NAME === 'BRICKWORK',
-					'class-technical': list.S_NAME === 'TECHNICAL_SERVICE',
-					'class-cleaning': list.S_NAME === 'CLEANING',
-					'class-antenist': list.S_NAME === 'ANTENIST',
-					'class-moving': list.S_NAME === 'MOVING'
-				}"
-				class="card"
-				(click)="openDetail(list)">
-				<div class="main">
-					<img
-						class="cardImage"
-						*ngIf="list.S_NAME === 'ELECTRICITY'"
-						src="../../../assets/images/herramientas_electricista.png" />
-					<img
-						class="cardImage"
-						*ngIf="list.S_NAME === 'PLUMBING'"
-						src="../../../assets/images/herramientas_Fontanero.png" />
-					<img
-						class="cardImage"
-						*ngIf="list.S_NAME === 'BRICKWORK'"
-						src="../../../assets/images/herramientas_obra.png" />
-					<img
-						class="cardImage"
-						*ngIf="list.S_NAME === 'TECHNICAL_SERVICE'"
-						src="../../../assets/images/technical_service_img.png" />
-					<img
-						class="cardImage"
-						*ngIf="list.S_NAME === 'CLEANING'"
-						src="../../../assets/images/cleaning_img.png" />
-					<img
-						class="cardImage"
-						*ngIf="list.S_NAME === 'ANTENIST'"
-						src="../../../assets/images/antenist_img.png" />
-					<img
-						class="cardImage"
-						*ngIf="list.S_NAME === 'MOVING'"
-						src="../../../assets/images/moving_img.png" />
-					<h3>{{ list.A_TITLE }}</h3>
-					<div class="cardInfo">
-						<div class="distance">
-							<span class="material-symbols-outlined">distance</span>
-							<p>{{ list.DISTANCE }} Km</p>
+<div class="announcesHomeContainer">
+	<o-form show-header="no">
+		<o-row-collapsible title="{{ 'MAP' | oTranslate }}" appearance="outline" expanded="no">
+			<o-map
+				#oMapHome
+				fxflex
+				class="homeMap"
+				zoom="15"
+				min-zoom="3"
+				max-zoom="18"
+				zoom-control="no"
+				search-control="false"
+				[center]="getPositionGPS()"
+				search-control-button-visible="false"
+				layer-panel-visible="no"></o-map>
+		</o-row-collapsible>
+		<div class="filter">
+			<o-combo
+				#announceCombo
+				class="filterService"
+				attr="announceCombo"
+				label="CATEGORYSELECT"
+				service="services"
+				entity="service"
+				columns="S_ID;S_NAME"
+				filter="no"
+				null-selection="yes"
+				value-column="S_NAME"
+				visible-columns="S_NAME"
+				translate="yes"
+				searchable="yes"
+				null-selection-label="{{ 'SHOW_ALL' | oTranslate }}"
+				read-only="false"></o-combo>
+			<o-filter-builder
+				#filterBuilder
+				attr="thefilter"
+				[target]="announcesGrid"
+				query-on-change="yes"
+				filters="announceCombo:announceCombo"
+				query-on-change-delay="500"
+				[expression-builder]="createFilter"></o-filter-builder>
+		</div>
+		<o-grid
+			#announcesGrid
+			attr="announcesGrid"
+			service="announces"
+			entity="announceAll"
+			keys="A_ID"
+			columns="A_ID;S_NAME;A_TITLE;A_DESCRIPTION;NAME;SURNAME;USER_;EMAIL;A_LATITUDE;A_LONGITUDE"
+			query-rows="8"
+			pagination-controls="no"
+			orderable="yes"
+			sortable-columns="DISTANCE;DISTANCE:DESC;S_NAME:DESC;S_NAME;USER_:DESC;USER_"
+			quick-filter-appearance="field"
+			show-page-size="yes"
+			quick-filter="yes"
+			pagination-controls="no"
+			quick-filter-columns="S_NAME;USER_;A_TITLE"
+			(onDataLoaded)="loadAnnounces($event)"
+			controls="yes"
+			gutter-size="25px"
+			detail-mode="none"
+			show-footer="no">
+			<o-grid-item *ngFor="let list of grid.dataArray">
+				<div
+					[ngClass]="{
+						'class-fontaneria': list.S_NAME === 'PLUMBING',
+						'class-electricidad': list.S_NAME === 'ELECTRICITY',
+						'class-albañileria': list.S_NAME === 'BRICKWORK',
+						'class-technical': list.S_NAME === 'TECHNICAL_SERVICE',
+						'class-cleaning': list.S_NAME === 'CLEANING',
+						'class-antenist': list.S_NAME === 'ANTENIST',
+						'class-moving': list.S_NAME === 'MOVING'
+					}"
+					class="card"
+					(click)="openDetail(list)">
+					<div class="main">
+						<img
+							class="cardImage"
+							*ngIf="list.S_NAME === 'ELECTRICITY'"
+							src="../../../assets/images/herramientas_electricista.png" />
+						<img
+							class="cardImage"
+							*ngIf="list.S_NAME === 'PLUMBING'"
+							src="../../../assets/images/herramientas_Fontanero.png" />
+						<img
+							class="cardImage"
+							*ngIf="list.S_NAME === 'BRICKWORK'"
+							src="../../../assets/images/herramientas_obra.png" />
+						<img
+							class="cardImage"
+							*ngIf="list.S_NAME === 'TECHNICAL_SERVICE'"
+							src="../../../assets/images/technical_service_img.png" />
+						<img
+							class="cardImage"
+							*ngIf="list.S_NAME === 'CLEANING'"
+							src="../../../assets/images/cleaning_img.png" />
+						<img
+							class="cardImage"
+							*ngIf="list.S_NAME === 'ANTENIST'"
+							src="../../../assets/images/antenist_img.png" />
+						<img
+							class="cardImage"
+							*ngIf="list.S_NAME === 'MOVING'"
+							src="../../../assets/images/moving_img.png" />
+						<h3>{{ list.A_TITLE }}</h3>
+						<div class="cardInfo">
+							<div class="distance">
+								<span class="material-symbols-outlined">distance</span>
+								<p>{{ list.DISTANCE }} Km</p>
+							</div>
+							<div class="service">
+								<span *ngIf="list.S_NAME === 'ELECTRICITY'" class="material-symbols-outlined">
+									electric_bolt
+								</span>
+								<span *ngIf="list.S_NAME === 'PLUMBING'" class="material-symbols-outlined">
+									plumbing
+								</span>
+								<span *ngIf="list.S_NAME === 'BRICKWORK'" class="material-symbols-outlined">
+									construction
+								</span>
+								<span *ngIf="list.S_NAME === 'TECHNICAL_SERVICE'" class="material-symbols-outlined">
+									memory
+								</span>
+								<span *ngIf="list.S_NAME === 'CLEANING'" class="material-symbols-outlined">
+									cleaning_services
+								</span>
+								<span *ngIf="list.S_NAME === 'ANTENIST'" class="material-symbols-outlined">
+									settings_input_antenna
+								</span>
+								<span *ngIf="list.S_NAME === 'MOVING'" class="material-symbols-outlined">
+									local_shipping
+								</span>
+								<p>{{ list.S_NAME | oTranslate }}</p>
+							</div>
 						</div>
-						<div class="service">
-							<span *ngIf="list.S_NAME === 'ELECTRICITY'" class="material-symbols-outlined">
-								electric_bolt
-							</span>
-							<span *ngIf="list.S_NAME === 'PLUMBING'" class="material-symbols-outlined">
-								plumbing
-							</span>
-							<span *ngIf="list.S_NAME === 'BRICKWORK'" class="material-symbols-outlined">
-								construction
-							</span>
-							<span *ngIf="list.S_NAME === 'TECHNICAL_SERVICE'" class="material-symbols-outlined">
-								memory
-							</span>
-							<span *ngIf="list.S_NAME === 'CLEANING'" class="material-symbols-outlined">
-								cleaning_services
-							</span>
-							<span *ngIf="list.S_NAME === 'ANTENIST'" class="material-symbols-outlined">
-								settings_input_antenna
-							</span>
-							<span *ngIf="list.S_NAME === 'MOVING'" class="material-symbols-outlined">
-								local_shipping
-							</span>
-							<p>{{ list.S_NAME | oTranslate }}</p>
+						<hr />
+						<div class="creator">
+							<span class="material-symbols-outlined">account_circle</span>
+							<p>
+								<ins>{{ "CREATION_OF" | oTranslate }}</ins>
+								<span class="name-creator">{{ list.USER_ }}</span>
+							</p>
 						</div>
-					</div>
-					<hr />
-					<div class="creator">
-						<span class="material-symbols-outlined">account_circle</span>
-						<p>
-							<ins>{{ "CREATION_OF" | oTranslate }}</ins>
-							<span class="name-creator">{{ list.USER_ }}</span>
-						</p>
 					</div>
 				</div>
-			</div>
-		</o-grid-item>
-	</o-grid>
-</o-form>
+			</o-grid-item>
+		</o-grid>
+	</o-form>
+</div>

@@ -21,7 +21,9 @@
 		required="true"
 		read-only="false"
 		searchable="yes"
-		translate="yes"></o-combo>
+		translate="yes"
+		null-selection="yes"
+		null-selection-label="{{ 'SHOW_ALL' | oTranslate }}"></o-combo>
 	<o-text-input attr="A_TITLE"></o-text-input>
 	<o-textarea-input attr="A_DESCRIPTION"></o-textarea-input>
 	<o-checkbox #ocheckbox attr="A_ACTIVE"></o-checkbox>

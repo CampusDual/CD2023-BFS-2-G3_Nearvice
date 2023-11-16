@@ -28,9 +28,14 @@ div.serviceDetailContainer div.o-container-scroll.o-scroll {
 	overflow: hidden;
 }
 
-// .o-app-header-medium + .header-layout {
-// 	overflow: hidden;
-// }
+div.announcesHomeContainer div.o-container-scroll.o-scroll {
+	overflow: hidden !important;
+}
+
+.announcesHomeContainer .mat-content span.ng-star-inserted {
+	font-weight: bold;
+	font-size: 20px !important;
+}
 
 .agreementsHistoryContainer {
 	margin-top: 1.5%;
