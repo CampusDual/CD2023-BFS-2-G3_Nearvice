@@ -119,6 +119,10 @@ export class AnnouncesHomeComponent implements OnInit, AfterViewInit {
 				this.markers.push(marker);
 			}
 		}
+		const ownmarker = L.marker([this.latitudeown, this.longitudeown]).addTo(
+			this.oMapMarker.getLMap()
+		);
+		this.markers.push(ownmarker);
 	}
 	createFilter(values: Array<{ attr; value }>): Expression {
 		let filters: Array<Expression> = [];
