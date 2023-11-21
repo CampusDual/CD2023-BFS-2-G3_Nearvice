@@ -102,5 +102,7 @@
 	"NO_SERVICES_MESSAGE": "You don't have any services offered yet. Are you up for it?",
 	"MAP": "Show on map",
 	"SHOW_ALL": "Show all",
-	"CATEGORYSELECT": "Select a category"
+	"CATEGORYSELECT": "Select a category",
+	"COUNT": "Number of finished works",
+	"TOTAL": "Total revenues"
 }

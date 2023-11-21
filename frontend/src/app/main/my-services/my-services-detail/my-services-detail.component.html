@@ -205,6 +205,19 @@
 					currency-symbol="€"
 					currency-symbol-position="right"></o-table-column>
 				<o-table-column attr="C_END_DATETIME" type="date"></o-table-column>
+				<o-table-columns-grouping>
+					<o-table-columns-grouping-column
+						attr="AG_PRICE"
+						aggregate="sum"></o-table-columns-grouping-column>
+					<o-table-columns-grouping-column
+						attr="U_CLIENT"
+						aggregate="count"></o-table-columns-grouping-column>
+				</o-table-columns-grouping>
+				<o-table-column-aggregate attr="AG_PRICE" title="TOTAL"></o-table-column-aggregate>
+				<o-table-column-aggregate
+					attr="U_CLIENT"
+					aggregate="count"
+					title="COUNT"></o-table-column-aggregate>
 			</o-table>
 		</div>
 	</o-form>
