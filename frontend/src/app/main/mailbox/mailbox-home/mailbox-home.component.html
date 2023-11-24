@@ -69,8 +69,11 @@
 					<mat-card-title>{{ row.A_TITLE }}</mat-card-title>
 					<mat-card-subtitle icon="mail">
 						{{ row.M_MESSAGE }}
-						<b>({{ row.U_CLIENT }})</b>
 					</mat-card-subtitle>
+
+					<span class="client-name">
+						{{ row.U_CLIENT }}
+					</span>
 				</mat-card-header>
 			</mat-card>
 		</o-list>
@@ -143,10 +146,13 @@
 			<mat-card *ngFor="let row of professionalConversation.dataArray" [o-list-item]="row">
 				<mat-card-header>
 					<mat-card-title>{{ row.A_TITLE }}</mat-card-title>
-					<mat-card-subtitle>
+					<mat-card-subtitle icon="mail">
 						{{ row.M_MESSAGE }}
-						<b>({{ row.USER_ }})</b>
 					</mat-card-subtitle>
+
+					<span class="client-name">
+						{{ row.USER_ }}
+					</span>
 				</mat-card-header>
 			</mat-card>
 		</o-list>

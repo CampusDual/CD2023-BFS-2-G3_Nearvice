@@ -1,0 +1,6 @@
+.client-name {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-weight: bolder;
+}
